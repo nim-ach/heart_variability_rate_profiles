@@ -1,0 +1,46 @@
+name: hrv_autonomic_profiles
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pip
+
+  # Jupyter ecosystem
+  - jupyterlab
+  - notebook
+  - ipykernel
+  - nbformat
+  - nbconvert
+
+  # Core scientific stack
+  - numpy
+  - pandas
+  - scipy
+
+  # Visualization
+  - matplotlib
+  - seaborn
+
+  # Machine learning and statistics
+  - scikit-learn
+  - statsmodels
+  - scikit-posthocs
+  - umap-learn
+
+  # Graph/community detection
+  - python-igraph
+  - leidenalg
+
+  # File I/O
+  - openpyxl
+  - xlsxwriter
+
+  # Utilities
+  - tqdm
+  - pyyaml
+
+  # Optional compatibility helpers commonly useful in notebook workflows
+  - joblib
+  - python-dateutil
