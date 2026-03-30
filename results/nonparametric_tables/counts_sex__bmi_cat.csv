@@ -1,0 +1,9 @@
+sex__bmi_cat,count
+1 | obesity,130
+1 | normal,114
+1 | overweight,105
+2 | overweight,57
+2 | obesity,54
+2 | normal,47
+1 | low,17
+2 | low,6

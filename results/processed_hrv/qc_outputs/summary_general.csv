@@ -1,0 +1,12 @@
+metric,value
+Initial number of rows,530
+Initial number of columns,20
+Final number of rows,530
+Final number of columns,26
+Dropped fully empty columns,3
+Duplicate rows,0
+Fully missing rows,0
+Rows with any range flag,14
+Height inconsistencies,9
+BMI inconsistencies,8
+HR-RR inconsistencies,15

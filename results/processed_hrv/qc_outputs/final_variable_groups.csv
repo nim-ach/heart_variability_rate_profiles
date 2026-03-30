@@ -1,0 +1,27 @@
+group,variable
+Demographic,sex
+Demographic,age
+Anthropometric,weight_kg
+Anthropometric,height_cm_final
+Anthropometric,height_m_final
+Anthropometric,imc_final
+Blood pressure,bp_systolic
+Blood pressure,bp_diastolic
+Blood pressure,bp_pam
+Blood pressure,bp_pp
+Blood pressure,bp_pp_recomputed
+Blood pressure,bp_pam_recomputed
+HRV,t2m_pre_mean_rr
+HRV,t2m_pre_mean_hr
+HRV,t2m_pre_sdnn
+HRV,t2m_pre_rmssd
+HRV,t2m_pre_hf
+HRV,t2m_pre_lf
+HRV,t2m_pre_vlf
+HRV,mean_hr_from_rr
+Quality control,height_inconsistent
+Quality control,imc_inconsistent
+Quality control,hr_rr_inconsistent
+Quality control,n_integrity_flags
+Quality control,n_range_flags
+Quality control,n_total_qc_flags

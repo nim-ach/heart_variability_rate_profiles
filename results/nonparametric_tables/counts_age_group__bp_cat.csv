@@ -1,0 +1,8 @@
+age_group__bp_cat,count
+70-79 | normal,180
+60-69 | normal,153
+70-79 | high,81
+60-69 | high,66
+80+ | normal,26
+80+ | high,14
+<60 | normal,10

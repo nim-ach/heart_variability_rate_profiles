@@ -1,0 +1,34 @@
+variable,missing_n_initial,missing_pct_initial,missing_n_final,missing_pct_final
+Unnamed: 0,530.0,100.0,,
+Unnamed: 1,530.0,100.0,,
+redcap_repeat_instrument,530.0,100.0,,
+t2m_pre_sdnn,11.0,2.08,11.0,2.08
+t2m_pre_rmssd,8.0,1.51,8.0,1.51
+t2m_pre_mean_hr,1.0,0.19,1.0,0.19
+age,0.0,0.0,0.0,0.0
+bp_diastolic,0.0,0.0,0.0,0.0
+bp_pam,0.0,0.0,0.0,0.0
+bp_pp,0.0,0.0,0.0,0.0
+bp_systolic,0.0,0.0,0.0,0.0
+sex,0.0,0.0,0.0,0.0
+t2m_pre_hf,0.0,0.0,0.0,0.0
+t2m_pre_lf,0.0,0.0,0.0,0.0
+t2m_pre_mean_rr,0.0,0.0,0.0,0.0
+t2m_pre_vlf,0.0,0.0,0.0,0.0
+height cm,0.0,0.0,,
+height mt,0.0,0.0,,
+imc,0.0,0.0,,
+weight kg,0.0,0.0,,
+bp_pam_recomputed,,,0.0,0.0
+bp_pp_recomputed,,,0.0,0.0
+height_cm_final,,,0.0,0.0
+height_inconsistent,,,0.0,0.0
+height_m_final,,,0.0,0.0
+hr_rr_inconsistent,,,0.0,0.0
+imc_final,,,0.0,0.0
+imc_inconsistent,,,0.0,0.0
+mean_hr_from_rr,,,0.0,0.0
+n_integrity_flags,,,0.0,0.0
+n_range_flags,,,0.0,0.0
+n_total_qc_flags,,,0.0,0.0
+weight_kg,,,0.0,0.0

@@ -1,0 +1,29 @@
+Experiment ID: 14411
+Algorithm: spectral
+Family: graph-based
+Space: umap_integrated_nn10_md01
+Requested k: 5
+Primary score: 0.5405
+
+Cluster sizes and provisional labels
+Cluster 0: n=131 | fraction=0.247 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__lower_bmi
+Cluster 1: n=71 | fraction=0.134 | label=higher_vagal__higher_global_variability__lower_heart_rate__longer_rr__younger__higher_bmi__lower_sbp__lower_dbp
+Cluster 2: n=138 | fraction=0.260 | label=older__higher_sbp__higher_dbp
+Cluster 3: n=124 | fraction=0.234 | label=lower_vagal__higher_heart_rate__shorter_rr__lower_bmi__lower_sbp__lower_dbp
+Cluster 4: n=66 | fraction=0.125 | label=higher_global_variability__lower_heart_rate__younger
+
+Top continuous differences
+t2m_pre_sdnn | effect_size=0.518 | p_adj_fdr=4.470e-56
+t2m_pre_lf | effect_size=0.415 | p_adj_fdr=6.066e-46
+bp_systolic | effect_size=0.405 | p_adj_fdr=5.565e-45
+bp_pam | effect_size=0.389 | p_adj_fdr=2.287e-43
+t2m_pre_vlf | effect_size=0.339 | p_adj_fdr=8.047e-38
+t2m_pre_hf | effect_size=0.338 | p_adj_fdr=9.710e-38
+imc_final | effect_size=0.261 | p_adj_fdr=3.312e-29
+bp_diastolic | effect_size=0.227 | p_adj_fdr=2.172e-25
+
+Top categorical differences
+bp_cat | effect_size=0.561 | p_adj_fdr=3.663e-35
+sex | effect_size=0.325 | p_adj_fdr=3.985e-12
+bmi_cat | effect_size=0.289 | p_adj_fdr=1.871e-24
+age_group | effect_size=0.127 | p_adj_fdr=1.876e-04

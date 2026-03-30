@@ -1,0 +1,7 @@
+,value
+best_single_grouping,Age group
+best_single_hrv,LF
+best_double_grouping,Sex × Age group
+best_double_hrv,SDNN
+best_triple_grouping,Sex × Age group × BMI category
+best_triple_hrv,SDNN

@@ -1,0 +1,7 @@
+metric,value,percentage
+Rows with any integrity flag,24,4.53
+Rows with any range flag,14,2.64
+Rows with any QC flag,27,5.09
+Rows with 0 QC flags,503,94.91
+Rows with 1 QC flag,8,1.51
+Rows with 2 QC flags,19,3.58

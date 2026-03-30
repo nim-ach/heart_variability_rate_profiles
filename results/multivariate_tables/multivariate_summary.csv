@@ -1,0 +1,10 @@
+,value
+n_subjects,530
+n_hrv_variables,7
+n_log_hrv_variables,5
+n_physiological_continuous_variables,8
+hrv_pc1_variance,0.5605524411172539
+hrv_pc2_variance,0.20299198087696751
+integrated_pc1_variance,0.227779709727637
+integrated_pc2_variance,0.2177203431930922
+umap_available,True

@@ -1,0 +1,33 @@
+Experiment ID: 14469
+Algorithm: affinity_propagation
+Family: message-passing
+Space: umap_integrated_nn10_md01
+Requested k: 9
+Primary score: 0.5171
+
+Cluster sizes and provisional labels
+Cluster 0: n=63 | fraction=0.119 | label=lower_vagal__higher_heart_rate__shorter_rr__lower_bmi__lower_sbp__lower_dbp
+Cluster 1: n=57 | fraction=0.108 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__older
+Cluster 2: n=60 | fraction=0.113 | label=higher_vagal__higher_global_variability__lower_bmi
+Cluster 3: n=65 | fraction=0.123 | label=higher_global_variability__higher_bmi
+Cluster 4: n=52 | fraction=0.098 | label=higher_heart_rate__shorter_rr__younger__higher_sbp__higher_dbp
+Cluster 5: n=73 | fraction=0.138 | label=higher_vagal__lower_heart_rate__longer_rr__older__higher_bmi__higher_sbp__higher_dbp
+Cluster 6: n=52 | fraction=0.098 | label=higher_vagal__lower_heart_rate__longer_rr__younger__higher_bmi__lower_sbp__lower_dbp
+Cluster 7: n=54 | fraction=0.102 | label=lower_global_variability__lower_heart_rate__longer_rr__lower_bmi__higher_dbp
+Cluster 8: n=54 | fraction=0.102 | label=lower_vagal__lower_global_variability__older__lower_sbp__lower_dbp
+
+Top continuous differences
+t2m_pre_sdnn | effect_size=0.571 | p_adj_fdr=8.079e-59
+t2m_pre_lf | effect_size=0.539 | p_adj_fdr=6.849e-57
+bp_systolic | effect_size=0.505 | p_adj_fdr=2.955e-53
+bp_pam | effect_size=0.480 | p_adj_fdr=1.245e-50
+t2m_pre_vlf | effect_size=0.449 | p_adj_fdr=2.464e-47
+t2m_pre_hf | effect_size=0.404 | p_adj_fdr=2.144e-42
+bp_diastolic | effect_size=0.324 | p_adj_fdr=9.922e-34
+bp_pp | effect_size=0.280 | p_adj_fdr=5.751e-29
+
+Top categorical differences
+bp_cat | effect_size=0.580 | p_adj_fdr=2.601e-35
+sex | effect_size=0.320 | p_adj_fdr=1.645e-10
+bmi_cat | effect_size=0.278 | p_adj_fdr=2.976e-19
+age_group | effect_size=0.231 | p_adj_fdr=1.331e-12

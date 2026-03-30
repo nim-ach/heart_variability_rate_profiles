@@ -1,0 +1,514 @@
+group_a,group_b,distance,embedding,grouping
+1 | 60-69,1 | 70-79,0.31637367461883925,PCA_HRV,sex__age_group
+1 | 60-69,1 | 80+,1.0153254142188017,PCA_HRV,sex__age_group
+1 | 60-69,1 | <60,0.8454103697946805,PCA_HRV,sex__age_group
+1 | 60-69,2 | 60-69,0.9788202626248251,PCA_HRV,sex__age_group
+1 | 60-69,2 | 70-79,0.7712849288414272,PCA_HRV,sex__age_group
+1 | 60-69,2 | 80+,1.7347044992714897,PCA_HRV,sex__age_group
+1 | 70-79,1 | 80+,0.7867241322891214,PCA_HRV,sex__age_group
+1 | 70-79,1 | <60,0.6868178144445137,PCA_HRV,sex__age_group
+1 | 70-79,2 | 60-69,0.6633772305973316,PCA_HRV,sex__age_group
+1 | 70-79,2 | 70-79,0.47294460290146423,PCA_HRV,sex__age_group
+1 | 70-79,2 | 80+,1.4215478238757453,PCA_HRV,sex__age_group
+1 | 80+,1 | <60,0.2693501543673489,PCA_HRV,sex__age_group
+1 | 80+,2 | 60-69,0.5763658208203061,PCA_HRV,sex__age_group
+1 | 80+,2 | 70-79,0.4179643524479312,PCA_HRV,sex__age_group
+1 | 80+,2 | 80+,0.9909390643419794,PCA_HRV,sex__age_group
+1 | <60,2 | 60-69,0.7302927949483397,PCA_HRV,sex__age_group
+1 | <60,2 | 70-79,0.49204318471372965,PCA_HRV,sex__age_group
+1 | <60,2 | 80+,1.2524514316664972,PCA_HRV,sex__age_group
+2 | 60-69,2 | 70-79,0.27020964214209975,PCA_HRV,sex__age_group
+2 | 60-69,2 | 80+,0.7607560776877172,PCA_HRV,sex__age_group
+2 | 70-79,2 | 80+,0.9756989895390648,PCA_HRV,sex__age_group
+1 | low,1 | normal,0.3604898893029965,PCA_HRV,sex__bmi_cat
+1 | low,1 | obesity,0.18284154400073693,PCA_HRV,sex__bmi_cat
+1 | low,1 | overweight,0.19027505429253763,PCA_HRV,sex__bmi_cat
+1 | low,2 | low,1.5065836813709337,PCA_HRV,sex__bmi_cat
+1 | low,2 | normal,0.17791869315048253,PCA_HRV,sex__bmi_cat
+1 | low,2 | obesity,0.7228390026387921,PCA_HRV,sex__bmi_cat
+1 | low,2 | overweight,0.8443680873789265,PCA_HRV,sex__bmi_cat
+1 | normal,1 | obesity,0.28289573298174653,PCA_HRV,sex__bmi_cat
+1 | normal,1 | overweight,0.17496555680957818,PCA_HRV,sex__bmi_cat
+1 | normal,2 | low,1.5978172693492516,PCA_HRV,sex__bmi_cat
+1 | normal,2 | normal,0.19223458486379544,PCA_HRV,sex__bmi_cat
+1 | normal,2 | obesity,0.8173543773680735,PCA_HRV,sex__bmi_cat
+1 | normal,2 | overweight,0.9954628568557403,PCA_HRV,sex__bmi_cat
+1 | obesity,1 | overweight,0.1336244031318844,PCA_HRV,sex__bmi_cat
+1 | obesity,2 | low,1.6658113316314394,PCA_HRV,sex__bmi_cat
+1 | obesity,2 | normal,0.19235797425392065,PCA_HRV,sex__bmi_cat
+1 | obesity,2 | obesity,0.8750002560834915,PCA_HRV,sex__bmi_cat
+1 | obesity,2 | overweight,1.0128647044350214,PCA_HRV,sex__bmi_cat
+1 | overweight,2 | low,1.572714699471761,PCA_HRV,sex__bmi_cat
+1 | overweight,2 | normal,0.07289474290348925,PCA_HRV,sex__bmi_cat
+1 | overweight,2 | obesity,0.7805333419055385,PCA_HRV,sex__bmi_cat
+1 | overweight,2 | overweight,0.9351002362039261,PCA_HRV,sex__bmi_cat
+2 | low,2 | normal,1.4999110077187598,PCA_HRV,sex__bmi_cat
+2 | low,2 | obesity,0.7923421369804907,PCA_HRV,sex__bmi_cat
+2 | low,2 | overweight,0.6725255458053399,PCA_HRV,sex__bmi_cat
+2 | normal,2 | obesity,0.7077992109377703,PCA_HRV,sex__bmi_cat
+2 | normal,2 | overweight,0.8642029383141848,PCA_HRV,sex__bmi_cat
+2 | obesity,2 | overweight,0.20747484583750805,PCA_HRV,sex__bmi_cat
+1 | high,1 | normal,0.01582997937286198,PCA_HRV,sex__bp_cat
+1 | high,2 | high,0.7059956282138146,PCA_HRV,sex__bp_cat
+1 | high,2 | normal,0.6932770262006333,PCA_HRV,sex__bp_cat
+1 | normal,2 | high,0.7051901184065196,PCA_HRV,sex__bp_cat
+1 | normal,2 | normal,0.6893144985903867,PCA_HRV,sex__bp_cat
+2 | high,2 | normal,0.14163253476576806,PCA_HRV,sex__bp_cat
+60-69 | low,60-69 | normal,0.5023638676403147,PCA_HRV,age_group__bmi_cat
+60-69 | low,60-69 | obesity,0.7030051797742575,PCA_HRV,age_group__bmi_cat
+60-69 | low,60-69 | overweight,0.7481349265591566,PCA_HRV,age_group__bmi_cat
+60-69 | low,70-79 | low,1.328298896636418,PCA_HRV,age_group__bmi_cat
+60-69 | low,70-79 | normal,0.5562876346330176,PCA_HRV,age_group__bmi_cat
+60-69 | low,70-79 | obesity,0.7654350901907625,PCA_HRV,age_group__bmi_cat
+60-69 | low,70-79 | overweight,0.7520433502773345,PCA_HRV,age_group__bmi_cat
+60-69 | low,80+ | normal,1.3022709950548679,PCA_HRV,age_group__bmi_cat
+60-69 | low,80+ | obesity,0.6317604087716432,PCA_HRV,age_group__bmi_cat
+60-69 | low,80+ | overweight,0.9726287346984739,PCA_HRV,age_group__bmi_cat
+60-69 | low,<60 | normal,1.2425410129570542,PCA_HRV,age_group__bmi_cat
+60-69 | normal,60-69 | obesity,0.20064788382259066,PCA_HRV,age_group__bmi_cat
+60-69 | normal,60-69 | overweight,0.3417737822318804,PCA_HRV,age_group__bmi_cat
+60-69 | normal,70-79 | low,1.0333856130544452,PCA_HRV,age_group__bmi_cat
+60-69 | normal,70-79 | normal,0.2325204459493177,PCA_HRV,age_group__bmi_cat
+60-69 | normal,70-79 | obesity,0.5286099008927413,PCA_HRV,age_group__bmi_cat
+60-69 | normal,70-79 | overweight,0.44368856797254647,PCA_HRV,age_group__bmi_cat
+60-69 | normal,80+ | normal,1.3182325548102631,PCA_HRV,age_group__bmi_cat
+60-69 | normal,80+ | obesity,0.23549190531945696,PCA_HRV,age_group__bmi_cat
+60-69 | normal,80+ | overweight,1.0941479475413831,PCA_HRV,age_group__bmi_cat
+60-69 | normal,<60 | normal,1.354462313567558,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,60-69 | overweight,0.2864731995338325,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,70-79 | low,0.9666211250505825,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,70-79 | normal,0.30368668082024275,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,70-79 | obesity,0.5478177132657338,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,70-79 | overweight,0.43851991467893653,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,80+ | normal,1.3785622519822491,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,80+ | obesity,0.24512927495436254,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,80+ | overweight,1.2009403265799534,PCA_HRV,age_group__bmi_cat
+60-69 | obesity,<60 | normal,1.4479224813692206,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,70-79 | low,0.6970361663718752,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,70-79 | normal,0.5495032007520558,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,70-79 | obesity,0.27707695177253755,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,70-79 | overweight,0.16180213479121291,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,80+ | normal,1.1111581643373833,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,80+ | obesity,0.11939401550152644,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,80+ | overweight,0.9751521847009057,PCA_HRV,age_group__bmi_cat
+60-69 | overweight,<60 | normal,1.204193145389914,PCA_HRV,age_group__bmi_cat
+70-79 | low,70-79 | normal,1.2464507865583583,PCA_HRV,age_group__bmi_cat
+70-79 | low,70-79 | obesity,0.5633223449244126,PCA_HRV,age_group__bmi_cat
+70-79 | low,70-79 | overweight,0.6018525770718659,PCA_HRV,age_group__bmi_cat
+70-79 | low,80+ | normal,0.8144681580164207,PCA_HRV,age_group__bmi_cat
+70-79 | low,80+ | obesity,0.7982144506169269,PCA_HRV,age_group__bmi_cat
+70-79 | low,80+ | overweight,0.9439737506977028,PCA_HRV,age_group__bmi_cat
+70-79 | low,<60 | normal,1.0296175282433846,PCA_HRV,age_group__bmi_cat
+70-79 | normal,70-79 | obesity,0.7600637498489836,PCA_HRV,age_group__bmi_cat
+70-79 | normal,70-79 | overweight,0.6703694557980756,PCA_HRV,age_group__bmi_cat
+70-79 | normal,80+ | normal,1.5463605456061937,PCA_HRV,age_group__bmi_cat
+70-79 | normal,80+ | obesity,0.458257527319313,PCA_HRV,age_group__bmi_cat
+70-79 | normal,80+ | overweight,1.3063356767705296,PCA_HRV,age_group__bmi_cat
+70-79 | normal,<60 | normal,1.57143120645326,PCA_HRV,age_group__bmi_cat
+70-79 | obesity,70-79 | overweight,0.11555976573892764,PCA_HRV,age_group__bmi_cat
+70-79 | obesity,80+ | normal,0.8348146234473781,PCA_HRV,age_group__bmi_cat
+70-79 | obesity,80+ | obesity,0.3108191481877057,PCA_HRV,age_group__bmi_cat
+70-79 | obesity,80+ | overweight,0.7124720651192636,PCA_HRV,age_group__bmi_cat
+70-79 | obesity,<60 | normal,0.9305912935060269,PCA_HRV,age_group__bmi_cat
+70-79 | overweight,80+ | normal,0.9494140585283231,PCA_HRV,age_group__bmi_cat
+70-79 | overweight,80+ | obesity,0.21252411502944044,PCA_HRV,age_group__bmi_cat
+70-79 | overweight,80+ | overweight,0.8227403587898222,PCA_HRV,age_group__bmi_cat
+70-79 | overweight,<60 | normal,1.0453242716694156,PCA_HRV,age_group__bmi_cat
+80+ | normal,80+ | obesity,1.1348700392770599,PCA_HRV,age_group__bmi_cat
+80+ | normal,80+ | overweight,0.37572612277904316,PCA_HRV,age_group__bmi_cat
+80+ | normal,<60 | normal,0.2514261089991717,PCA_HRV,age_group__bmi_cat
+80+ | obesity,80+ | overweight,0.9597261841987391,PCA_HRV,age_group__bmi_cat
+80+ | obesity,<60 | normal,1.2035790743948498,PCA_HRV,age_group__bmi_cat
+80+ | overweight,<60 | normal,0.2721836779646727,PCA_HRV,age_group__bmi_cat
+60-69 | high,60-69 | normal,0.21464615098497866,PCA_HRV,age_group__bp_cat
+60-69 | high,70-79 | high,0.5235170695778478,PCA_HRV,age_group__bp_cat
+60-69 | high,70-79 | normal,0.2607413885948911,PCA_HRV,age_group__bp_cat
+60-69 | high,80+ | high,1.1667867377612657,PCA_HRV,age_group__bp_cat
+60-69 | high,80+ | normal,1.0114884019355985,PCA_HRV,age_group__bp_cat
+60-69 | high,<60 | normal,0.9723955110293817,PCA_HRV,age_group__bp_cat
+60-69 | normal,70-79 | high,0.3295365716576668,PCA_HRV,age_group__bp_cat
+60-69 | normal,70-79 | normal,0.1856678002573894,PCA_HRV,age_group__bp_cat
+60-69 | normal,80+ | high,0.992563164327595,PCA_HRV,age_group__bp_cat
+60-69 | normal,80+ | normal,0.8383394923413021,PCA_HRV,age_group__bp_cat
+60-69 | normal,<60 | normal,0.7731813933590328,PCA_HRV,age_group__bp_cat
+70-79 | high,70-79 | normal,0.30746607726829334,PCA_HRV,age_group__bp_cat
+70-79 | high,80+ | high,0.6664699824039202,PCA_HRV,age_group__bp_cat
+70-79 | high,80+ | normal,0.5139703483032546,PCA_HRV,age_group__bp_cat
+70-79 | high,<60 | normal,0.4489009407800737,PCA_HRV,age_group__bp_cat
+70-79 | normal,80+ | high,0.9135327169968227,PCA_HRV,age_group__bp_cat
+70-79 | normal,80+ | normal,0.7586637493792538,PCA_HRV,age_group__bp_cat
+70-79 | normal,<60 | normal,0.7450795923919395,PCA_HRV,age_group__bp_cat
+80+ | high,80+ | normal,0.15530426705772538,PCA_HRV,age_group__bp_cat
+80+ | high,<60 | normal,0.3121546255842101,PCA_HRV,age_group__bp_cat
+80+ | normal,<60 | normal,0.22952728319038992,PCA_HRV,age_group__bp_cat
+low | high,low | normal,1.3098081365317353,PCA_HRV,bmi_cat__bp_cat
+low | high,normal | high,1.4039956812537955,PCA_HRV,bmi_cat__bp_cat
+low | high,normal | normal,1.4718155286531096,PCA_HRV,bmi_cat__bp_cat
+low | high,obesity | high,1.259489299990546,PCA_HRV,bmi_cat__bp_cat
+low | high,obesity | normal,1.2785795413309375,PCA_HRV,bmi_cat__bp_cat
+low | high,overweight | high,1.2560711523607153,PCA_HRV,bmi_cat__bp_cat
+low | high,overweight | normal,1.0567316859327371,PCA_HRV,bmi_cat__bp_cat
+low | normal,normal | high,0.4965345222874749,PCA_HRV,bmi_cat__bp_cat
+low | normal,normal | normal,0.2295752718619411,PCA_HRV,bmi_cat__bp_cat
+low | normal,obesity | high,0.05031919695603329,PCA_HRV,bmi_cat__bp_cat
+low | normal,obesity | normal,0.09532371963582932,PCA_HRV,bmi_cat__bp_cat
+low | normal,overweight | high,0.12329959348635947,PCA_HRV,bmi_cat__bp_cat
+low | normal,overweight | normal,0.2606297056371658,PCA_HRV,bmi_cat__bp_cat
+normal | high,normal | normal,0.35674507993226284,PCA_HRV,bmi_cat__bp_cat
+normal | high,obesity | high,0.4996119175996853,PCA_HRV,bmi_cat__bp_cat
+normal | high,obesity | normal,0.4093407601073495,PCA_HRV,bmi_cat__bp_cat
+normal | high,overweight | high,0.39285764109696997,PCA_HRV,bmi_cat__bp_cat
+normal | high,overweight | normal,0.5105814302362847,PCA_HRV,bmi_cat__bp_cat
+normal | normal,obesity | high,0.26568537744981596,PCA_HRV,bmi_cat__bp_cat
+normal | normal,obesity | normal,0.20397291763399567,PCA_HRV,bmi_cat__bp_cat
+normal | normal,overweight | high,0.21973836867762644,PCA_HRV,bmi_cat__bp_cat
+normal | normal,overweight | normal,0.42274834601262057,PCA_HRV,bmi_cat__bp_cat
+obesity | high,obesity | normal,0.09053982817322787,PCA_HRV,bmi_cat__bp_cat
+obesity | high,overweight | high,0.10906093682615894,PCA_HRV,bmi_cat__bp_cat
+obesity | high,overweight | normal,0.2118080737091856,PCA_HRV,bmi_cat__bp_cat
+obesity | normal,overweight | high,0.03110084142833701,PCA_HRV,bmi_cat__bp_cat
+obesity | normal,overweight | normal,0.22269107710098487,PCA_HRV,bmi_cat__bp_cat
+overweight | high,overweight | normal,0.20306138122587664,PCA_HRV,bmi_cat__bp_cat
+1 | 60-69 | normal,1 | 60-69 | obesity,0.31218590635692145,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,1 | 60-69 | overweight,0.08709617579445461,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,1 | 70-79 | low,0.9408319853622956,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,1 | 70-79 | normal,0.08402081488081654,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,1 | 70-79 | obesity,0.44839037768573275,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,1 | 70-79 | overweight,0.28097964373108575,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,1 | 80+ | normal,1.0169274070928769,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,1 | 80+ | overweight,1.26736449617082,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,2 | 60-69 | normal,0.3859772349964257,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,2 | 60-69 | obesity,0.9356562943200988,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,2 | 60-69 | overweight,1.2160848733171514,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,2 | 70-79 | normal,0.41155748510361606,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,2 | 70-79 | obesity,0.9597426190076866,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | normal,2 | 70-79 | overweight,1.0850434335185493,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,1 | 60-69 | overweight,0.2811575556039831,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,1 | 70-79 | low,0.9943666403557557,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,1 | 70-79 | normal,0.36877097217813787,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,1 | 70-79 | obesity,0.6188162412941737,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,1 | 70-79 | overweight,0.3123952960430969,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,1 | 80+ | normal,1.2869355260550237,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,1 | 80+ | overweight,1.5675168609153145,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,2 | 60-69 | normal,0.6256194109946935,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,2 | 60-69 | obesity,1.1402211714264245,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,2 | 60-69 | overweight,1.3329934886841455,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,2 | 70-79 | normal,0.2127055337892523,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,2 | 70-79 | obesity,1.1955325218620183,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | obesity,2 | 70-79 | overweight,1.3107263696676053,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,1 | 70-79 | low,0.8658121019646852,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,1 | 70-79 | normal,0.1706676902013053,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,1 | 70-79 | obesity,0.3930500694880618,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,1 | 70-79 | overweight,0.1939500021428273,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,1 | 80+ | normal,1.0119495662202684,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,1 | 80+ | overweight,1.28647373885239,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,2 | 60-69 | normal,0.358777443704156,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,2 | 60-69 | obesity,0.8989324612073699,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,2 | 60-69 | overweight,1.154877599340399,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,2 | 70-79 | normal,0.42342878684514346,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,2 | 70-79 | obesity,0.936242452374579,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | overweight,2 | 70-79 | overweight,1.057574762671969,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,1 | 70-79 | normal,1.008817818347117,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,1 | 70-79 | obesity,0.5283515228267713,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,1 | 70-79 | overweight,0.7030486626189336,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,1 | 80+ | normal,0.9082230044277284,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,1 | 80+ | overweight,1.3186238790571156,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,2 | 60-69 | normal,0.6703820218964962,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,2 | 60-69 | obesity,0.5402199146306615,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,2 | 60-69 | overweight,0.38836658526561374,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,2 | 70-79 | normal,1.2056478486380784,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,2 | 70-79 | obesity,0.6916952849337464,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | low,2 | 70-79 | overweight,0.7102778488556526,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,1 | 70-79 | obesity,0.5019555235713272,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,1 | 70-79 | overweight,0.3639832459935919,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,1 | 80+ | normal,1.0166199735940185,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,1 | 80+ | overweight,1.2424570803765798,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,2 | 60-69 | normal,0.41723631084019264,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,2 | 60-69 | obesity,0.9663819546451475,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,2 | 60-69 | overweight,1.2693413574598345,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,2 | 70-79 | normal,0.4291910695882738,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,2 | 70-79 | obesity,0.9776498164769145,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | normal,2 | 70-79 | overweight,1.10595598288015,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,1 | 70-79 | overweight,0.3154412436921752,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,1 | 80+ | normal,0.7198298666331514,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,1 | 80+ | overweight,1.0722553973945181,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,2 | 60-69 | normal,0.15363999611723816,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,2 | 60-69 | obesity,0.5215607420208571,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,2 | 60-69 | overweight,0.7682346066259688,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,2 | 70-79 | normal,0.8028519633516252,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,2 | 70-79 | obesity,0.588851559990031,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | obesity,2 | 70-79 | overweight,0.6962471161598107,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,1 | 80+ | normal,1.018629218064839,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,1 | 80+ | overweight,1.33990371152951,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,2 | 60-69 | normal,0.36296229593040175,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,2 | 60-69 | obesity,0.8351929100293014,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,2 | 60-69 | overweight,1.0247203922640191,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,2 | 70-79 | normal,0.5131629263829103,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,2 | 70-79 | obesity,0.9029358021596594,PCA_HRV,sex__age_group__bmi_cat
+1 | 70-79 | overweight,2 | 70-79 | overweight,1.011684281882805,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | normal,1 | 80+ | overweight,0.4107757860316936,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | normal,2 | 60-69 | normal,0.6630902767738094,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | normal,2 | 60-69 | obesity,0.37533234784682734,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | normal,2 | 60-69 | overweight,0.7933395814119028,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | normal,2 | 70-79 | normal,1.427816671157509,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | normal,2 | 70-79 | obesity,0.22163780245484455,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | normal,2 | 70-79 | overweight,0.2799221373533054,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | overweight,2 | 60-69 | normal,0.9777393476063069,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | overweight,2 | 60-69 | obesity,0.7851168239552693,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | overweight,2 | 60-69 | overweight,1.1837105489897202,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | overweight,2 | 70-79 | normal,1.6713996176130508,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | overweight,2 | 70-79 | obesity,0.6310860643428507,PCA_HRV,sex__age_group__bmi_cat
+1 | 80+ | overweight,2 | 70-79 | overweight,0.6591954239857971,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | normal,2 | 60-69 | obesity,0.5505301780457048,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | normal,2 | 60-69 | overweight,0.8691287175723837,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | normal,2 | 70-79 | normal,0.7820848862005745,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | normal,2 | 70-79 | obesity,0.5776396749014526,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | normal,2 | 70-79 | overweight,0.7004401717380175,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | obesity,2 | 60-69 | overweight,0.4464896111790465,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | obesity,2 | 70-79 | normal,1.3190278287322654,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | obesity,2 | 70-79 | obesity,0.15403105766539854,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | obesity,2 | 70-79 | overweight,0.19132096058255335,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | overweight,2 | 70-79 | normal,1.5378662349723358,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | overweight,2 | 70-79 | obesity,0.5814314578659295,PCA_HRV,sex__age_group__bmi_cat
+2 | 60-69 | overweight,2 | 70-79 | overweight,0.5245690855372904,PCA_HRV,sex__age_group__bmi_cat
+2 | 70-79 | normal,2 | 70-79 | obesity,1.359654105012961,PCA_HRV,sex__age_group__bmi_cat
+2 | 70-79 | normal,2 | 70-79 | overweight,1.4807304240855024,PCA_HRV,sex__age_group__bmi_cat
+2 | 70-79 | obesity,2 | 70-79 | overweight,0.13243358887670167,PCA_HRV,sex__age_group__bmi_cat
+1 | 60-69 | high,1 | 60-69 | normal,0.2829496261111291,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,1 | 70-79 | high,0.6272708946565637,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,1 | 70-79 | normal,0.38178008482453457,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,1 | 80+ | high,1.1847701442485923,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,1 | 80+ | normal,1.2113245020814625,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,1 | <60 | normal,1.042150542016761,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,2 | 60-69 | high,1.028573078035967,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,2 | 60-69 | normal,1.1282946834368448,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,2 | 70-79 | high,0.9977202970229172,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | high,2 | 70-79 | normal,0.8880004071503125,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,1 | 70-79 | high,0.39527839259250014,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,1 | 70-79 | normal,0.2834234375159006,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,1 | 80+ | high,0.9163215786809751,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,1 | 80+ | normal,0.9611551323509887,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,1 | <60 | normal,0.7656195445376419,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,2 | 60-69 | high,0.8841271426897369,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,2 | 60-69 | normal,0.9684928687305066,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,2 | 70-79 | high,0.761455358663923,PCA_HRV,sex__age_group__bp_cat
+1 | 60-69 | normal,2 | 70-79 | normal,0.7151226783501717,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,1 | 70-79 | normal,0.30358310495832547,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,1 | 80+ | high,0.5794746665413548,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,1 | 80+ | normal,0.5849246603557124,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,1 | <60 | normal,0.4732509467932343,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,2 | 60-69 | high,0.5364806154448035,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,2 | 60-69 | normal,0.6013888378362686,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,2 | 70-79 | high,0.3714402183703126,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | high,2 | 70-79 | normal,0.3504874495104184,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | normal,1 | 80+ | high,0.8823280446336983,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | normal,1 | 80+ | normal,0.8731930929384093,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | normal,1 | <60 | normal,0.7733965799406317,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | normal,2 | 60-69 | high,0.6487299545305204,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | normal,2 | 60-69 | normal,0.7467917601043447,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | normal,2 | 70-79 | high,0.6489739702273675,PCA_HRV,sex__age_group__bp_cat
+1 | 70-79 | normal,2 | 70-79 | normal,0.5071204526955466,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | high,1 | 80+ | normal,0.17794353706915078,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | high,1 | <60 | normal,0.1800420955223783,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | high,2 | 60-69 | high,0.7022296721059227,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | high,2 | 60-69 | normal,0.6654313727426403,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | high,2 | 70-79 | high,0.30147195269994154,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | high,2 | 70-79 | normal,0.5868557579516438,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | normal,1 | <60 | normal,0.3234059902471972,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | normal,2 | 60-69 | high,0.5649143007619738,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | normal,2 | 60-69 | normal,0.5109048613640935,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | normal,2 | 70-79 | high,0.22736853420817107,PCA_HRV,sex__age_group__bp_cat
+1 | 80+ | normal,2 | 70-79 | normal,0.48606340505048207,PCA_HRV,sex__age_group__bp_cat
+1 | <60 | normal,2 | 60-69 | high,0.7387877506139034,PCA_HRV,sex__age_group__bp_cat
+1 | <60 | normal,2 | 60-69 | normal,0.728923631913851,PCA_HRV,sex__age_group__bp_cat
+1 | <60 | normal,2 | 70-79 | high,0.3247637921057911,PCA_HRV,sex__age_group__bp_cat
+1 | <60 | normal,2 | 70-79 | normal,0.5870475490080573,PCA_HRV,sex__age_group__bp_cat
+2 | 60-69 | high,2 | 60-69 | normal,0.11280933287013654,PCA_HRV,sex__age_group__bp_cat
+2 | 60-69 | high,2 | 70-79 | high,0.41626085370812144,PCA_HRV,sex__age_group__bp_cat
+2 | 60-69 | high,2 | 70-79 | normal,0.18871367958484908,PCA_HRV,sex__age_group__bp_cat
+2 | 60-69 | normal,2 | 70-79 | high,0.4054053568546573,PCA_HRV,sex__age_group__bp_cat
+2 | 60-69 | normal,2 | 70-79 | normal,0.2542022802878024,PCA_HRV,sex__age_group__bp_cat
+2 | 70-79 | high,2 | 70-79 | normal,0.28542888929726784,PCA_HRV,sex__age_group__bp_cat
+1 | low | normal,1 | normal | high,0.595969679985198,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,1 | normal | normal,0.4052329269615423,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,1 | obesity | high,0.1405018864716168,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,1 | obesity | normal,0.18558210017776372,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,1 | overweight | high,0.24269683782236762,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,1 | overweight | normal,0.3354724900221306,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,2 | normal | high,1.1395926518926782,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,2 | normal | normal,0.13242359566241713,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,2 | obesity | high,0.7597247215051847,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,2 | obesity | normal,1.2939495960299494,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,2 | overweight | high,0.89088222488717,PCA_HRV,sex__bmi_cat__bp_cat
+1 | low | normal,2 | overweight | normal,1.2215331841623065,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,1 | normal | normal,0.2861575783516506,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,1 | obesity | high,0.495603468743513,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,1 | obesity | normal,0.44481206471907014,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,1 | overweight | high,0.46157312700099024,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,1 | overweight | normal,0.34499090596623155,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,2 | normal | high,0.8771262792946527,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,2 | normal | normal,0.47484489428485077,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,2 | obesity | high,0.8255291494512434,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,2 | obesity | normal,1.1907369493489894,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,2 | overweight | high,0.76767859009326,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | high,2 | overweight | normal,1.2979665071541506,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,1 | obesity | high,0.27139447136892364,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,1 | obesity | normal,0.22086233560986673,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,1 | overweight | high,0.1984154717455982,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,1 | overweight | normal,0.07488353725216593,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,2 | normal | high,0.7881056426258628,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,2 | normal | normal,0.2732762377273119,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,2 | obesity | high,0.5798248661370731,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,2 | obesity | normal,1.026589742717001,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,2 | overweight | high,0.594347867085296,PCA_HRV,sex__bmi_cat__bp_cat
+1 | normal | normal,2 | overweight | normal,1.0673960734159018,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,1 | obesity | normal,0.052504455294260254,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,1 | overweight | high,0.1043291070122735,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,1 | overweight | normal,0.1987243515657622,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,2 | normal | high,1.001479104701574,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,2 | normal | normal,0.04421956602756095,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,2 | obesity | high,0.6487622202243657,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,2 | obesity | normal,1.1707181091039252,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,2 | overweight | high,0.7591743792140057,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | high,2 | overweight | normal,1.1249438685580542,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,1 | overweight | high,0.08237753899278613,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,1 | overweight | normal,0.1499129299923551,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,2 | normal | high,0.9666062519490963,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,2 | normal | normal,0.058322924507603686,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,2 | obesity | high,0.6394094398506607,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,2 | obesity | normal,1.1505947903371776,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,2 | overweight | high,0.7327902698504942,PCA_HRV,sex__bmi_cat__bp_cat
+1 | obesity | normal,2 | overweight | normal,1.12165218172123,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | high,1 | overweight | normal,0.12432163165998185,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | high,2 | normal | high,0.8974360349834221,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | high,2 | normal | normal,0.13459234516911828,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | high,2 | obesity | high,0.5570454319767357,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | high,2 | obesity | normal,1.070288662286466,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | high,2 | overweight | high,0.6557059116804163,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | high,2 | overweight | normal,1.0398755847295549,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | normal,2 | normal | high,0.8324867168198552,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | normal,2 | normal | normal,0.20526349186453227,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | normal,2 | obesity | high,0.571731200448305,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | normal,2 | obesity | normal,1.0471677771969476,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | normal,2 | overweight | high,0.6188090978270044,PCA_HRV,sex__bmi_cat__bp_cat
+1 | overweight | normal,2 | overweight | normal,1.061256864736902,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | high,2 | normal | normal,1.0248603147972346,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | high,2 | obesity | high,0.5484472418172196,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | high,2 | obesity | normal,0.3958841660925577,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | high,2 | overweight | high,0.29314795685387945,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | high,2 | overweight | normal,0.6990151615296903,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | normal,2 | obesity | high,0.6877912135987395,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | normal,2 | obesity | normal,1.2048688646324848,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | normal,2 | overweight | high,0.7892880188734415,PCA_HRV,sex__bmi_cat__bp_cat
+2 | normal | normal,2 | overweight | normal,1.1662471485941337,PCA_HRV,sex__bmi_cat__bp_cat
+2 | obesity | high,2 | obesity | normal,0.5488614556577347,PCA_HRV,sex__bmi_cat__bp_cat
+2 | obesity | high,2 | overweight | high,0.26037712002316155,PCA_HRV,sex__bmi_cat__bp_cat
+2 | obesity | high,2 | overweight | normal,0.4895336230609515,PCA_HRV,sex__bmi_cat__bp_cat
+2 | obesity | normal,2 | overweight | high,0.4328897167125101,PCA_HRV,sex__bmi_cat__bp_cat
+2 | obesity | normal,2 | overweight | normal,0.37761667031292384,PCA_HRV,sex__bmi_cat__bp_cat
+2 | overweight | high,2 | overweight | normal,0.5652230992992363,PCA_HRV,sex__bmi_cat__bp_cat
+60-69 | normal | high,60-69 | normal | normal,0.26340293677826443,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,60-69 | obesity | high,0.4308529869513235,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,60-69 | obesity | normal,0.2004837712826452,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,60-69 | overweight | high,0.4767534698202129,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,60-69 | overweight | normal,0.5422337940430646,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,70-79 | low | normal,0.8521870888100422,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,70-79 | normal | high,0.454979071920004,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,70-79 | normal | normal,0.16083912380468623,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,70-79 | obesity | high,0.620545364842642,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,70-79 | obesity | normal,0.7916452497570124,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,70-79 | overweight | high,0.5403317098623125,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,70-79 | overweight | normal,0.684723385374875,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,80+ | normal | normal,1.1261213485536072,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | high,80+ | overweight | normal,1.4844367614606278,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,60-69 | obesity | high,0.36040910323559605,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,60-69 | obesity | normal,0.16522404959541231,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,60-69 | overweight | high,0.31912979940447084,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,60-69 | overweight | normal,0.29986345746012033,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,70-79 | low | normal,0.7460520597804792,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,70-79 | normal | high,0.4564747822449411,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,70-79 | normal | normal,0.379234777838054,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,70-79 | obesity | high,0.3618691444482132,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,70-79 | obesity | normal,0.5302526173887007,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,70-79 | overweight | high,0.2840707872594174,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,70-79 | overweight | normal,0.4442613682574655,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,80+ | normal | normal,0.8627238905056458,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | normal | normal,80+ | overweight | normal,1.2430042123104967,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,60-69 | obesity | normal,0.24751514220124496,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,60-69 | overweight | high,0.14472907162315174,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,60-69 | overweight | normal,0.3470907724186162,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,70-79 | low | normal,0.42155344033199116,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,70-79 | normal | high,0.803100972649539,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,70-79 | normal | normal,0.400679766817668,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,70-79 | obesity | high,0.4635102144805434,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,70-79 | obesity | normal,0.6170809782442114,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,70-79 | overweight | high,0.5380419731919509,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,70-79 | overweight | normal,0.43133331216376414,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,80+ | normal | normal,0.9609561581749273,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | high,80+ | overweight | normal,1.4570688399842993,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,60-69 | overweight | high,0.27627438261580234,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,60-69 | overweight | normal,0.36426289689832453,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,70-79 | low | normal,0.6658369781540843,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,70-79 | normal | high,0.5626318715988318,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,70-79 | normal | normal,0.2484479471111443,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,70-79 | obesity | high,0.4593645232512078,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,70-79 | obesity | normal,0.633088845102416,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,70-79 | overweight | high,0.4341238876956673,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,70-79 | overweight | normal,0.5006060350136398,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,80+ | normal | normal,0.9788741320985154,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | obesity | normal,80+ | overweight | normal,1.3959270571206546,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,60-69 | overweight | normal,0.20760781728049288,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,70-79 | low | normal,0.42879670940654774,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,70-79 | normal | high,0.7754435117826908,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,70-79 | normal | normal,0.49199038693815395,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,70-79 | obesity | high,0.32317534404887993,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,70-79 | obesity | normal,0.4726198575951315,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,70-79 | overweight | high,0.4237567826279183,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,70-79 | overweight | normal,0.28763960786713316,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,80+ | normal | normal,0.8162866978357356,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | high,80+ | overweight | normal,1.3173530674644007,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,70-79 | low | normal,0.5685576840888582,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,70-79 | normal | high,0.7096526338515601,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,70-79 | normal | normal,0.6118271317379874,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,70-79 | obesity | high,0.11642184402009684,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,70-79 | obesity | normal,0.2792249135709604,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,70-79 | overweight | high,0.24730855822273187,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,70-79 | overweight | normal,0.1445984328795227,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,80+ | normal | normal,0.6284669307196622,PCA_HRV,age_group__bmi_cat__bp_cat
+60-69 | overweight | normal,80+ | overweight | normal,1.1104070341869463,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,70-79 | normal | high,1.2022924394428114,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,70-79 | normal | normal,0.803495328294754,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,70-79 | obesity | high,0.652160462489202,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,70-79 | obesity | normal,0.7232051666862203,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,70-79 | overweight | high,0.8155525873447587,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,70-79 | overweight | normal,0.5335813763372974,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,80+ | normal | normal,0.9908201229151612,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | low | normal,80+ | overweight | normal,1.5681325673384714,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | high,70-79 | normal | normal,0.6096541467593874,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | high,70-79 | obesity | high,0.7151075726107373,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | high,70-79 | obesity | normal,0.8366695825519535,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | high,70-79 | overweight | high,0.5315770473470386,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | high,70-79 | overweight | normal,0.8392058727168147,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | high,80+ | normal | normal,1.085733642684254,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | high,80+ | overweight | normal,1.2570741941208796,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | normal,70-79 | obesity | high,0.7075690642601428,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | normal,70-79 | obesity | normal,0.8813315757761357,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | normal,70-79 | overweight | high,0.6632260577895176,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | normal,70-79 | overweight | normal,0.7449591637698878,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | normal,80+ | normal | normal,1.226105881240547,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | normal | normal,80+ | overweight | normal,1.62087538367809,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | high,70-79 | obesity | normal,0.17376516626988883,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | high,70-79 | overweight | high,0.19715980490914528,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | high,70-79 | overweight | normal,0.13876893601663823,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | high,80+ | normal | normal,0.5208585782386299,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | high,80+ | overweight | normal,0.9942546454593137,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | normal,70-79 | overweight | high,0.30648741641403093,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | normal,70-79 | overweight | normal,0.20137068506843966,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | normal,80+ | normal | normal,0.3493069918037857,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | obesity | normal,80+ | overweight | normal,0.8605317117174149,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | overweight | high,70-79 | overweight | normal,0.3345242085855163,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | overweight | high,80+ | normal | normal,0.5992909284559947,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | overweight | high,80+ | overweight | normal,0.9619498124025685,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | overweight | normal,80+ | normal | normal,0.5316007524448362,PCA_HRV,age_group__bmi_cat__bp_cat
+70-79 | overweight | normal,80+ | overweight | normal,1.0618929445851428,PCA_HRV,age_group__bmi_cat__bp_cat
+80+ | normal | normal,80+ | overweight | normal,0.5941256526429792,PCA_HRV,age_group__bmi_cat__bp_cat

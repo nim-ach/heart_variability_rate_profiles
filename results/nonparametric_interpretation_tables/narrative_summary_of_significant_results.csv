@@ -1,0 +1,25 @@
+analysis_level,grouping,hrv_metric,effect_size,p_adj_fdr,interpretation
+double,Sex × Age group,SDNN,0.1101538598149342,1.1358616181262115e-10,SDNN differed across combined categories of Sex × Age group.
+double,Sex × BP category,SDNN,0.096527861867707,1.47834607213716e-10,SDNN differed across combined categories of Sex × BP category.
+double,Sex × BMI category,SDNN,0.1063070581961984,5.74868998670534e-10,SDNN differed across combined categories of Sex × BMI category.
+triple,Sex × Age group × BP category,SDNN,0.0947166355546918,9.413796984358397e-08,SDNN differed across higher-order combined categories of Sex × Age group × BP category.
+triple,Sex × Age group × BMI category,SDNN,0.1059744828785812,1.9041269095241122e-07,SDNN differed across higher-order combined categories of Sex × Age group × BMI category.
+triple,Sex × BMI category × BP category,SDNN,0.087914815409224,9.863992630708077e-07,SDNN differed across higher-order combined categories of Sex × BMI category × BP category.
+double,Age group × BMI category,LF,0.0596098490226379,0.0001340202689208,LF differed across combined categories of Age group × BMI category.
+triple,Sex × Age group × BMI category,LF,0.0548915758958664,0.0008196634756625,LF differed across higher-order combined categories of Sex × Age group × BMI category.
+double,Sex × Age group,VLF,0.0356734563349867,0.0011733546359963,VLF differed across combined categories of Sex × Age group.
+double,Sex × Age group,LF,0.0347203672278894,0.0011733546359963,LF differed across combined categories of Sex × Age group.
+single,Age group,LF,0.0312642170951635,0.0015482470846118,LF differed across Age group groups.
+triple,Sex × Age group × BMI category,VLF,0.0450118317317731,0.0028758195340016,VLF differed across higher-order combined categories of Sex × Age group × BMI category.
+double,Sex × BP category,VLF,0.0251481835392765,0.0035638947220399,VLF differed across combined categories of Sex × BP category.
+double,Sex × BMI category,VLF,0.0299180834572005,0.0069538251951921,VLF differed across combined categories of Sex × BMI category.
+double,Age group × BMI category,HF,0.0345988185871574,0.0086883869424941,HF differed across combined categories of Age group × BMI category.
+double,Age group × BP category,LF,0.0299999440985952,0.0096450438205061,LF differed across combined categories of Age group × BP category.
+triple,Sex × Age group × BP category,VLF,0.0332832202013991,0.0096570774634211,VLF differed across higher-order combined categories of Sex × Age group × BP category.
+triple,Sex × BMI category × BP category,VLF,0.0327760602059558,0.0157109820015296,VLF differed across higher-order combined categories of Sex × BMI category × BP category.
+double,Age group × BMI category,SDNN,0.0281218315398155,0.0204478167993523,SDNN differed across combined categories of Age group × BMI category.
+double,Sex × BMI category,LF,0.0219487782781366,0.023493728304044,LF differed across combined categories of Sex × BMI category.
+single,Age group,HF,0.016784361690957,0.0279792370634576,HF differed across Age group groups.
+double,Sex × Age group,HF,0.0184281692747495,0.0281104255485843,HF differed across combined categories of Sex × Age group.
+triple,Sex × Age group × BP category,LF,0.0231528809200804,0.0387851134456109,LF differed across higher-order combined categories of Sex × Age group × BP category.
+triple,Age group × BMI category × BP category,LF,0.0353446290932767,0.0406016356439814,LF differed across higher-order combined categories of Age group × BMI category × BP category.

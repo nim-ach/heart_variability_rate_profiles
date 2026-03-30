@@ -1,0 +1,11 @@
+,value
+best_silhouette_experiment_id,11103
+best_silhouette_algorithm,dbscan
+best_silhouette_family,density-based
+best_silhouette_space,umap_hrv_log_nn15_md03
+best_silhouette_value,0.969929575920105
+best_consensus_experiment_id,11506
+best_consensus_algorithm,gmm
+best_consensus_family,model-based
+best_consensus_space,umap_hrv_log_nn30_md00
+best_consensus_score,12920.0

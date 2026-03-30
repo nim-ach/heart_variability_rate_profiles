@@ -1,0 +1,290 @@
+{
+    "dataset_name": "Basal v2",
+    "timestamp": "2026-03-12T17:16:25.381937",
+    "input_file": "../../raw_data/Basal v2.xlsx",
+    "initial_shape": {
+        "n_rows": 530,
+        "n_cols": 20
+    },
+    "steps": [
+        {
+            "step": "drop_fully_empty_columns",
+            "description": "Removed columns containing only missing values.",
+            "details": {
+                "dropped_columns": [
+                    "Unnamed: 0",
+                    "Unnamed: 1",
+                    "redcap_repeat_instrument"
+                ],
+                "n_dropped": 3
+            }
+        },
+        {
+            "step": "rename_columns",
+            "description": "Renamed columns for consistency and easier downstream processing.",
+            "details": {
+                "rename_map": {
+                    "weight kg": "weight_kg",
+                    "height cm": "height_cm",
+                    "height mt": "height_m"
+                }
+            }
+        },
+        {
+            "step": "clean_object_numeric_strings",
+            "description": "Applied generic malformed numeric-string cleaning to object columns.",
+            "details": {
+                "object_columns_cleaned": [
+                    "t2m_pre_rmssd"
+                ]
+            }
+        },
+        {
+            "step": "force_numeric_conversion",
+            "description": "Forced selected variables to numeric type using coercion.",
+            "details": {
+                "numeric_columns": [
+                    "sex",
+                    "age",
+                    "t2m_pre_mean_rr",
+                    "t2m_pre_mean_hr",
+                    "t2m_pre_sdnn",
+                    "t2m_pre_rmssd",
+                    "t2m_pre_hf",
+                    "t2m_pre_lf",
+                    "t2m_pre_vlf",
+                    "bp_systolic",
+                    "bp_diastolic",
+                    "bp_pam",
+                    "bp_pp",
+                    "imc",
+                    "weight_kg",
+                    "height_cm",
+                    "height_m"
+                ]
+            }
+        },
+        {
+            "step": "check_height_consistency",
+            "description": "Checked consistency between height_cm and height_m.",
+            "details": {
+                "tolerance_m": 0.01,
+                "n_inconsistent": 9,
+                "output_file": "../../results/processed_hrv/height_inconsistencies.csv"
+            }
+        },
+        {
+            "step": "build_final_height_variables",
+            "description": "Constructed final height_m and height_cm variables prioritizing height_cm when available.",
+            "details": {
+                "rule": "Use height_cm as primary source; if unavailable, recover from height_m."
+            }
+        },
+        {
+            "step": "recompute_and_check_bmi",
+            "description": "Recomputed BMI using cleaned height and checked consistency against recorded BMI.",
+            "details": {
+                "tolerance_bmi_units": 0.5,
+                "n_inconsistent": 8,
+                "output_file": "../../results/processed_hrv/bmi_inconsistencies.csv"
+            }
+        },
+        {
+            "step": "define_final_bmi",
+            "description": "Defined final BMI variable using BMI recomputed from cleaned height.",
+            "details": {
+                "final_column": "imc_final"
+            }
+        },
+        {
+            "step": "recompute_bp_variables",
+            "description": "Recomputed pulse pressure and mean arterial pressure for consistency checks.",
+            "details": {
+                "new_columns": [
+                    "bp_pp_recomputed",
+                    "bp_pam_recomputed",
+                    "bp_pp_diff",
+                    "bp_pam_diff"
+                ]
+            }
+        },
+        {
+            "step": "check_hr_rr_consistency",
+            "description": "Checked consistency between mean heart rate and mean RR interval.",
+            "details": {
+                "tolerance_bpm": 2.0,
+                "n_inconsistent": 15,
+                "output_file": "../../results/processed_hrv/hr_rr_inconsistencies.csv"
+            }
+        },
+        {
+            "step": "physiological_range_checks",
+            "description": "Flagged potentially implausible values based on broad physiological ranges.",
+            "details": {
+                "range_rules": {
+                    "age": {
+                        "min": 18,
+                        "max": 100
+                    },
+                    "weight_kg": {
+                        "min": 30,
+                        "max": 250
+                    },
+                    "height_cm_final": {
+                        "min": 120,
+                        "max": 230
+                    },
+                    "height_m_final": {
+                        "min": 1.2,
+                        "max": 2.3
+                    },
+                    "imc_final": {
+                        "min": 10,
+                        "max": 80
+                    },
+                    "bp_systolic": {
+                        "min": 70,
+                        "max": 250
+                    },
+                    "bp_diastolic": {
+                        "min": 40,
+                        "max": 150
+                    },
+                    "bp_pam": {
+                        "min": 40,
+                        "max": 180
+                    },
+                    "bp_pp": {
+                        "min": 10,
+                        "max": 150
+                    },
+                    "t2m_pre_mean_hr": {
+                        "min": 30,
+                        "max": 220
+                    },
+                    "t2m_pre_mean_rr": {
+                        "min": 250,
+                        "max": 2000
+                    },
+                    "t2m_pre_sdnn": {
+                        "min": 0,
+                        "max": 500
+                    },
+                    "t2m_pre_rmssd": {
+                        "min": 0,
+                        "max": 500
+                    },
+                    "t2m_pre_hf": {
+                        "min": 0,
+                        "max": 100000
+                    },
+                    "t2m_pre_lf": {
+                        "min": 0,
+                        "max": 100000
+                    },
+                    "t2m_pre_vlf": {
+                        "min": 0,
+                        "max": 100000
+                    }
+                },
+                "n_rows_with_any_flag": 14,
+                "flag_counts": {
+                    "age_out_of_range": 0,
+                    "weight_kg_out_of_range": 0,
+                    "height_cm_final_out_of_range": 0,
+                    "height_m_final_out_of_range": 0,
+                    "imc_final_out_of_range": 0,
+                    "bp_systolic_out_of_range": 0,
+                    "bp_diastolic_out_of_range": 0,
+                    "bp_pam_out_of_range": 0,
+                    "bp_pp_out_of_range": 0,
+                    "t2m_pre_mean_hr_out_of_range": 1,
+                    "t2m_pre_mean_rr_out_of_range": 10,
+                    "t2m_pre_sdnn_out_of_range": 3,
+                    "t2m_pre_rmssd_out_of_range": 0,
+                    "t2m_pre_hf_out_of_range": 0,
+                    "t2m_pre_lf_out_of_range": 0,
+                    "t2m_pre_vlf_out_of_range": 0
+                },
+                "output_file": "../../results/processed_hrv/range_flags.csv"
+            }
+        },
+        {
+            "step": "row_level_qc_summary",
+            "description": "Created row-level quality control summary flags.",
+            "details": {
+                "integrity_flag_columns": [
+                    "height_inconsistent",
+                    "imc_inconsistent",
+                    "hr_rr_inconsistent"
+                ],
+                "includes_range_flags": true
+            }
+        },
+        {
+            "step": "row_integrity_checks",
+            "description": "Checked duplicated rows and fully missing rows.",
+            "details": {
+                "duplicate_rows": 0,
+                "fully_missing_rows": 0
+            }
+        },
+        {
+            "step": "build_analysis_dataset",
+            "description": "Built final analysis-ready dataset with cleaned core variables and QC flags.",
+            "details": {
+                "analysis_columns": [
+                    "sex",
+                    "age",
+                    "weight_kg",
+                    "height_cm_final",
+                    "height_m_final",
+                    "imc_final",
+                    "bp_systolic",
+                    "bp_diastolic",
+                    "bp_pam",
+                    "bp_pp",
+                    "bp_pp_recomputed",
+                    "bp_pam_recomputed",
+                    "t2m_pre_mean_rr",
+                    "t2m_pre_mean_hr",
+                    "t2m_pre_sdnn",
+                    "t2m_pre_rmssd",
+                    "t2m_pre_hf",
+                    "t2m_pre_lf",
+                    "t2m_pre_vlf",
+                    "mean_hr_from_rr",
+                    "height_inconsistent",
+                    "imc_inconsistent",
+                    "hr_rr_inconsistent",
+                    "n_integrity_flags",
+                    "n_range_flags",
+                    "n_total_qc_flags"
+                ]
+            }
+        },
+        {
+            "step": "save_clean_dataset",
+            "description": "Saved cleaned analysis-ready dataset in CSV and XLSX formats.",
+            "details": {
+                "csv_path": "../../results/processed_hrv/basal_v2_clean.csv",
+                "xlsx_path": "../../results/processed_hrv/basal_v2_clean.xlsx"
+            }
+        }
+    ],
+    "final_shape": {
+        "n_rows": 530,
+        "n_cols": 26
+    },
+    "output_files": {
+        "clean_csv": "../../results/processed_hrv/basal_v2_clean.csv",
+        "clean_xlsx": "../../results/processed_hrv/basal_v2_clean.xlsx",
+        "processing_json": "../../results/processed_hrv/processing_log.json",
+        "initial_diagnostic_csv": "../../results/processed_hrv/initial_diagnostic.csv",
+        "final_diagnostic_csv": "../../results/processed_hrv/final_diagnostic.csv",
+        "height_inconsistencies_csv": "../../results/processed_hrv/height_inconsistencies.csv",
+        "bmi_inconsistencies_csv": "../../results/processed_hrv/bmi_inconsistencies.csv",
+        "hr_rr_inconsistencies_csv": "../../results/processed_hrv/hr_rr_inconsistencies.csv",
+        "range_flags_csv": "../../results/processed_hrv/range_flags.csv"
+    }
+}

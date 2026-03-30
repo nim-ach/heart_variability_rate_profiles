@@ -1,0 +1,27 @@
+age_group__bmi_cat__bp_cat,count
+70-79 | overweight | normal,63
+60-69 | obesity | normal,62
+70-79 | normal | normal,57
+70-79 | obesity | normal,50
+60-69 | normal | normal,46
+60-69 | overweight | normal,39
+70-79 | obesity | high,34
+60-69 | obesity | high,29
+70-79 | overweight | high,23
+60-69 | overweight | high,20
+70-79 | normal | high,19
+60-69 | normal | high,16
+80+ | normal | normal,12
+80+ | overweight | normal,12
+70-79 | low | normal,10
+60-69 | low | normal,6
+80+ | obesity | high,6
+<60 | normal | normal,6
+80+ | normal | high,5
+70-79 | low | high,5
+80+ | overweight | high,3
+<60 | overweight | normal,2
+<60 | obesity | normal,2
+80+ | obesity | normal,1
+60-69 | low | high,1
+80+ | low | normal,1

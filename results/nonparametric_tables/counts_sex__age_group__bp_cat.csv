@@ -1,0 +1,15 @@
+sex__age_group__bp_cat,count
+1 | 70-79 | normal,119
+1 | 60-69 | normal,115
+2 | 70-79 | normal,61
+1 | 70-79 | high,48
+1 | 60-69 | high,47
+2 | 60-69 | normal,38
+2 | 70-79 | high,33
+1 | 80+ | normal,19
+2 | 60-69 | high,19
+1 | 80+ | high,10
+1 | <60 | normal,8
+2 | 80+ | normal,7
+2 | 80+ | high,4
+2 | <60 | normal,2

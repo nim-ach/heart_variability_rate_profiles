@@ -1,0 +1,9 @@
+bmi_cat__bp_cat,count
+normal | normal,121
+overweight | normal,116
+obesity | normal,115
+obesity | high,69
+overweight | high,46
+normal | high,40
+low | normal,17
+low | high,6

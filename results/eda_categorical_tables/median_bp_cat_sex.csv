@@ -1,0 +1,5 @@
+bp_cat,sex,t2m_pre_mean_rr,t2m_pre_mean_hr,t2m_pre_sdnn,t2m_pre_rmssd,t2m_pre_hf,t2m_pre_lf,t2m_pre_vlf
+high,1,842.0,71.0,153.0,14.5,105.0,113.0,40.0
+high,2,818.0,73.0,73.0,12.4,66.0,102.0,26.0
+normal,1,850.0,70.0,155.0,13.95,115.0,133.0,35.0
+normal,2,877.0,68.0,71.5,12.5,79.0,98.5,23.0

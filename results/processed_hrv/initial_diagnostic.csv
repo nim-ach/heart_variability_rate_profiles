@@ -1,0 +1,21 @@
+,dtype_raw,missing_n,missing_pct,n_unique
+Unnamed: 0,float64,530,100.0,0
+Unnamed: 1,float64,530,100.0,0
+redcap_repeat_instrument,float64,530,100.0,0
+t2m_pre_sdnn,float64,11,2.08,268
+t2m_pre_rmssd,object,8,1.51,278
+t2m_pre_mean_hr,float64,1,0.19,55
+t2m_pre_mean_rr,float64,0,0.0,303
+bp_pam,float64,0,0.0,134
+imc,float64,0,0.0,418
+weight kg,float64,0,0.0,210
+height mt,float64,0,0.0,40
+sex,int64,0,0.0,2
+age,int64,0,0.0,35
+t2m_pre_hf,int64,0,0.0,290
+t2m_pre_lf,int64,0,0.0,295
+t2m_pre_vlf,int64,0,0.0,169
+bp_systolic,int64,0,0.0,82
+bp_diastolic,int64,0,0.0,54
+bp_pp,int64,0,0.0,70
+height cm,int64,0,0.0,40

@@ -1,0 +1,30 @@
+Experiment ID: 15252
+Algorithm: leiden_knn
+Family: community-graph
+Space: umap_integrated_nn10_md03
+Requested k: 6
+Primary score: 0.5363
+
+Cluster sizes and provisional labels
+Cluster 0: n=133 | fraction=0.251 | label=higher_heart_rate__shorter_rr__higher_sbp__higher_dbp
+Cluster 1: n=109 | fraction=0.206 | label=lower_vagal__lower_global_variability__lower_heart_rate__longer_rr
+Cluster 2: n=107 | fraction=0.202 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__older__lower_bmi__lower_sbp__lower_dbp
+Cluster 3: n=70 | fraction=0.132 | label=higher_global_variability__higher_heart_rate__shorter_rr__higher_bmi
+Cluster 4: n=69 | fraction=0.130 | label=lower_heart_rate__longer_rr__younger__higher_bmi__lower_sbp
+Cluster 5: n=42 | fraction=0.079 | label=higher_vagal__higher_global_variability__lower_heart_rate__longer_rr__younger__lower_bmi__lower_dbp
+
+Top continuous differences
+t2m_pre_sdnn | effect_size=0.555 | p_adj_fdr=2.161e-59
+t2m_pre_lf | effect_size=0.506 | p_adj_fdr=1.922e-55
+t2m_pre_vlf | effect_size=0.410 | p_adj_fdr=8.451e-45
+bp_systolic | effect_size=0.408 | p_adj_fdr=8.988e-45
+bp_pam | effect_size=0.376 | p_adj_fdr=3.104e-41
+t2m_pre_hf | effect_size=0.360 | p_adj_fdr=1.468e-39
+imc_final | effect_size=0.265 | p_adj_fdr=6.536e-29
+weight_kg | effect_size=0.231 | p_adj_fdr=3.098e-25
+
+Top categorical differences
+bp_cat | effect_size=0.564 | p_adj_fdr=5.275e-35
+sex | effect_size=0.307 | p_adj_fdr=1.858e-10
+bmi_cat | effect_size=0.301 | p_adj_fdr=8.906e-26
+age_group | effect_size=0.138 | p_adj_fdr=7.301e-05

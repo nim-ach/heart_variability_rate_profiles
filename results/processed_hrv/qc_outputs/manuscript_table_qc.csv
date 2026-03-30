@@ -1,0 +1,11 @@
+Indicator,Value,Percentage of cohort
+Initial dataset size,530 rows × 20 columns,
+Final dataset size,530 rows × 26 columns,
+Removed fully empty columns,3,
+Duplicate rows,0,0.00
+Fully missing rows,0,0.00
+Rows with height inconsistency,9,1.70
+Rows with BMI inconsistency,8,1.51
+Rows with HR-RR inconsistency,15,2.83
+Rows with any physiological range flag,14,2.64
+Rows with any QC flag,27,5.09

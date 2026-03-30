@@ -1,0 +1,4 @@
+check,n_flagged_rows,percentage_of_dataset
+Height consistency (height_cm vs height_m),9,1.7
+BMI consistency (recorded vs recomputed),8,1.51
+HR-RR consistency (recorded HR vs HR from RR),15,2.83

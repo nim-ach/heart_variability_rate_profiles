@@ -1,0 +1,32 @@
+Experiment ID: 11822
+Algorithm: optics
+Family: density-based
+Space: umap_hrv_log_nn30_md00
+Requested k: 8
+Primary score: 0.6345
+
+Cluster sizes and provisional labels
+Cluster 0: n=31 | fraction=0.099 | label=higher_vagal__higher_global_variability__lower_heart_rate__longer_rr__higher_bmi__higher_sbp__higher_dbp
+Cluster 1: n=55 | fraction=0.175 | label=higher_bmi__higher_dbp
+Cluster 2: n=37 | fraction=0.118 | label=lower_bmi__lower_sbp__lower_dbp
+Cluster 3: n=55 | fraction=0.175 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__older__higher_dbp
+Cluster 4: n=43 | fraction=0.137 | label=higher_vagal__higher_global_variability__lower_heart_rate__longer_rr__younger__lower_bmi
+Cluster 5: n=38 | fraction=0.121 | label=lower_vagal__higher_heart_rate__shorter_rr__lower_sbp__lower_dbp
+Cluster 6: n=29 | fraction=0.092 | label=lower_global_variability__lower_heart_rate__longer_rr__younger__lower_bmi__lower_sbp
+Cluster 7: n=26 | fraction=0.083 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__older
+
+Top continuous differences
+t2m_pre_sdnn | effect_size=0.858 | p_adj_fdr=5.711e-52
+t2m_pre_rmssd | effect_size=0.820 | p_adj_fdr=1.516e-50
+t2m_pre_lf | effect_size=0.781 | p_adj_fdr=1.031e-48
+t2m_pre_vlf | effect_size=0.737 | p_adj_fdr=5.556e-46
+t2m_pre_hf | effect_size=0.670 | p_adj_fdr=1.047e-41
+t2m_pre_mean_hr | effect_size=0.232 | p_adj_fdr=1.053e-13
+t2m_pre_mean_rr | effect_size=0.201 | p_adj_fdr=6.464e-12
+age | effect_size=0.025 | p_adj_fdr=7.981e-02
+
+Top categorical differences
+sex | effect_size=0.401 | p_adj_fdr=2.071e-09
+age_group | effect_size=0.110 | p_adj_fdr=1.100e-01
+bmi_cat | effect_size=0.039 | p_adj_fdr=4.966e-01
+bp_cat | effect_size=0.000 | p_adj_fdr=5.910e-01

@@ -1,0 +1,33 @@
+Experiment ID: 15054
+Algorithm: spectral
+Family: graph-based
+Space: umap_integrated_nn10_md03
+Requested k: 9
+Primary score: 0.5231
+
+Cluster sizes and provisional labels
+Cluster 0: n=37 | fraction=0.070 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__older__lower_bmi__higher_sbp
+Cluster 1: n=101 | fraction=0.191 | label=higher_bmi
+Cluster 2: n=62 | fraction=0.117 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__lower_bmi__lower_sbp__lower_dbp
+Cluster 3: n=58 | fraction=0.109 | label=lower_global_variability__lower_heart_rate__longer_rr__lower_bmi__higher_sbp__higher_dbp
+Cluster 4: n=48 | fraction=0.091 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__older__lower_sbp__lower_dbp
+Cluster 5: n=71 | fraction=0.134 | label=higher_vagal__lower_heart_rate__longer_rr__older__higher_sbp__higher_dbp
+Cluster 6: n=61 | fraction=0.115 | label=higher_heart_rate__shorter_rr__younger__higher_bmi__higher_sbp__higher_dbp
+Cluster 7: n=41 | fraction=0.077 | label=higher_vagal__higher_global_variability__longer_rr__younger__lower_bmi
+Cluster 8: n=51 | fraction=0.096 | label=higher_global_variability
+
+Top continuous differences
+t2m_pre_sdnn | effect_size=0.545 | p_adj_fdr=6.577e-56
+bp_systolic | effect_size=0.488 | p_adj_fdr=3.646e-51
+t2m_pre_lf | effect_size=0.464 | p_adj_fdr=1.066e-48
+bp_pam | effect_size=0.461 | p_adj_fdr=1.546e-48
+t2m_pre_hf | effect_size=0.357 | p_adj_fdr=3.798e-37
+t2m_pre_vlf | effect_size=0.354 | p_adj_fdr=5.715e-37
+weight_kg | effect_size=0.344 | p_adj_fdr=7.237e-36
+imc_final | effect_size=0.316 | p_adj_fdr=7.055e-33
+
+Top categorical differences
+bp_cat | effect_size=0.608 | p_adj_fdr=5.093e-39
+bmi_cat | effect_size=0.328 | p_adj_fdr=2.752e-28
+sex | effect_size=0.310 | p_adj_fdr=8.103e-10
+age_group | effect_size=0.251 | p_adj_fdr=3.044e-15

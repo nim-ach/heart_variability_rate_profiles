@@ -1,0 +1,17 @@
+sex__bmi_cat__bp_cat,count
+1 | obesity | normal,90
+1 | normal | normal,85
+1 | overweight | normal,73
+2 | overweight | normal,43
+1 | obesity | high,40
+2 | normal | normal,36
+1 | overweight | high,32
+1 | normal | high,29
+2 | obesity | high,29
+2 | obesity | normal,25
+2 | overweight | high,14
+1 | low | normal,13
+2 | normal | high,11
+1 | low | high,4
+2 | low | normal,4
+2 | low | high,2

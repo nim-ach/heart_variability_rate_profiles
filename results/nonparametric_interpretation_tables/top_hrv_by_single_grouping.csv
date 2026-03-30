@@ -1,0 +1,7 @@
+grouping_variable,value_variable,n_total,n_groups,h_stat,p_value,epsilon_squared,group_sizes,p_adj_fdr,significant_fdr,group_pretty,hrv_pretty
+age_group,t2m_pre_lf,530,4,19.44497819205601,0.0002211781549445,0.0312642170951635,"{'70-79': 261, '60-69': 219, '80+': 40, '<60': 10}",0.0015482470846118,True,Age group,LF
+age_group,t2m_pre_hf,530,4,11.8285742494434,0.0079940677324164,0.016784361690957,"{'70-79': 261, '60-69': 219, '80+': 40, '<60': 10}",0.0279792370634576,True,Age group,HF
+age_group,t2m_pre_mean_hr,529,4,8.089549106823002,0.0441967987447715,0.0096943792510914,"{'70-79': 261, '60-69': 218, '80+': 40, '<60': 10}",0.1031258637378003,False,Age group,Mean HR
+bmi_cat,t2m_pre_sdnn,519,4,7.261466487508372,0.0640147900966036,0.0082746922087541,"{'normal': 153, 'overweight': 160, 'obesity': 183, 'low': 23}",0.4481035306762253,False,BMI category,SDNN
+bmi_cat,t2m_pre_mean_rr,530,4,5.056119523274238,0.1677336190113522,0.0039089724777076,"{'normal': 161, 'overweight': 162, 'obesity': 184, 'low': 23}",0.5330456790736682,False,BMI category,Mean RR
+bmi_cat,t2m_pre_hf,530,4,3.858374910861812,0.277168773735401,0.0016318914655167,"{'normal': 161, 'overweight': 162, 'obesity': 184, 'low': 23}",0.5330456790736682,False,BMI category,HF

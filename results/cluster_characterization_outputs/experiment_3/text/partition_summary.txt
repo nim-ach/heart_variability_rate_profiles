@@ -1,0 +1,29 @@
+Experiment ID: 3
+Algorithm: kmeans
+Family: centroid-based
+Space: hrv_raw_scaled
+Requested k: 5
+Primary score: 0.5850
+
+Cluster sizes and provisional labels
+Cluster 0: n=15 | fraction=0.028 | label=lower_heart_rate__longer_rr__lower_bmi__lower_sbp__lower_dbp
+Cluster 1: n=157 | fraction=0.296 | label=lower_vagal__lower_global_variability__higher_heart_rate__shorter_rr__higher_bmi__higher_sbp
+Cluster 2: n=172 | fraction=0.325 | label=higher_vagal__higher_bmi__higher_sbp
+Cluster 3: n=19 | fraction=0.036 | label=higher_global_variability__higher_dbp
+Cluster 4: n=167 | fraction=0.315 | label=lower_vagal__lower_global_variability__lower_heart_rate__longer_rr__lower_sbp__lower_dbp
+
+Top continuous differences
+t2m_pre_sdnn | effect_size=0.579 | p_adj_fdr=6.901e-63
+t2m_pre_mean_rr | effect_size=0.559 | p_adj_fdr=2.509e-62
+t2m_pre_mean_hr | effect_size=0.527 | p_adj_fdr=1.061e-58
+t2m_pre_rmssd | effect_size=0.513 | p_adj_fdr=1.634e-56
+t2m_pre_hf | effect_size=0.336 | p_adj_fdr=1.786e-37
+t2m_pre_lf | effect_size=0.311 | p_adj_fdr=8.901e-35
+t2m_pre_vlf | effect_size=0.235 | p_adj_fdr=2.682e-26
+bp_diastolic | effect_size=0.014 | p_adj_fdr=3.872e-02
+
+Top categorical differences
+sex | effect_size=0.226 | p_adj_fdr=1.177e-05
+age_group | effect_size=0.071 | p_adj_fdr=1.343e-01
+bmi_cat | effect_size=0.000 | p_adj_fdr=6.321e-01
+bp_cat | effect_size=0.000 | p_adj_fdr=6.629e-01

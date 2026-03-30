@@ -1,0 +1,17 @@
+flag,count
+t2m_pre_mean_rr_out_of_range,10
+t2m_pre_sdnn_out_of_range,3
+t2m_pre_mean_hr_out_of_range,1
+age_out_of_range,0
+imc_final_out_of_range,0
+weight_kg_out_of_range,0
+height_cm_final_out_of_range,0
+height_m_final_out_of_range,0
+bp_pam_out_of_range,0
+bp_diastolic_out_of_range,0
+bp_systolic_out_of_range,0
+bp_pp_out_of_range,0
+t2m_pre_rmssd_out_of_range,0
+t2m_pre_hf_out_of_range,0
+t2m_pre_lf_out_of_range,0
+t2m_pre_vlf_out_of_range,0
