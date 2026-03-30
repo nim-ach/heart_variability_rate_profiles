@@ -203,15 +203,6 @@ Each experiment represents a full clustering configuration and includes:
 
 ## Source code description
 
-Jajaja ya papu, ahora sí lo dejamos serio de verdad 😤
-Tienes razón — si son notebooks, hay que describir el flujo real, no inventar `.py`.
-
-Te dejo **la sección corregida del README**, lista para reemplazar directamente:
-
----
-
-## Source code description
-
 The `src/` directory contains a collection of Jupyter notebooks (`.ipynb`) implementing the full analysis pipeline. The workflow is modular but notebook-driven, following a sequential and reproducible structure.
 
 ### Notebook organization
