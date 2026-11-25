@@ -1,0 +1,184 @@
+source_excel_row,column,issue,original_value,processed_value,action,detail
+,Unnamed: 0,empty_column,,,removed_column,All values missing
+,Unnamed: 1,empty_column,,,removed_column,All values missing
+,redcap_repeat_instrument,empty_metadata_column,,,retained_for_traceability,Column is empty in the supplied Excel file; values were not recovered or inferred
+324,t2m_pre_rmssd,text_number,15 .9,15.9,converted_to_numeric,Original Excel cell was text
+325,t2m_pre_rmssd,text_number,7 .0,7.0,converted_to_numeric,Original Excel cell was text
+326,t2m_pre_rmssd,text_number,37 .0,37.0,converted_to_numeric,Original Excel cell was text
+327,t2m_pre_rmssd,text_number,16 .9,16.9,converted_to_numeric,Original Excel cell was text
+328,t2m_pre_rmssd,text_number,20 .8,20.8,converted_to_numeric,Original Excel cell was text
+329,t2m_pre_rmssd,text_number,15 .2,15.2,converted_to_numeric,Original Excel cell was text
+330,t2m_pre_rmssd,text_number,16 .9,16.9,converted_to_numeric,Original Excel cell was text
+331,t2m_pre_rmssd,text_number,18 .2,18.2,converted_to_numeric,Original Excel cell was text
+333,t2m_pre_rmssd,text_number,15 .0,15.0,converted_to_numeric,Original Excel cell was text
+334,t2m_pre_rmssd,text_number,15 .5,15.5,converted_to_numeric,Original Excel cell was text
+335,t2m_pre_rmssd,text_number,16 .3,16.3,converted_to_numeric,Original Excel cell was text
+336,t2m_pre_rmssd,text_number,11 .6,11.6,converted_to_numeric,Original Excel cell was text
+337,t2m_pre_rmssd,text_number,24 .6,24.6,converted_to_numeric,Original Excel cell was text
+338,t2m_pre_rmssd,text_number,11 .2,11.2,converted_to_numeric,Original Excel cell was text
+339,t2m_pre_rmssd,text_number,12 .2,12.2,converted_to_numeric,Original Excel cell was text
+340,t2m_pre_rmssd,text_number,8 .9,8.9,converted_to_numeric,Original Excel cell was text
+341,t2m_pre_rmssd,text_number,24 .7,24.7,converted_to_numeric,Original Excel cell was text
+342,t2m_pre_rmssd,text_number,12 .3,12.3,converted_to_numeric,Original Excel cell was text
+343,t2m_pre_rmssd,text_number,11 .7,11.7,converted_to_numeric,Original Excel cell was text
+344,t2m_pre_rmssd,text_number,13 .6,13.6,converted_to_numeric,Original Excel cell was text
+345,t2m_pre_rmssd,text_number,13 .1,13.1,converted_to_numeric,Original Excel cell was text
+346,t2m_pre_rmssd,text_number,20 .7,20.7,converted_to_numeric,Original Excel cell was text
+347,t2m_pre_rmssd,text_number,20 .1,20.1,converted_to_numeric,Original Excel cell was text
+348,t2m_pre_rmssd,text_number,4 .7,4.7,converted_to_numeric,Original Excel cell was text
+349,t2m_pre_rmssd,text_number,11 .2,11.2,converted_to_numeric,Original Excel cell was text
+350,t2m_pre_rmssd,text_number,7 .7,7.7,converted_to_numeric,Original Excel cell was text
+351,t2m_pre_rmssd,text_number,8 .5,8.5,converted_to_numeric,Original Excel cell was text
+352,t2m_pre_rmssd,text_number,14 .8,14.8,converted_to_numeric,Original Excel cell was text
+353,t2m_pre_rmssd,text_number,22 .3,22.3,converted_to_numeric,Original Excel cell was text
+354,t2m_pre_rmssd,text_number,4 .5,4.5,converted_to_numeric,Original Excel cell was text
+355,t2m_pre_rmssd,text_number,23 .1,23.1,converted_to_numeric,Original Excel cell was text
+356,t2m_pre_rmssd,text_number,18 .6,18.6,converted_to_numeric,Original Excel cell was text
+357,t2m_pre_rmssd,text_number,17 .1,17.1,converted_to_numeric,Original Excel cell was text
+358,t2m_pre_rmssd,text_number,9 .8,9.8,converted_to_numeric,Original Excel cell was text
+359,t2m_pre_rmssd,text_number,5 .3,5.3,converted_to_numeric,Original Excel cell was text
+360,t2m_pre_rmssd,text_number,15 .1,15.1,converted_to_numeric,Original Excel cell was text
+361,t2m_pre_rmssd,text_number,23 .8,23.8,converted_to_numeric,Original Excel cell was text
+362,t2m_pre_rmssd,text_number,18 .6,18.6,converted_to_numeric,Original Excel cell was text
+363,t2m_pre_rmssd,text_number,23 .2,23.2,converted_to_numeric,Original Excel cell was text
+364,t2m_pre_rmssd,text_number,16 .2,16.2,converted_to_numeric,Original Excel cell was text
+365,t2m_pre_rmssd,text_number,11 .8,11.8,converted_to_numeric,Original Excel cell was text
+366,t2m_pre_rmssd,text_number,4 .3,4.3,converted_to_numeric,Original Excel cell was text
+367,t2m_pre_rmssd,text_number,5 .0,5.0,converted_to_numeric,Original Excel cell was text
+368,t2m_pre_rmssd,text_number,20 .2,20.2,converted_to_numeric,Original Excel cell was text
+369,t2m_pre_rmssd,text_number,11 .6,11.6,converted_to_numeric,Original Excel cell was text
+370,t2m_pre_rmssd,text_number,30 .8,30.8,converted_to_numeric,Original Excel cell was text
+371,t2m_pre_rmssd,text_number,17 .5,17.5,converted_to_numeric,Original Excel cell was text
+372,t2m_pre_rmssd,text_number,16 .4,16.4,converted_to_numeric,Original Excel cell was text
+373,t2m_pre_rmssd,text_number,15 .1,15.1,converted_to_numeric,Original Excel cell was text
+374,t2m_pre_rmssd,text_number,24 .5,24.5,converted_to_numeric,Original Excel cell was text
+375,t2m_pre_rmssd,text_number,17 .9,17.9,converted_to_numeric,Original Excel cell was text
+376,t2m_pre_rmssd,text_number,19 .4,19.4,converted_to_numeric,Original Excel cell was text
+377,t2m_pre_rmssd,text_number,20 .9,20.9,converted_to_numeric,Original Excel cell was text
+378,t2m_pre_rmssd,text_number,22 .5,22.5,converted_to_numeric,Original Excel cell was text
+379,t2m_pre_rmssd,text_number,16 .7,16.7,converted_to_numeric,Original Excel cell was text
+380,t2m_pre_rmssd,text_number,7 .7,7.7,converted_to_numeric,Original Excel cell was text
+381,t2m_pre_rmssd,text_number,3 .8,3.8,converted_to_numeric,Original Excel cell was text
+382,t2m_pre_rmssd,text_number,29 .3,29.3,converted_to_numeric,Original Excel cell was text
+383,t2m_pre_rmssd,text_number,15 .3,15.3,converted_to_numeric,Original Excel cell was text
+384,t2m_pre_rmssd,text_number,23 .2,23.2,converted_to_numeric,Original Excel cell was text
+385,t2m_pre_rmssd,text_number,6 .6,6.6,converted_to_numeric,Original Excel cell was text
+386,t2m_pre_rmssd,text_number,23 .6,23.6,converted_to_numeric,Original Excel cell was text
+387,t2m_pre_rmssd,text_number,13 .7,13.7,converted_to_numeric,Original Excel cell was text
+388,t2m_pre_rmssd,text_number,15 .1,15.1,converted_to_numeric,Original Excel cell was text
+389,t2m_pre_rmssd,text_number,12 .6,12.6,converted_to_numeric,Original Excel cell was text
+390,t2m_pre_rmssd,text_number,12 .4,12.4,converted_to_numeric,Original Excel cell was text
+391,t2m_pre_rmssd,text_number,9 .9,9.9,converted_to_numeric,Original Excel cell was text
+392,t2m_pre_rmssd,text_number,13 .7,13.7,converted_to_numeric,Original Excel cell was text
+393,t2m_pre_rmssd,text_number,13 .4,13.4,converted_to_numeric,Original Excel cell was text
+394,t2m_pre_rmssd,text_number,16 .9,16.9,converted_to_numeric,Original Excel cell was text
+395,t2m_pre_rmssd,text_number,15 .1,15.1,converted_to_numeric,Original Excel cell was text
+396,t2m_pre_rmssd,text_number,17 .8,17.8,converted_to_numeric,Original Excel cell was text
+397,t2m_pre_rmssd,text_number,11 .3,11.3,converted_to_numeric,Original Excel cell was text
+398,t2m_pre_rmssd,text_number,28 .4,28.4,converted_to_numeric,Original Excel cell was text
+399,t2m_pre_rmssd,text_number,9 .5,9.5,converted_to_numeric,Original Excel cell was text
+400,t2m_pre_rmssd,text_number,6 .9,6.9,converted_to_numeric,Original Excel cell was text
+401,t2m_pre_rmssd,text_number,7 .1,7.1,converted_to_numeric,Original Excel cell was text
+402,t2m_pre_rmssd,text_number,11 .1,11.1,converted_to_numeric,Original Excel cell was text
+403,t2m_pre_rmssd,text_number,10 .9,10.9,converted_to_numeric,Original Excel cell was text
+404,t2m_pre_rmssd,text_number,14 .0,14.0,converted_to_numeric,Original Excel cell was text
+405,t2m_pre_rmssd,text_number,17 .9,17.9,converted_to_numeric,Original Excel cell was text
+406,t2m_pre_rmssd,text_number,14 .5,14.5,converted_to_numeric,Original Excel cell was text
+407,t2m_pre_rmssd,text_number,20 .2,20.2,converted_to_numeric,Original Excel cell was text
+408,t2m_pre_rmssd,text_number,7 .8,7.8,converted_to_numeric,Original Excel cell was text
+409,t2m_pre_rmssd,text_number,15 .2,15.2,converted_to_numeric,Original Excel cell was text
+410,t2m_pre_rmssd,text_number,11 .8,11.8,converted_to_numeric,Original Excel cell was text
+411,t2m_pre_rmssd,text_number,14 .4,14.4,converted_to_numeric,Original Excel cell was text
+412,t2m_pre_rmssd,text_number,16 .1,16.1,converted_to_numeric,Original Excel cell was text
+413,t2m_pre_rmssd,text_number,15 .4,15.4,converted_to_numeric,Original Excel cell was text
+414,t2m_pre_rmssd,text_number,8 .3,8.3,converted_to_numeric,Original Excel cell was text
+415,t2m_pre_rmssd,text_number,13 .5,13.5,converted_to_numeric,Original Excel cell was text
+416,t2m_pre_rmssd,text_number,24 .8,24.8,converted_to_numeric,Original Excel cell was text
+417,t2m_pre_rmssd,text_number,20 .9,20.9,converted_to_numeric,Original Excel cell was text
+418,t2m_pre_rmssd,text_number,18 .2,18.2,converted_to_numeric,Original Excel cell was text
+419,t2m_pre_rmssd,text_number,12 .9,12.9,converted_to_numeric,Original Excel cell was text
+420,t2m_pre_rmssd,text_number,12 .1,12.1,converted_to_numeric,Original Excel cell was text
+421,t2m_pre_rmssd,text_number,16 .7,16.7,converted_to_numeric,Original Excel cell was text
+446,height_m,height_disagreement,1.51,1.48,corrected_from_height_cm,height_cm=148; height_cm used as reference
+447,height_m,height_disagreement,1.51,1.75,corrected_from_height_cm,height_cm=175; height_cm used as reference
+448,height_m,height_disagreement,1.51,1.45,corrected_from_height_cm,height_cm=145; height_cm used as reference
+449,height_m,height_disagreement,1.51,1.48,corrected_from_height_cm,height_cm=148; height_cm used as reference
+450,height_m,height_disagreement,1.51,1.5,corrected_from_height_cm,height_cm=150; height_cm used as reference
+451,height_m,height_disagreement,1.51,1.55,corrected_from_height_cm,height_cm=155; height_cm used as reference
+452,height_m,height_disagreement,1.51,1.49,corrected_from_height_cm,height_cm=149; height_cm used as reference
+453,height_m,height_disagreement,1.51,1.49,corrected_from_height_cm,height_cm=149; height_cm used as reference
+454,height_m,height_disagreement,1.51,1.55,corrected_from_height_cm,height_cm=155; height_cm used as reference
+446,imc,bmi_disagreement,29.384676110696898,30.58802045288532,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+447,imc,bmi_disagreement,28.595237051006535,21.289795918367346,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+448,imc,bmi_disagreement,30.6126924257708,33.19857312722949,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+449,imc,bmi_disagreement,29.910968817157144,31.135865595325058,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+450,imc,bmi_disagreement,29.910968817157144,30.311111111111114,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+451,imc,bmi_disagreement,32.49857462392,30.842872008324655,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+452,imc,bmi_disagreement,28.463663874391475,29.232917436151528,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+453,imc,bmi_disagreement,26.183062146397088,26.890680599972978,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+454,imc,bmi_disagreement,34.25288364545414,32.507804370447445,recomputed_from_weight_and_height,BMI = weight_kg / height_m^2; tolerance 0.10 kg/m^2
+531,t2m_pre_mean_hr,missing_value,,,kept_missing,Not imputed
+228,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+229,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+230,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+232,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+236,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+237,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+269,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+277,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+278,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+283,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+298,t2m_pre_sdnn,missing_value,,,kept_missing,Not imputed
+269,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+270,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+273,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+278,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+283,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+298,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+307,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+314,t2m_pre_rmssd,missing_value,,,kept_missing,Not imputed
+193,t2m_pre_mean_hr,outside_review_range,10.0,10.0,review_no_change,"Screening interval [30, 220]; not an exclusion criterion"
+120,t2m_pre_mean_rr,outside_review_range,100.0,100.0,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+184,t2m_pre_mean_rr,outside_review_range,68.0,68.0,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+187,t2m_pre_mean_rr,outside_review_range,106.0,106.0,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+192,t2m_pre_mean_rr,outside_review_range,100.0,100.0,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+202,t2m_pre_mean_rr,outside_review_range,106.0,106.0,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+214,t2m_pre_mean_rr,outside_review_range,105.0,105.0,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+262,t2m_pre_mean_rr,outside_review_range,85.8,85.8,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+297,t2m_pre_mean_rr,outside_review_range,113.2,113.2,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+323,t2m_pre_mean_rr,outside_review_range,86.8,86.8,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+382,t2m_pre_mean_rr,outside_review_range,92.0,92.0,review_no_change,"Screening interval [250, 2000]; not an exclusion criterion"
+124,t2m_pre_sdnn,outside_review_range,626.0,626.0,review_no_change,"Screening interval [0, 500]; not an exclusion criterion"
+204,t2m_pre_sdnn,outside_review_range,610.0,610.0,review_no_change,"Screening interval [0, 500]; not an exclusion criterion"
+242,t2m_pre_sdnn,outside_review_range,525.0,525.0,review_no_change,"Screening interval [0, 500]; not an exclusion criterion"
+120,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,60.0,60.0,review_no_change,"Observed HR=60 bpm and RR=100 ms; 60,000/RR=600.000 bpm; HR*RR/60,000=0.1000; near 10-fold inconsistency; verify source before changing either value"
+156,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_disagreement,104.0,104.0,review_no_change,"Observed HR=104 bpm and RR=1036 ms; 60,000/RR=57.915 bpm; HR*RR/60,000=1.7957; difference above 2 bpm; verify source"
+183,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_disagreement,56.0,56.0,review_no_change,"Observed HR=56 bpm and RR=1014 ms; 60,000/RR=59.172 bpm; HR*RR/60,000=0.9464; difference above 2 bpm; verify source"
+184,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,88.0,88.0,review_no_change,"Observed HR=88 bpm and RR=68 ms; 60,000/RR=882.353 bpm; HR*RR/60,000=0.0997; near 10-fold inconsistency; verify source before changing either value"
+187,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,57.0,57.0,review_no_change,"Observed HR=57 bpm and RR=106 ms; 60,000/RR=566.038 bpm; HR*RR/60,000=0.1007; near 10-fold inconsistency; verify source before changing either value"
+192,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,60.0,60.0,review_no_change,"Observed HR=60 bpm and RR=100 ms; 60,000/RR=600.000 bpm; HR*RR/60,000=0.1000; near 10-fold inconsistency; verify source before changing either value"
+193,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,10.0,10.0,review_no_change,"Observed HR=10 bpm and RR=600 ms; 60,000/RR=100.000 bpm; HR*RR/60,000=0.1000; near 10-fold inconsistency; verify source before changing either value"
+202,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,57.0,57.0,review_no_change,"Observed HR=57 bpm and RR=106 ms; 60,000/RR=566.038 bpm; HR*RR/60,000=0.1007; near 10-fold inconsistency; verify source before changing either value"
+214,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,57.0,57.0,review_no_change,"Observed HR=57 bpm and RR=105 ms; 60,000/RR=571.429 bpm; HR*RR/60,000=0.0998; near 10-fold inconsistency; verify source before changing either value"
+262,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,70.0,70.0,review_no_change,"Observed HR=70 bpm and RR=85.8 ms; 60,000/RR=699.301 bpm; HR*RR/60,000=0.1001; near 10-fold inconsistency; verify source before changing either value"
+272,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_disagreement,98.0,98.0,review_no_change,"Observed HR=98 bpm and RR=749 ms; 60,000/RR=80.107 bpm; HR*RR/60,000=1.2234; difference above 2 bpm; verify source"
+297,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,53.0,53.0,review_no_change,"Observed HR=53 bpm and RR=113.2 ms; 60,000/RR=530.035 bpm; HR*RR/60,000=0.1000; near 10-fold inconsistency; verify source before changing either value"
+302,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_disagreement,77.0,77.0,review_no_change,"Observed HR=77 bpm and RR=823 ms; 60,000/RR=72.904 bpm; HR*RR/60,000=1.0562; difference above 2 bpm; verify source"
+323,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,69.0,69.0,review_no_change,"Observed HR=69 bpm and RR=86.8 ms; 60,000/RR=691.244 bpm; HR*RR/60,000=0.0998; near 10-fold inconsistency; verify source before changing either value"
+382,t2m_pre_mean_hr/t2m_pre_mean_rr,hr_rr_factor_10_pattern,65.0,65.0,review_no_change,"Observed HR=65 bpm and RR=92 ms; 60,000/RR=652.174 bpm; HR*RR/60,000=0.0997; near 10-fold inconsistency; verify source before changing either value"
+37,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 1; Excel rows: 37, 85"
+85,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 1; Excel rows: 37, 85"
+50,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 2; Excel rows: 50, 92"
+92,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 2; Excel rows: 50, 92"
+53,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 3; Excel rows: 53, 94"
+94,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 3; Excel rows: 53, 94"
+490,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 4; Excel rows: 490, 513"
+513,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 4; Excel rows: 490, 513"
+491,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 5; Excel rows: 491, 515"
+515,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 5; Excel rows: 491, 515"
+492,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 6; Excel rows: 492, 516"
+516,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 6; Excel rows: 492, 516"
+493,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 7; Excel rows: 493, 517"
+517,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 7; Excel rows: 493, 517"
+494,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 8; Excel rows: 494, 508"
+508,hrv_profile,identical_hrv_profile,Seven HRV variables match another row,Unchanged,review_no_change,"HRV match group 8; Excel rows: 494, 508"
