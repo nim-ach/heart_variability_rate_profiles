@@ -5,7 +5,7 @@
 **Project:** Heart rate variability and physiological profiling in older adults from southern Chile  
 **Workflow:** `01_cleaning_and_validation.ipynb` → `02_variable_categorization.ipynb` → `03_final_cohort_construction.ipynb` → `04_preprocessing_summary.ipynb`  
 **Starting source:** `Basal v2.xlsx`  
-**Version documented:** the four supplied notebooks, reviewed on 25 November 2026  
+**Version documented:** updated Notebooks 01–04 and their verified CSV and Markdown outputs, 26 November 2026  
 **Status:** descriptive documentation of the implemented preprocessing workflow and the results reproduced from its CSV outputs
 
 ---
@@ -14,7 +14,7 @@
 
 This preprocessing workflow converts the original Excel workbook into a traceable, consistently typed, categorized, and quality-filtered analytical dataset for subsequent characterization of heart rate variability (HRV).
 
-The intended downstream design considers **age, sex, blood pressure, and body mass index (BMI) as explanatory factors**, initially in isolation and subsequently in factorial combinations. HRV measurements will serve as the outcomes of interest in later exploratory and statistical analyses. This workflow does **not** identify healthy or diseased participants, assign clinical diagnoses, discover clusters, or perform inferential HRV comparisons.
+The intended downstream design considers **age, sex, systolic blood pressure (SBP), diastolic blood pressure (DBP), and body mass index (BMI) as explanatory variables**, initially in isolation and subsequently in factorial combinations. SBP and DBP are categorized independently; they are alternative pressure variables for the planned four-domain factorial comparisons (age, sex, pressure, BMI). HRV measurements will serve as the outcomes of interest in later exploratory and statistical analyses. This workflow does **not** identify healthy or diseased participants, assign clinical diagnoses, discover clusters, or perform inferential HRV comparisons.
 
 The four notebooks implement distinct operations:
 
@@ -31,9 +31,9 @@ The four notebooks implement distinct operations:
 |---|---:|---:|---|
 | Original Excel, first sheet | 530 | 20 | Source workbook; no age-based filtering |
 | 01 — Cleaned | 530 | 19 | Two empty export columns removed; provenance ID added; numeric checks and corrections |
-| 02 — Categorized | 530 | 24 | Five categorical/reference columns added; no records removed |
-| 03 — Retained | **476** | **24** | Analysis-ready sample under implemented eligibility and QC rules |
-| 03 — Excluded | **54** | **26** | All original categorized columns plus exclusion count and reasons |
+| 02 — Categorized | 530 | 25 | Six categorical/reference columns added; no records removed |
+| 03 — Retained | **476** | **25** | Analysis-ready sample under implemented eligibility and QC rules |
+| 03 — Excluded | **54** | **27** | All original categorized columns plus exclusion count and reasons |
 | 04 — Summary | — | — | Consolidated methodological and count report; no data changes |
 
 **Final retention:** 476/530 = **89.8%**.  
@@ -283,10 +283,10 @@ The output contains **155 original example rows**, corresponding to the 155 sour
 ## 4. Notebook 02 — Variable categorization
 
 **Input:** `outputs/dataset_clean.csv` (**530 rows, 19 columns**)  
-**Output:** `outputs/dataset_categorized.csv` (**530 rows, 24 columns**)  
+**Output:** `outputs/dataset_categorized.csv` (**530 rows, 25 columns**)  
 **Record exclusions:** none.
 
-The notebook appends the four analytical factors `age_group`, `sex_category`, `bp_category`, and `bmi_category`, plus `bmi_reference` to record which BMI classification was used. It preserves all prior columns and numerical measurements. A participant below age 60 receives categories at this stage and is not excluded until Notebook 03.
+The notebook appends **five independently defined categorical variables**—`age_group`, `sex_category`, `sbp_category`, `dbp_category`, and `bmi_category`—plus `bmi_reference` to record the BMI classification in use. `sbp_category` and `dbp_category` replace the previous composite `bp_category`; there is no `bp_category` field in the revised outputs. All prior columns and original continuous measurements are preserved. A record below age 60 receives categories at this stage and is excluded only in Notebook 03.
 
 ### 4.1 Age groups
 
@@ -314,30 +314,28 @@ The notebook maps the available numeric codes as follows:
 
 The mapping follows the sex distribution used in the original manuscript and is marked in Notebook 02 as requiring confirmation if a primary REDCap codebook becomes available. The original numeric code is retained.
 
-### 4.3 Blood-pressure categories
+### 4.3 Independent blood-pressure categories
 
-The notebook implements a six-level scheme attributed to the **MINSAL 2010 primary hypertension guideline**. Systolic and diastolic pressures are assessed jointly; **the higher category determined by either value prevails**. A category is assigned only if both values are nonmissing, DBP > 0, and SBP > DBP.
+Notebook 02 categorizes **systolic** and **diastolic** blood pressure independently, using the existing 140 mmHg and 90 mmHg operational cutoffs. The previous combined six-level `bp_category` (`Optimal`, `Normal`, `High-normal`, `Stage 1`, `Stage 2`, `Stage 3`) is **not generated** by the updated workflow. The categorical variables do not replace or modify the continuous `bp_systolic` and `bp_diastolic` values.
 
-| `bp_category` | Threshold logic used in code |
-|---|---|
-| `Optimal` | SBP < 120 **and** DBP < 80 mmHg |
-| `Normal` | Highest reached level starts at SBP ≥ 120 **or** DBP ≥ 80 |
-| `High-normal` | Highest reached level starts at SBP ≥ 130 **or** DBP ≥ 85 |
-| `Stage 1` | Highest reached level starts at SBP ≥ 140 **or** DBP ≥ 90 |
-| `Stage 2` | Highest reached level starts at SBP ≥ 160 **or** DBP ≥ 100 |
-| `Stage 3` | Highest reached level starts at SBP ≥ 180 **or** DBP ≥ 110 |
+| Source measurement | Output column | Category | Exact rule | Categorized records | Final retained |
+|---|---|---|---|---:|---:|
+| `bp_systolic` | `sbp_category` | `<140 mmHg` | 0 < SBP < 140 | 395 | 351 |
+| `bp_systolic` | `sbp_category` | `>=140 mmHg` | SBP ≥ 140 | 135 | 125 |
+| **SBP total** | | | | **530** | **476** |
+| `bp_diastolic` | `dbp_category` | `<90 mmHg` | 0 < DBP < 90 | 468 | 417 |
+| `bp_diastolic` | `dbp_category` | `>=90 mmHg` | DBP ≥ 90 | 62 | 59 |
+| **DBP total** | | | | **530** | **476** |
 
-These are **mutually exclusive final categories** because the code assigns them in ascending order, overwriting earlier lower-level labels if a higher threshold is reached. A category describes **recorded blood-pressure measurements** and does not establish a clinical diagnosis or treatment status.
+Missing or non-positive values remain unassigned for the corresponding individual pressure category. A record can be assigned in one pressure variable even if the other is missing or non-positive; Notebook 03 separately checks both continuous pressures and their ordering. **No pressure category is used as an exclusion criterion simply because it is elevated.** The two thresholds describe measurements for analysis; they are not clinical diagnoses or treatment-status labels.
 
-| `bp_category` | Categorized records | Final retained |
-|---|---:|---:|
-| Optimal | 120 | 98 |
-| Normal | 131 | 123 |
-| High-normal | 118 | 106 |
-| Stage 1 | 122 | 111 |
-| Stage 2 | 35 | 34 |
-| Stage 3 | 4 | 4 |
-| **Total** | **530** | **476** |
+Because the categories are independent, a participant may have SBP ≥140 with DBP <90, or vice versa. For the final retained records, their joint distribution is:
+
+| SBP category | DBP `<90 mmHg` | DBP `>=90 mmHg` | Total |
+|---|---:|---:|---:|
+| `<140 mmHg` | 327 | 24 | 351 |
+| `>=140 mmHg` | 90 | 35 | 125 |
+| **Total** | **417** | **59** | **476** |
 
 ### 4.4 Age-dependent BMI categories
 
@@ -364,23 +362,23 @@ The implementation assigns the **older-person BMI thresholds from age 60 onward*
 
 ### 4.5 Categorization integrity checks
 
-Notebook 02 verifies that the number of rows is unchanged, that the original columns remain in their previous order, and that `source_excel_row` is unique. In the reproduced data, **all four factors were assigned for all 530 records**.
+Notebook 02 verifies that the number of rows is unchanged, that the original columns remain in their previous order, and that `source_excel_row` is unique. In the verified outputs, **all five categorical variables were assigned for all 530 records**. The previous composite `bp_category` is absent.
 
 **Normative sources listed in Notebook 02** (included here to document the basis used by the implementation):
 
 - MINSAL (2021), *Plan Nacional de Salud Integral para Personas Mayores*, Table 19: https://www.minsal.cl/wp-content/uploads/2021/11/Plan-Nacional-de-Salud-Integral-para-Personas-Mayores.pdf
-- MINSAL, *Guía Clínica 2010 — Hipertensión arterial primaria*, Table 2: https://www.minsal.cl/portal/url/item/7220fdc4341c44a9e04001011f0113b9.pdf
+- MINSAL, *Guía Clínica 2010 — Hipertensión arterial primaria*, Table 2 (historical source for the prior staged classification and the existing 140/90 mmHg cutoffs): https://www.minsal.cl/portal/url/item/7220fdc4341c44a9e04001011f0113b9.pdf
 - MINSAL, *Guía del Examen de Medicina Preventiva*: https://diprece.minsal.cl/wrdprss_minsal/wp-content/uploads/2014/09/GPC-Medicina-Preventiva.pdf
 - Chile, Decreto 20 (2022): https://www.leychile.cl/navegar?idNorma=1182129
 
-These references are reproduced from the notebook. This README documents the **implemented rules** and does not constitute a new independent clinical-guideline review.
+These references are retained from Notebook 02. The MINSAL 2010 source explains the origin of the existing 140/90 mmHg cutoffs, but the updated workflow uses **two independent binary measurement categories**, not the guideline's full staged classification. This README documents the **implemented rules** and does not constitute a new independent clinical-guideline review.
 
 ---
 
 ## 5. Notebook 03 — Final cohort construction
 
-**Input:** `outputs/dataset_categorized.csv` (**530 rows, 24 columns**)  
-**Outputs:** `outputs/dataset_final.csv` (**476 rows, 24 columns**) and `outputs/dataset_excluded.csv` (**54 rows, 26 columns**).
+**Input:** `outputs/dataset_categorized.csv` (**530 rows, 25 columns**)  
+**Outputs:** `outputs/dataset_final.csv` (**476 rows, 25 columns**) and `outputs/dataset_excluded.csv` (**54 rows, 27 columns**).
 
 This is the **first stage that removes rows from the retained analytical dataset**. A record is excluded if **any** specified rule is true. Every applicable rule is retained separately; the notebook never stops checking after the first reason.
 
@@ -390,7 +388,7 @@ This is the **first stage that removes rows from the retained analytical dataset
 |---|---|---|
 | Age | `age < 60` | 10 records |
 | Essential measurement missing | Missing in any of the seven HRV variables | 11 missing SDNN; 8 missing RMSSD; 1 missing HR; some overlap |
-| Essential factor missing | Missing age, sex, SBP, DBP, BMI, `age_group`, `sex_category`, `bp_category`, `bmi_category`, or `bmi_reference` | No such missing factors among observed records |
+| Essential factor missing | Missing age, sex, SBP, DBP, BMI, `age_group`, `sex_category`, `sbp_category`, `dbp_category`, `bmi_category`, or `bmi_reference` | No such missing factors among observed records |
 | Invalid sex | Sex not in {1, 2} | None |
 | Invalid age | Age < 0 or > 120 | None |
 | Invalid BP | SBP ≤ 0, DBP ≤ 0, or SBP ≤ DBP | None |
@@ -453,8 +451,8 @@ The separator in `dataset_excluded.csv` is the literal string ` | `. Each exclud
 
 ### 5.4 Output guarantees
 
-- `dataset_final.csv` includes **476 records** and **all 24 original categorized columns**, with no additional data changes.
-- `dataset_excluded.csv` includes **54 records**, **all 24 categorized columns**, and two additional fields: `exclusion_count` and `exclusion_reasons`.
+- `dataset_final.csv` includes **476 records** and **all 25 categorized columns**, with no additional data changes.
+- `dataset_excluded.csv` includes **54 records**, **all 25 categorized columns**, and two additional fields: `exclusion_count` and `exclusion_reasons`.
 - `source_excel_row` remains unique in each output; the retained and excluded sets are disjoint and their union equals the complete categorized dataset.
 - All seven HRV columns are complete (**zero missing values**) in `dataset_final.csv`, as required by the present complete-case rule.
 
@@ -479,11 +477,11 @@ The following checks are implemented:
 - Every source row with a row-level entry in `data_errors.csv` appears in `error_examples.csv`, and vice versa.
 - Every excluded record's `exclusion_count` matches the number of listed exclusion reasons.
 
-The reproduced outputs satisfy these checks.
+The reproduced outputs satisfy these checks. Notebook 04 additionally escapes literal `|` separators in combined exclusion reasons when exporting Markdown tables, preventing them from being interpreted as table-column delimiters. This formatting correction does not alter `exclusion_reasons` in the CSV files.
 
 ### 6.2 Factor distributions before and after filtering
 
-This table consolidates the observed factor sizes, without suggesting that category membership implies a clinical diagnosis.
+The updated summary reports the independently defined SBP and DBP categories instead of the obsolete six-level composite pressure category. Each variable's categories sum separately to its respective sample denominator.
 
 | Factor | Category | Before filtering (n=530) | Retained (n=476) |
 |---|---|---:|---:|
@@ -493,18 +491,16 @@ This table consolidates the observed factor sizes, without suggesting that categ
 | Age | `80+` | 40 | 37 |
 | Sex | Female | 366 | 333 |
 | Sex | Male | 164 | 143 |
-| BP | Optimal | 120 | 98 |
-| BP | Normal | 131 | 123 |
-| BP | High-normal | 118 | 106 |
-| BP | Stage 1 | 122 | 111 |
-| BP | Stage 2 | 35 | 34 |
-| BP | Stage 3 | 4 | 4 |
+| SBP | `<140 mmHg` | 395 | 351 |
+| SBP | `>=140 mmHg` | 135 | 125 |
+| DBP | `<90 mmHg` | 468 | 417 |
+| DBP | `>=90 mmHg` | 62 | 59 |
 | BMI | Underweight | 23 | 21 |
 | BMI | Normal | 155 | 136 |
 | BMI | Overweight | 166 | 145 |
 | BMI | Obesity | 186 | 174 |
 
-Each factor's categories sum separately to its respective denominator of 530 or 476.
+`bmi_reference` remains a separate metadata field: 10 input records use `MINSAL adult (<60)` and 520 use `MINSAL older person (>=60)`; all 476 retained records use the latter.
 
 ### 6.3 Age × sex in the retained sample
 
@@ -515,40 +511,44 @@ Each factor's categories sum separately to its respective denominator of 530 or 
 | `80+` | 27 | 10 | 37 |
 | **Total** | **333** | **143** | **476** |
 
-### 6.4 Blood pressure × BMI in the retained sample
+### 6.4 Systolic and diastolic blood pressure × BMI in the retained sample
 
-| BP category | Underweight | Normal | Overweight | Obesity | Total |
+**SBP category × BMI:**
+
+| SBP category | Underweight | Normal | Overweight | Obesity | Total |
 |---|---:|---:|---:|---:|---:|
-| Optimal | 5 | 33 | 26 | 34 | 98 |
-| Normal | 5 | 33 | 38 | 47 | 123 |
-| High-normal | 6 | 34 | 39 | 27 | 106 |
-| Stage 1 | 5 | 31 | 28 | 47 | 111 |
-| Stage 2 | 0 | 5 | 12 | 17 | 34 |
-| Stage 3 | 0 | 0 | 2 | 2 | 4 |
+| `<140 mmHg` | 18 | 104 | 109 | 120 | 351 |
+| `>=140 mmHg` | 3 | 32 | 36 | 54 | 125 |
+| **Total** | **21** | **136** | **145** | **174** | **476** |
+
+**DBP category × BMI:**
+
+| DBP category | Underweight | Normal | Overweight | Obesity | Total |
+|---|---:|---:|---:|---:|---:|
+| `<90 mmHg` | 19 | 124 | 129 | 145 | 417 |
+| `>=90 mmHg` | 2 | 12 | 16 | 29 | 59 |
 | **Total** | **21** | **136** | **145** | **174** | **476** |
 
 ### 6.5 Four-factor sample availability
 
-The potential full factorial structure in the retained sample is:
+Four-factor sample support is summarized **separately** for each blood-pressure measurement. The original three age groups, both sex groups, both pressure levels, and all four BMI groups are retained without collapsing or excluding small categories:
 
 $$
-3\ \text{age groups}\times 2\ \text{sex groups}\times 6\ \text{BP groups}\times 4\ \text{BMI groups}=144\ \text{possible cells}.
+3\ \text{age groups}\times 2\ \text{sex groups}\times 2\ \text{pressure levels}\times 4\ \text{BMI groups}=48\ \text{possible cells per pressure specification}.
 $$
 
-Observed cell occupancy is highly uneven:
+| Four-factor cell statistic | Age × sex × SBP × BMI | Age × sex × DBP × BMI |
+|---|---:|---:|
+| Theoretically possible combinations | 48 | 48 |
+| **Observed nonempty combinations** | **41** | **37** |
+| Empty combinations | 7 | 11 |
+| Occupied combinations with <5 records | **16** | **15** |
+| Occupied combinations with <10 records | **22** | **23** |
+| Smallest occupied combination | 1 | 1 |
+| Largest occupied combination | 50 | 60 |
+| Median occupied combination size | 9 | 6 |
 
-| Four-factor cell statistic | Result |
-|---|---:|
-| Theoretically possible category combinations | 144 |
-| **Observed nonempty combinations** | **93** |
-| Empty combinations | 51 |
-| Observed combinations with <5 participants | **58** |
-| Observed combinations with <10 participants | **77** |
-| Smallest observed combination | 1 participant |
-| Largest observed combination | 19 participants |
-| Median observed combination size | 3 participants |
-
-These are descriptive counts. They do **not** establish sufficient power for four-way factorial comparisons. Downstream analyses will need to account explicitly for small and empty cells; this preprocessing pipeline does not merge factor levels or decide the final statistical model.
+The number of possible combinations is **48 for each separate four-factor specification**, not the 144 cells associated with the obsolete six-level `bp_category`. These are descriptive support counts; they do **not** demonstrate that all high-order factorial interactions are estimable. The preprocessing workflow does not merge levels, remove small cells, or select downstream inferential models.
 
 ---
 
@@ -574,7 +574,7 @@ The code uses **Python, pandas, NumPy, pathlib, and Jupyter/IPython**. Reading `
 | `dataset_clean.csv` | Cleaned continuous measurements and administrative provenance before categorization | 530 |
 | `data_errors.csv` | Audit trail of edits, warnings, inconsistencies, and dataset-level notes | 183 entries |
 | `error_examples.csv` | Original source rows affected by at least one row-level issue | 155 |
-| `dataset_categorized.csv` | Complete sample with four categorical factors and BMI reference | 530 |
+| `dataset_categorized.csv` | Complete sample with five categorical variables (age, sex, SBP, DBP, BMI) and BMI reference | 530 |
 | `dataset_final.csv` | Main input to subsequent EDA and factor-based HRV analysis | **476** |
 | `dataset_excluded.csv` | Removed records with potentially multiple exclusion reasons | **54** |
 | `preprocessing_summary.md` | Human-readable, count-based summary produced by Notebook 04 | One report |
@@ -587,7 +587,7 @@ The raw Excel file remains the source of record. `dataset_clean.csv` is **not** 
 
 These points are important when interpreting the final dataset or describing sample selection in a manuscript.
 
-1. **Cross-sectional measurement categories are not diagnoses.** Blood-pressure classes, BMI categories, sex, and age are measured/recorded factors. No health-status labels were created.
+1. **Cross-sectional measurement categories are not diagnoses.** SBP and DBP are classified independently using 140/90 mmHg operational cutoffs. BMI categories, sex, and age are recorded/derived factors. No health-status labels were created.
 2. **The 60-year eligibility threshold is first applied in Notebook 03.** The ten records under 60 remain in intermediate datasets and are available for auditing.
 3. **BMI thresholds change at age 60 by study design.** This is transparent in `bmi_reference`. In particular, the treatment of participants aged 60–64 should be stated when describing the normative basis.
 4. **Sex-code interpretation has not been independently checked against the primary REDCap codebook.** The `1 = Female`, `2 = Male` mapping is the one explicitly implemented in Notebook 02.
@@ -597,7 +597,7 @@ These points are important when interpreting the final dataset or describing sam
 8. **An operational 10-bpm discrepancy cutoff controls HR/RR exclusions.** This is not a clinical standard. The notebook retains smaller screening discrepancies, and the choice should be reported or sensitivity-tested in downstream work.
 9. **Complete-case HRV filtering can alter sample composition.** The retained 476 records have nonmissing values for all seven HRV fields. A later analysis targeting fewer HRV variables could support a different eligible sample; the present preprocessing makes one explicit choice.
 10. **Outlying-but-valid values are not discarded solely for being unusual.** Notebook 01's screening ranges are diagnostic flags. In Notebook 03, exclusions follow the listed eligibility, missingness, invalid-value, HR/RR, and identical-profile rules.
-11. **The categorical factorial design is sparse.** Of 93 observed four-factor cells, 58 contain fewer than five records. Preprocessing is complete, but subsequent model design must consider cell sizes and factor-level combinations.
+11. **The categorical factorial design is sparse.** With the original age, sex, and BMI levels and binary pressure categories, 41/48 SBP-based and 37/48 DBP-based four-factor combinations are occupied; 16 and 15 occupied cells, respectively, have fewer than five records. Preprocessing is complete; model estimability and support must be evaluated during downstream analysis without modifying these source categories.
 12. **No clustering, statistical hypothesis tests, outcome modeling, imputation, longitudinal validation, or external cohort comparison is part of this workflow.** All of these would require separate methodological specifications.
 
 ## 9. Final dataset definition
@@ -605,12 +605,12 @@ These points are important when interpreting the final dataset or describing sam
 For the current pipeline, the **final analytical dataset** is `outputs/dataset_final.csv`:
 
 - **476 retained source records**, representing 89.8% of the original 530.
-- **24 columns**, including all retained cleaned source fields, source-row traceability, and five categorization/reference fields.
+- **25 columns**, including all retained cleaned source fields, source-row traceability, five categorical variables (`age_group`, `sex_category`, `sbp_category`, `dbp_category`, `bmi_category`), and `bmi_reference`.
 - Ages **60–89 years**.
 - **333 female-coded** and **143 male-coded** records under the implemented sex mapping.
 - **No missing values across the seven HRV measurements**.
-- Factor categories for age, sex, blood pressure, and age-appropriate BMI, as explicitly implemented in Notebook 02.
+- Original age and sex categories, **independent SBP and DBP binary categories**, and age-appropriate BMI categories, as implemented in the updated Notebook 02.
 
 The companion `outputs/dataset_excluded.csv` preserves the **54 excluded source records** with their original categorized columns, `exclusion_count`, and every recorded exclusion reason. Together, retained and excluded records account for **all 530 input rows without overlap or loss**.
 
-The next project stage can use `dataset_final.csv` for descriptive HRV characterization and planned single-factor, combined-factor, and multifactorial comparisons, provided the modeling strategy explicitly addresses the sparse factorial cells and the provisional QC exclusions documented above.
+The next project stage can use `dataset_final.csv` for descriptive HRV characterization and planned single-factor, combined-factor, and multifactorial comparisons. SBP and DBP remain separate variables; downstream four-factor specifications can examine each pressure dimension in turn while retaining the original age, sex, and BMI categories. Statistical analysis must report insufficient support or non-estimability where present; these conditions do not authorize additional preprocessing exclusions or category merging.

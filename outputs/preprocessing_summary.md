@@ -6,9 +6,9 @@ Based on the existing outputs of Notebooks 01, 02 and 03.
 | stage            |   participants |   columns |   percent_of_categorized |
 |:-----------------|---------------:|----------:|-------------------------:|
 | 01 — Cleaned     |            530 |        19 |                    100   |
-| 02 — Categorized |            530 |        24 |                    100   |
-| 03 — Retained    |            476 |        24 |                     89.8 |
-| 03 — Excluded    |             54 |        26 |                     10.2 |
+| 02 — Categorized |            530 |        25 |                    100   |
+| 03 — Retained    |            476 |        25 |                     89.8 |
+| 03 — Excluded    |             54 |        27 |                     10.2 |
 
 Retention: 476/530 (89.8%)
 Exclusion: 54/530 (10.2%)
@@ -61,15 +61,17 @@ Original error examples: 155 rows.
 | Female         |             366 |          333 |              69.1 |             70 |
 | Male           |             164 |          143 |              30.9 |             30 |
 
-### bp_category
-| bp_category   |   categorized_n |   retained_n |   categorized_pct |   retained_pct |
-|:--------------|----------------:|-------------:|------------------:|---------------:|
-| High-normal   |             118 |          106 |              22.3 |           22.3 |
-| Normal        |             131 |          123 |              24.7 |           25.8 |
-| Optimal       |             120 |           98 |              22.6 |           20.6 |
-| Stage 1       |             122 |          111 |              23   |           23.3 |
-| Stage 2       |              35 |           34 |               6.6 |            7.1 |
-| Stage 3       |               4 |            4 |               0.8 |            0.8 |
+### sbp_category
+| sbp_category   |   categorized_n |   retained_n |   categorized_pct |   retained_pct |
+|:---------------|----------------:|-------------:|------------------:|---------------:|
+| <140 mmHg      |             395 |          351 |              74.5 |           73.7 |
+| >=140 mmHg     |             135 |          125 |              25.5 |           26.3 |
+
+### dbp_category
+| dbp_category   |   categorized_n |   retained_n |   categorized_pct |   retained_pct |
+|:---------------|----------------:|-------------:|------------------:|---------------:|
+| <90 mmHg       |             468 |          417 |              88.3 |           87.6 |
+| >=90 mmHg      |              62 |           59 |              11.7 |           12.4 |
 
 ### bmi_category
 | bmi_category   |   categorized_n |   retained_n |   categorized_pct |   retained_pct |
@@ -104,17 +106,17 @@ Reasons are not mutually exclusive; counts should not be summed to obtain exclud
 |                         2 |              5 |
 
 ### Observed exclusion combinations
-| combined_reasons                             |   participants |
-|:---------------------------------------------|---------------:|
-| IDENTICAL_HRV_PROFILE                        |             15 |
-| HR_RR_FACTOR_10                              |             11 |
-| AGE_BELOW_60                                 |              9 |
-| MISSING_T2M_PRE_SDNN                         |              7 |
-| MISSING_T2M_PRE_SDNN | MISSING_T2M_PRE_RMSSD |              4 |
-| MISSING_T2M_PRE_RMSSD                        |              4 |
-| HR_RR_MAJOR_MISMATCH                         |              2 |
-| AGE_BELOW_60 | IDENTICAL_HRV_PROFILE         |              1 |
-| MISSING_T2M_PRE_MEAN_HR                      |              1 |
+| combined_reasons                              |   participants |
+|:----------------------------------------------|---------------:|
+| IDENTICAL_HRV_PROFILE                         |             15 |
+| HR_RR_FACTOR_10                               |             11 |
+| AGE_BELOW_60                                  |              9 |
+| MISSING_T2M_PRE_SDNN                          |              7 |
+| MISSING_T2M_PRE_SDNN \| MISSING_T2M_PRE_RMSSD |              4 |
+| MISSING_T2M_PRE_RMSSD                         |              4 |
+| HR_RR_MAJOR_MISMATCH                          |              2 |
+| AGE_BELOW_60 \| IDENTICAL_HRV_PROFILE         |              1 |
+| MISSING_T2M_PRE_MEAN_HR                       |              1 |
 
 ## Final sample: age by sex
 | age_group   |   Female |   Male |
@@ -123,18 +125,64 @@ Reasons are not mutually exclusive; counts should not be summed to obtain exclud
 | 70-79       |      156 |     85 |
 | 80+         |       27 |     10 |
 
-## Final sample: BP by BMI
-| bp_category   |   Normal |   Obesity |   Overweight |   Underweight |
-|:--------------|---------:|----------:|-------------:|--------------:|
-| High-normal   |       34 |        27 |           39 |             6 |
-| Normal        |       33 |        47 |           38 |             5 |
-| Optimal       |       33 |        34 |           26 |             5 |
-| Stage 1       |       31 |        47 |           28 |             5 |
-| Stage 2       |        5 |        17 |           12 |             0 |
-| Stage 3       |        0 |         2 |            2 |             0 |
+## Final sample: systolic BP by BMI
+| sbp_category   |   Normal |   Obesity |   Overweight |   Underweight |
+|:---------------|---------:|----------:|-------------:|--------------:|
+| <140 mmHg      |      104 |       120 |          109 |            18 |
+| >=140 mmHg     |       32 |        54 |           36 |             3 |
+
+## Final sample: diastolic BP by BMI
+| dbp_category   |   Normal |   Obesity |   Overweight |   Underweight |
+|:---------------|---------:|----------:|-------------:|--------------:|
+| <90 mmHg       |      124 |       145 |          129 |            19 |
+| >=90 mmHg      |       12 |        29 |           16 |             2 |
 
 ## Four-factor combinations
-Observed combinations: 93; fewer than five participants: 58; fewer than ten: 77.
+Age × sex × pressure × BMI is summarized separately for systolic and diastolic pressure.
+
+### Age × sex × sbp_category × BMI
+Observed combinations: 41; fewer than five participants: 16; fewer than ten: 22.
+
+Smallest observed groups:
+| age_group   | sex_category   | sbp_category   | bmi_category   |   participants |
+|:------------|:---------------|:---------------|:---------------|---------------:|
+| 60-69       | Female         | >=140 mmHg     | Underweight    |              1 |
+| 60-69       | Male           | >=140 mmHg     | Normal         |              1 |
+| 80+         | Female         | <140 mmHg      | Obesity        |              1 |
+| 80+         | Female         | <140 mmHg      | Underweight    |              1 |
+| 70-79       | Female         | >=140 mmHg     | Underweight    |              2 |
+| 70-79       | Male           | <140 mmHg      | Underweight    |              2 |
+| 80+         | Female         | >=140 mmHg     | Normal         |              2 |
+| 60-69       | Male           | <140 mmHg      | Underweight    |              2 |
+| 80+         | Male           | <140 mmHg      | Normal         |              2 |
+| 80+         | Male           | >=140 mmHg     | Normal         |              2 |
+| 80+         | Male           | >=140 mmHg     | Obesity        |              2 |
+| 80+         | Female         | >=140 mmHg     | Overweight     |              3 |
+| 60-69       | Male           | >=140 mmHg     | Overweight     |              3 |
+| 80+         | Female         | >=140 mmHg     | Obesity        |              3 |
+| 60-69       | Female         | <140 mmHg      | Underweight    |              3 |
+
+### Age × sex × dbp_category × BMI
+Observed combinations: 37; fewer than five participants: 15; fewer than ten: 23.
+
+Smallest observed groups:
+| age_group   | sex_category   | dbp_category   | bmi_category   |   participants |
+|:------------|:---------------|:---------------|:---------------|---------------:|
+| 60-69       | Male           | >=90 mmHg      | Normal         |              1 |
+| 70-79       | Male           | >=90 mmHg      | Underweight    |              1 |
+| 70-79       | Female         | >=90 mmHg      | Underweight    |              1 |
+| 70-79       | Female         | >=90 mmHg      | Normal         |              1 |
+| 70-79       | Male           | <90 mmHg       | Underweight    |              1 |
+| 80+         | Female         | <90 mmHg       | Underweight    |              1 |
+| 70-79       | Male           | >=90 mmHg      | Overweight     |              2 |
+| 60-69       | Male           | <90 mmHg       | Underweight    |              2 |
+| 80+         | Male           | <90 mmHg       | Obesity        |              2 |
+| 60-69       | Male           | >=90 mmHg      | Overweight     |              3 |
+| 70-79       | Male           | >=90 mmHg      | Normal         |              3 |
+| 80+         | Female         | <90 mmHg       | Obesity        |              4 |
+| 80+         | Male           | <90 mmHg       | Overweight     |              4 |
+| 80+         | Male           | <90 mmHg       | Normal         |              4 |
+| 60-69       | Female         | <90 mmHg       | Underweight    |              4 |
 
 ## Missing HRV values in the final sample
 | hrv_variable    |   missing_n |
