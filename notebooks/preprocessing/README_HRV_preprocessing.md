@@ -3,73 +3,95 @@
 ## Methodological README
 
 **Project:** Heart rate variability and physiological profiling in older adults from southern Chile  
-**Workflow:** `01_cleaning_and_validation.ipynb` → `02_variable_categorization.ipynb` → `03_final_cohort_construction.ipynb` → `04_preprocessing_summary.ipynb`  
+**Workflow:** `01_cleaning_and_validation.ipynb` → `01b_integrity_and_duplicate_review.ipynb` → `02_variable_categorization.ipynb` → `03_final_cohort_construction.ipynb` → `04_preprocessing_summary.ipynb`  
 **Starting source:** `Basal v2.xlsx`  
-**Version documented:** updated Notebooks 01–04 and their verified CSV and Markdown outputs, 26 November 2026  
-**Status:** descriptive documentation of the implemented preprocessing workflow and the results reproduced from its CSV outputs
+**Version documented:** 27 November 2026; five-stage workflow, based on the completed CSV outputs and `preprocessing_summary.md`  
+**Analytical decision:** retain the 407 records not flagged by Notebook 01b as the quality-screened dataset; exclude the 123 flagged records from the current analysis; subsequently restrict eligibility to ages ≥60, yielding **402 final analytical records**.  
+**Status:** preprocessing and current-version cohort selection completed. Quarantined records are retained for audit, but **are not part of the current analytical cohort**.
 
 ---
 
-## 1. Purpose and analytical scope
+## 1. Purpose, scope, and final decision
 
-This preprocessing workflow converts the original Excel workbook into a traceable, consistently typed, categorized, and quality-filtered analytical dataset for subsequent characterization of heart rate variability (HRV).
+This workflow converts the original Excel workbook into traceable, consistently typed, and categorized datasets for descriptive and factor-based heart rate variability (HRV) analysis. The primary outcomes are seven HRV and cardiac-interval measurements. The explanatory domains are **age, sex, systolic blood pressure (SBP), diastolic blood pressure (DBP), and body mass index (BMI)**. SBP and DBP are categorized separately and are alternative pressure factors in the planned four-domain combinations (age, sex, pressure, BMI).
 
-The intended downstream design considers **age, sex, systolic blood pressure (SBP), diastolic blood pressure (DBP), and body mass index (BMI) as explanatory variables**, initially in isolation and subsequently in factorial combinations. SBP and DBP are categorized independently; they are alternative pressure variables for the planned four-domain factorial comparisons (age, sex, pressure, BMI). HRV measurements will serve as the outcomes of interest in later exploratory and statistical analyses. This workflow does **not** identify healthy or diseased participants, assign clinical diagnoses, discover clusters, or perform inferential HRV comparisons.
+The preprocessing does not assign diagnoses or health-status labels, perform HRV hypothesis tests, discover patient clusters, or modify HRV values to make their distributions conform to a reference pattern.
 
-The four notebooks implement distinct operations:
+### 1.1 Agreed data-integrity decision
 
-1. **Cleaning and validation:** normalize numeric formats; verify derived measurements; flag unresolved inconsistencies; retain every original observation.
-2. **Variable categorization:** construct categorical factors using documented operational definitions, including Chilean Ministry of Health (MINSAL) classifications.
-3. **Final cohort construction:** apply explicit row-level exclusion rules and preserve *every applicable reason* for excluding a record.
-4. **Preprocessing summary:** verify consistency between outputs and summarize processing, category frequencies, exclusions, and factorial cell sizes without modifying data.
+Following examination of the flagged records, the study team and the data collaborator **Cristian** agreed to use the **407 records without individual quality-review flags** from Notebook 01b and to **set aside all 123 flagged records** for this version of the study. The source workbook combines observations from several projects, including older projects for which the source records are not all available in REDCap. Given this provenance and the unresolved matches or discrepancies, retaining only the quality-screened subset is the chosen conservative and parsimonious approach.
 
-**Record identity and terminology.** The input contains 530 rows. Each source row is treated as a participant record in the supplied notebooks. The workflow does not independently confirm participant identities or unique subject identifiers. Therefore, “participants” in its output refers operationally to input records; exact HRV matches are assessed separately.
+This decision has four important boundaries:
 
-### 1.1 Overall results
+1. **The 123 records are excluded from the current analysis**, not deleted from the source workbook or the audit outputs.
+2. A review flag **does not prove** that an observation was recorded incorrectly or that two records represent the same individual. The decision concerns acceptable evidence for inclusion in the **current analytical dataset**.
+3. The 407 quality-screened records are **not yet the age-eligible cohort**: five are younger than 60. The final dataset therefore contains **402 records**.
+4. If original documentation is obtained later, affected records can be reassessed and an explicitly versioned analysis can be repeated. **No such reassessment is required to proceed with the current 402-record analysis.**
 
-| Processing stage | Records | Columns | Main result |
+In particular, differences in the distribution of **SDNN**, including contrasts between portions of the spreadsheet, **are not treated as proof of measurement error, are not corrected, and are not an independent exclusion criterion**. The SDNN values retained in the final dataset are preserved as supplied after ordinary numeric parsing.
+
+### 1.2 Implemented stages
+
+1. **01 — Cleaning and validation:** import the complete workbook, normalize numeric formatting, check derived measurements, document warnings and corrections, and retain all source observations.
+2. **01b — Integrity and duplicate review:** inspect individual measurements and pairwise HRV resemblance; create a quality-screened dataset and a fully annotated suspected-record dataset. The separation is deterministic and does not change original measurements.
+3. **02 — Variable categorization:** categorize **only the 407 quality-screened records** for age, sex, SBP, DBP, and BMI while retaining their continuous measurements.
+4. **03 — Final cohort construction:** apply age eligibility and the programmed validity rules to the categorized quality-screened data; preserve all applicable reasons for any further exclusion.
+5. **04 — Preprocessing summary:** verify the complete partition and cross-stage consistency, and report cohort characteristics and factorial-cell support without changing any input datasets.
+
+### 1.3 Overall dataset flow
+
+| Processing stage | Records | Columns | Interpretation |
 |---|---:|---:|---|
-| Original Excel, first sheet | 530 | 20 | Source workbook; no age-based filtering |
-| 01 — Cleaned | 530 | 19 | Two empty export columns removed; provenance ID added; numeric checks and corrections |
-| 02 — Categorized | 530 | 25 | Six categorical/reference columns added; no records removed |
-| 03 — Retained | **476** | **25** | Analysis-ready sample under implemented eligibility and QC rules |
-| 03 — Excluded | **54** | **27** | All original categorized columns plus exclusion count and reasons |
-| 04 — Summary | — | — | Consolidated methodological and count report; no data changes |
+| Original Excel, first sheet | **530** | 20 | All input records |
+| 01 — `dataset_clean.csv` | **530** | 19 | Cleaned, with source-row tracking; no records removed |
+| 01b — `dataset_review_suspected.csv` | **123** | 29 | Quality-review flags; excluded from the current analysis by the agreed decision |
+| 01b — `dataset_review_clear.csv` | **407** | 19 | Quality-screened records passed to categorization |
+| 02 — `dataset_categorized.csv` | **407** | 25 | Quality-screened records plus six categorical/reference columns |
+| 03 — `dataset_excluded.csv` | **5** | 27 | Additional exclusions among the 407, all for age <60 |
+| 03 — `dataset_final.csv` | **402** | 25 | **Current age-eligible analytical cohort** |
+| 04 — `preprocessing_summary.md` | — | — | Consistency checks and descriptive processing report |
 
-**Final retention:** 476/530 = **89.8%**.  
-**Total exclusions:** 54/530 = **10.2%**.
+- **Quality-review exclusion:** 123/530 = **23.2%**.
+- **Quality-screened subset:** 407/530 = **76.8%**.
+- **Age exclusions after quality screening:** 5/530 = **0.9%** (5/407 = **1.2%** of quality-screened records).
+- **Final analytical retention:** 402/530 = **75.8%**.
+- **Exclusions from the final cohort, by non-overlapping stage:** 123 quality-review records + 5 subsequent age exclusions = **128/530 (24.2%)**.
 
-The final retained records are aged **60–89 years**. The ten input records younger than 60 were retained during cleaning and categorization and excluded only in Notebook 03.
+**Important distinction:** the phrase “407 clean records” in the collaborator's decision refers to the quality-screened output of 01b. For the study of older adults, **`dataset_final.csv` with 402 records is the definitive input for downstream EDA**. Neither the old 476-record dataset nor all 407 age-unrestricted records should be substituted for it.
+
+### 1.4 Source record identity
+
+The workbook has 530 data rows, each assigned a unique `source_excel_row` corresponding to its Excel row number, **2–531** (row 1 contains headers). The data do not establish independently verified unique participant identifiers. Accordingly, a “record” is the precise operational unit of the workflow; reported counts should not be interpreted as a verified count of distinct people independent of the source records.
 
 ---
 
-## 2. Input data and provenance
+## 2. Original data, units, and provenance
 
-### 2.1 Original data
+### 2.1 Source variables
 
-The first worksheet of `Basal v2.xlsx` contains 530 rows and 20 columns. The recorded domains are:
+The first worksheet of `Basal v2.xlsx` has **530 rows and 20 columns**.
 
-| Domain | Source variables | Interpretation for preprocessing |
+| Domain | Source fields | Meaning |
 |---|---|---|
-| Demographic | `age`, `sex` | Age in years; sex coded numerically |
-| HRV / cardiac interval | `t2m_pre_mean_rr`, `t2m_pre_mean_hr` | Mean RR interval and mean heart rate |
+| Demographics | `age`, `sex` | Age in years; coded sex |
+| Mean interval/rate | `t2m_pre_mean_rr`, `t2m_pre_mean_hr` | Mean RR interval and mean heart rate |
 | Time-domain HRV | `t2m_pre_sdnn`, `t2m_pre_rmssd` | SDNN and RMSSD |
-| Frequency-domain HRV | `t2m_pre_hf`, `t2m_pre_lf`, `t2m_pre_vlf` | HF, LF, VLF |
-| Blood pressure | `bp_systolic`, `bp_diastolic`, `bp_pam`, `bp_pp` | Systolic, diastolic, mean arterial and pulse pressure |
-| Anthropometry | `weight kg`, `height cm`, `height mt`, `imc` | Weight, height in two units and recorded BMI |
-| Export/administrative | `Unnamed: 0`, `Unnamed: 1`, `redcap_repeat_instrument` | Spreadsheet export fields |
+| Frequency-domain HRV | `t2m_pre_hf`, `t2m_pre_lf`, `t2m_pre_vlf` | HF, LF, and VLF |
+| Blood pressure | `bp_systolic`, `bp_diastolic`, `bp_pam`, `bp_pp` | Systolic, diastolic, mean arterial, and pulse pressure |
+| Anthropometry | `weight kg`, `height cm`, `height mt`, `imc` | Weight, height, and BMI |
+| Administrative/export | `Unnamed: 0`, `Unnamed: 1`, `redcap_repeat_instrument` | Nonanalytical spreadsheet/export fields |
 
-Original units are preserved; the workflow does not rescale HRV measurements. The numerical thresholds used in validation assume mean RR in milliseconds, mean HR in beats/minute, blood pressure in mmHg, weight in kilograms, and height in centimeters/meters.
+The workflow **does not rescale any HRV variables**. For operational arithmetic checks, it assumes RR in milliseconds, HR in beats/minute, blood pressure in mmHg, weight in kilograms, and height in centimeters/meters. These checks do not authorize altering HRV values on the basis of their distribution.
 
-### 2.2 Provenance tracking
+### 2.2 Traceability and preservation
 
-Notebook 01 inserts `source_excel_row` using the original Excel row number, with the header at row 1. Source records are therefore referenced as **Excel rows 2–531**, inclusive. All downstream datasets retain this unique source-row identifier.
+- `source_excel_row` is retained in all tabular outputs.
+- `Basal v2.xlsx` is never overwritten.
+- `data_errors.csv` and `error_examples.csv` retain evidence for parsing and source-value reviews.
+- The 123 records removed from the current analytical route remain individually identifiable in `dataset_review_suspected.csv`, with their source values, grouping, and reasons.
+- The final 402 source IDs, the five age-excluded IDs, and the 123 quality-review IDs are **disjoint and together account for all 530 source rows**.
 
-The original workbook is not overwritten. A separate processing log stores source values, processed values, correction actions, and row-level details when applicable.
-
-### 2.3 Notebook and file layout
-
-The supplied notebooks use the following paths relative to their location:
+### 2.3 Folder and file layout
 
 ```text
 project/
@@ -78,6 +100,7 @@ project/
 ├── notebooks/
 │   └── preprocessing/
 │       ├── 01_cleaning_and_validation.ipynb
+│       ├── 01b_integrity_and_duplicate_review.ipynb
 │       ├── 02_variable_categorization.ipynb
 │       ├── 03_final_cohort_construction.ipynb
 │       └── 04_preprocessing_summary.ipynb
@@ -85,117 +108,67 @@ project/
     ├── dataset_clean.csv
     ├── data_errors.csv
     ├── error_examples.csv
+    ├── dataset_review_clear.csv
+    ├── dataset_review_suspected.csv
     ├── dataset_categorized.csv
     ├── dataset_final.csv
     ├── dataset_excluded.csv
     └── preprocessing_summary.md
 ```
 
-The paths in the notebooks are configurable; placing them in a different directory requires updating the corresponding `INPUT_FILE`, `OUTPUT_FILE`, or `OUTPUT_DIR` constants.
+Paths are relative to the notebook working directory as implemented. If the project structure changes, update the path constants in the notebooks without editing generated CSV outputs by hand.
 
 ---
 
 ## 3. Notebook 01 — Cleaning and validation
 
-**Input:** `raw_data/Basal v2.xlsx`  
-**Outputs:** `dataset_clean.csv`, `data_errors.csv`, `error_examples.csv`  
-**Record exclusions:** none.
+**Input:** `../../raw_data/Basal v2.xlsx`  
+**Outputs:** `dataset_clean.csv` (530 × 19), `data_errors.csv` (183 entries), `error_examples.csv` (155 source records).  
+**Source records excluded:** **0**.
 
-### 3.1 Structural processing
+### 3.1 Structural and numeric processing
 
-- Read the first Excel worksheet with `pandas.read_excel()` and retain an unmodified in-memory copy for audit examples.
-- Add `source_excel_row` to trace processed rows back to the original workbook.
-- Remove the two completely empty export columns `Unnamed: 0` and `Unnamed: 1`.
-- Retain the administrative `redcap_repeat_instrument` field as implemented in the notebook; it is not used as an analytical factor or exclusion rule.
-- Rename only three measurement columns to code-friendly identifiers:
+- Read the first Excel worksheet and preserve an in-memory original for audit examples.
+- Insert unique `source_excel_row`.
+- Remove two empty export fields: `Unnamed: 0` and `Unnamed: 1`.
+- Retain `redcap_repeat_instrument` as an administrative/provenance field, not an analytical factor.
+- Rename `weight kg` → `weight_kg`, `height cm` → `height_cm`, and `height mt` → `height_m`.
+- Normalize the 17 expected numeric fields by stripping embedded whitespace in textual values, converting comma decimals to period decimals, and applying numeric parsing with logging of unparseable text.
 
-| Original column | Processed column |
-|---|---|
-| `weight kg` | `weight_kg` |
-| `height cm` | `height_cm` |
-| `height mt` | `height_m` |
+**Observed:** 97 RMSSD values stored as text were successfully converted. Eight RMSSD values remained missing. Neither step changes the definition or unit of RMSSD.
 
-All seven HRV variables, demographic variables, and blood-pressure values retain their original variable names. After two columns are removed and `source_excel_row` is added, the processed dataset contains **19 columns**.
+### 3.2 Height, BMI, and pressure checks
 
-### 3.2 Numeric format normalization
+Height consistency is evaluated against
 
-The notebook processes the 17 expected numeric columns (`sex`, `age`, seven HRV measurements, four blood-pressure measures, `imc`, `weight_kg`, `height_cm`, and `height_m`). For object-typed columns, it removes whitespace from character representations, replaces comma decimal separators with periods, and applies `pandas.to_numeric(..., errors="coerce")`.
-
-- **97** entries in `t2m_pre_rmssd` were recognized as numeric values stored as text and converted.
-- **8** RMSSD values remained missing; these were **not imputed**.
-- Any text value that cannot be parsed numerically is converted to missing and logged for review under the `unparseable_number` rule. No such occurrences appear in the reproduced issue-count table.
-
-### 3.3 Height consistency and correction
-
-For rows with valid height measurements in both units, the expected relationship is:
-
-$$
+\[
 \mathrm{height_m}=\frac{\mathrm{height_{cm}}}{100}.
-$$
+\]
 
-**Rule:** if both measurements are positive and their absolute difference exceeds **0.01 m**, the value calculated from `height_cm` replaces `height_m`. When meters are missing but centimeters are positive, meters are reconstructed. Conversely, when centimeters are missing but meters are positive, centimeters are reconstructed.
+For two positive measurements, disagreements exceeding **0.01 m** are resolved by taking `height_cm` as the operational reference and recomputing `height_m`. A missing height unit can also be reconstructed from the other valid unit. **Nine original Excel rows (446–454)** had height disagreements logged and corrected.
 
-**Observed results:**
+BMI consistency is evaluated against
 
-- **9 height disagreements** were corrected using `height_cm` as the reference.
-- The nine corrections involve original Excel rows **446–454**.
-- The notebook records the original and replacement values under `height_disagreement` / `corrected_from_height_cm`.
-
-The procedure assumes that centimeters are the authoritative source when two nonmissing height fields disagree. This assumption is explicit in the code; it is not an independent verification against clinical source documents.
-
-### 3.4 BMI verification and correction
-
-BMI is calculated as:
-
-$$
+\[
 \mathrm{BMI}=\frac{\mathrm{weight_{kg}}}{\mathrm{height_m}^{2}}.
-$$
+\]
 
-With positive weight and height, an existing `imc` value is replaced when its absolute difference from the recalculated BMI exceeds **0.10 kg/m²**. Missing BMI values are calculated when the two input variables are available.
+Stored `imc` is recomputed if the absolute difference from calculated BMI exceeds **0.10 kg/m²**; missing BMI can be calculated from valid source weight and height. **Nine BMI disagreements** were logged and corrected in the same source rows 446–454. These corrections are part of the complete cleaned record, but **the affected records also fall in the 01b quality-review quarantine and therefore do not contribute to the current final cohort**.
 
-**Observed results:**
+For positive pressures with SBP > DBP, the notebook checks
 
-- **9 BMI disagreements** were corrected.
-- They occur in the same original Excel rows **446–454**, after the height correction.
-- The action is logged as `recomputed_from_weight_and_height`.
-
-No BMI category is assigned at this stage. The recalculated continuous BMI remains in `imc` and is used for categorization in Notebook 02.
-
-### 3.5 Blood-pressure derivative verification
-
-The notebook verifies deterministic relationships using positive systolic and diastolic pressures and **SBP > DBP**:
-
-$$
-\mathrm{PP}=\mathrm{SBP}-\mathrm{DBP}
-$$
-
-$$
+\[
+\mathrm{PP}=\mathrm{SBP}-\mathrm{DBP}, \qquad
 \mathrm{MAP}=\mathrm{DBP}+\frac{\mathrm{SBP}-\mathrm{DBP}}{3}.
-$$
+\]
 
-The implemented tolerances for recomputing an existing stored value are:
+The implemented correction tolerances are **0.01 mmHg** for `bp_pp` and **0.10 mmHg** for `bp_pam`. The supplied outputs required **no** PP or MAP corrections.
 
-| Derived measure | Column | Correction tolerance |
-|---|---|---:|
-| Pulse pressure | `bp_pp` | Absolute difference > **0.01 mmHg** |
-| Mean arterial pressure | `bp_pam` | Absolute difference > **0.10 mmHg** |
+### 3.3 Missing data and range-review flags
 
-Missing derivatives are filled where both source pressures satisfy the validity conditions. **The reproduced run required no MAP or PP corrections**. These fields remain in the processed CSV; deciding which redundant predictors to use is outside this preprocessing stage.
+The cleaned source has **20 missing cells** among the expected numeric fields: 11 SDNN, 8 RMSSD, and 1 mean HR. Missing values are not imputed.
 
-### 3.6 Missing data and range screening
-
-The notebook records missing values for expected quantitative columns but does not impute them or exclude their rows. The recorded **20 missing quantitative cells** comprise:
-
-| Measurement | Missing cells |
-|---|---:|
-| `t2m_pre_sdnn` | 11 |
-| `t2m_pre_rmssd` | 8 |
-| `t2m_pre_mean_hr` | 1 |
-| **Total** | **20** |
-
-The basic screening intervals below are **review flags, not automatic exclusion thresholds**:
-
-| Column | Inclusive screening interval |
+| Field | Inclusive review interval |
 |---|---|
 | `age` | 18–100 years |
 | `weight_kg` | 30–250 kg |
@@ -210,407 +183,393 @@ The basic screening intervals below are **review flags, not automatic exclusion 
 | `t2m_pre_rmssd` | 0–500, in source units |
 | `t2m_pre_hf`, `t2m_pre_lf`, `t2m_pre_vlf` | 0–100,000, in source units |
 
-**Observed:** 14 `outside_review_range` entries, consisting of **10 mean RR**, **3 SDNN**, and **1 mean HR** values. Their source values were retained at this stage. The notebook also checks for SBP ≤ DBP; no such event appears in the reproduced issue log.
+These intervals trigger **review warnings**, not transformations or physiological judgments. The 14 range flags comprise 10 mean RR, 3 SDNN, and 1 mean HR values. The three SDNN range flags do **not** imply that SDNN is generally faulty.
 
-### 3.7 Mean HR and mean RR agreement
+Mean HR/RR consistency is screened using
 
-For positive observed mean HR and mean RR, the notebook calculates:
+\[
+\mathrm{HR_{from\ RR}}=\frac{60000}{\mathrm{mean\ RR\ (ms)}},\qquad
+R=\frac{\mathrm{HR}\times\mathrm{RR}}{60000}.
+\]
 
-$$
-\mathrm{HR_{estimated}}=\frac{60,000}{\mathrm{mean\ RR\ (ms)}}
-$$
+A difference greater than **2 beats/min** is logged, and a possible tenfold pattern is identified when `R` is near 0.1 or 10 (3% relative tolerance). The source contains **11 factor-ten-pattern flags** and **4 other HR/RR disagreements**. No HR or RR values are automatically replaced.
 
-$$
-R=\frac{\mathrm{HR_{observed}}\times\mathrm{mean\ RR}}{60,000}.
-$$
+### 3.4 Exact original HRV matches
 
-A discrepancy is logged when the difference between observed and estimated HR exceeds **2 beats/min**. A potential tenfold pattern is identified when the ratio \(R\) is approximately 0.1 or 10 within **3% relative tolerance** (`numpy.isclose` with `rtol=0.03`).
+Notebook 01 checks exact equality across all seven HRV fields (`mean_rr`, `mean_hr`, `sdnn`, `rmssd`, `hf`, `lf`, `vlf`), for rows with complete seven-variable data. It logs **8 matching pairs (16 records)**. No complete source-row duplicates were logged. A matching profile is an integrity-review signal, not independently established participant duplication.
 
-**Observed:**
+### 3.5 Issue log accounting
 
-- **11** entries classified as `hr_rr_factor_10_pattern`.
-- **4** entries classified as `hr_rr_disagreement` without a tenfold signature.
-- **15** flagged records in total.
-
-The notebook **does not automatically change HR or RR**. The 2-bpm rule is a screening threshold; Notebook 03 applies a stricter exclusion rule. Because an average of instantaneous heart rates need not equal the reciprocal of an average RR interval exactly, modest differences are not automatically treated as transcription errors.
-
-### 3.8 Identical HRV profiles and full-row duplicates
-
-The notebook checks exact equality across all **seven original HRV measurements**:
-
-1. `t2m_pre_mean_rr`
-2. `t2m_pre_mean_hr`
-3. `t2m_pre_sdnn`
-4. `t2m_pre_rmssd`
-5. `t2m_pre_hf`
-6. `t2m_pre_lf`
-7. `t2m_pre_vlf`
-
-Only rows complete across these seven variables are eligible for this comparison. When two or more records match exactly, **each matching row** receives an `identical_hrv_profile` log entry with the matching Excel row numbers.
-
-**Observed:** **8 matching pairs**, comprising **16 records**. Separately, exact duplication across the complete original nonempty dataset is checked; no full-row duplicate event was logged.
-
-Exact equality is a data-integrity concern, **not proof that records represent the same participant**. The original clinical recordings would be needed to resolve which, if any, record is incorrect.
-
-### 3.9 Notebook 01 outputs and issue accounting
-
-| Output | Content |
-|---|---|
-| `dataset_clean.csv` | All 530 processed records; 19 columns; numeric corrections applied; no row exclusion |
-| `data_errors.csv` | One entry per detected anomaly, correction, or structural note, including original value, processed value, action, source row, and explanation |
-| `error_examples.csv` | Unmodified original workbook rows for records that have row-level issues, plus issue labels and selected processed comparison values |
-
-The reproduced run generated **183 issue-log entries** affecting **155 distinct source records**. Three entries are dataset-level structural/metadata notes without a participant row. The issue counts are:
-
-| Issue code | Entries | Processing action |
+| `issue` | Log entries | Treatment in Notebook 01 |
 |---|---:|---|
-| `text_number` | 97 | Converted numeric text to numeric |
-| `missing_value` | 20 | Left missing; no imputation |
-| `identical_hrv_profile` | 16 | Flagged, left unchanged |
-| `outside_review_range` | 14 | Flagged, left unchanged |
-| `hr_rr_factor_10_pattern` | 11 | Flagged, left unchanged |
-| `height_disagreement` | 9 | Corrected from centimeters |
+| `text_number` | 97 | Converted numeric text |
+| `missing_value` | 20 | Left missing |
+| `identical_hrv_profile` | 16 | Review flag |
+| `outside_review_range` | 14 | Review flag |
+| `hr_rr_factor_10_pattern` | 11 | Review flag |
+| `height_disagreement` | 9 | Recomputed from centimeters |
 | `bmi_disagreement` | 9 | Recomputed from weight and height |
-| `hr_rr_disagreement` | 4 | Flagged, left unchanged |
-| `empty_column` | 2 | Removed empty export columns |
-| `empty_metadata_column` | 1 | Retained field; dataset-level note |
-| **Total** | **183** | **Not 183 unique participants** |
+| `hr_rr_disagreement` | 4 | Review flag |
+| `empty_column` | 2 | Removed export columns |
+| `empty_metadata_column` | 1 | Retained field and dataset-level note |
+| **Total** | **183** | **Not 183 distinct records** |
 
-The output contains **155 original example rows**, corresponding to the 155 source rows with logged issues. Rows may carry multiple issues.
+The source-row audit file contains **155 rows with at least one row-level issue**, and dataset-level notes are distinguished from row-level events. The log does not itself constitute an exclusion list.
 
 ---
 
-## 4. Notebook 02 — Variable categorization
+## 4. Notebook 01b — Integrity and duplicate review
 
-**Input:** `outputs/dataset_clean.csv` (**530 rows, 19 columns**)  
-**Output:** `outputs/dataset_categorized.csv` (**530 rows, 25 columns**)  
-**Record exclusions:** none.
+**Inputs:** `../../outputs/dataset_clean.csv` and `../../outputs/data_errors.csv`.  
+**Outputs:** `dataset_review_clear.csv` (**407 × 19**) and `dataset_review_suspected.csv` (**123 × 29**).  
+**Role:** identify records under the pre-specified quality-review criteria, preserve their evidence, and separate them **before categorization**.
 
-The notebook appends **five independently defined categorical variables**—`age_group`, `sex_category`, `sbp_category`, `dbp_category`, and `bmi_category`—plus `bmi_reference` to record the BMI classification in use. `sbp_category` and `dbp_category` replace the previous composite `bp_category`; there is no `bp_category` field in the revised outputs. All prior columns and original continuous measurements are preserved. A record below age 60 receives categories at this stage and is excluded only in Notebook 03.
+### 4.1 Individual record review
 
-### 4.1 Age groups
+The notebook flags any record that meets one or more of the following conditions:
 
-Age categories are operational study bands, not a MINSAL-prescribed four-bin classification:
+- Missing expected numeric measurement (including HRV, anthropometry, pressure, sex, or age).
+- Invalid sex code (accepted codes: **1 = Female**, **2 = Male**); invalid age; invalid pressure ordering; nonpositive required measurement; or negative HRV values.
+- Measurement outside the documented screening intervals, recorded as a **review warning**, not proof of an invalid measurement.
+- Possible tenfold HR/RR discrepancy or other HR/RR difference exceeding **2 beats/min**.
+- Height or BMI source disagreement that was corrected and logged in Notebook 01; unparseable source numeric values are also auditable if present.
 
-| `age_group` | Age rule | Categorized records | Final retained |
+Successfully converted numeric text is **not** by itself a reason for quarantine; nor does an ordinary SDNN distributional difference create an individual flag.
+
+### 4.2 Pairwise HRV similarity review
+
+The notebook compares pairs of records on the seven HRV fields. At least five simultaneously observed, exactly matching HRV measurements are needed to consider the implemented matching patterns. The classification is:
+
+| Pair code | Exact implemented meaning | Observed pairs | Records |
 |---|---|---:|---:|
-| `<60` | Age < 60 | 10 | 0 |
-| `60-69` | 60 ≤ age < 70 | 219 | 198 |
-| `70-79` | 70 ≤ age < 80 | 261 | 241 |
-| `80+` | Age ≥ 80 | 40 | 37 |
-| **Total** | | **530** | **476** |
+| `HF_VLF_SWAPPED` | Core HRV measurements RR, HR, SDNN, RMSSD and LF agree; HF and VLF exchange values between records | **33** | **66** |
+| `EXACT_SEVEN_HRV` | All seven HRV variables exactly agree | **8** | **16** |
+| `NEAR_HRV_MATCH` | Core RR, HR, SDNN and RMSSD match with at least five matching observed HRV values, without meeting a stronger case | **3** | **6** |
+| `PARTIAL_HRV_MATCH` | All comparable HRV variables match, but fewer than seven are jointly observed, with at least five matching | **1** | **2** |
+| **Total** | | **45** | **90** |
 
-The age-60 boundary reflects the study's older-person population definition. The decade bands are explicitly study-defined.
+These are **pairwise audit relationships**, not confirmed duplicated individuals. All members of each suspicious pair are set aside by the agreed analytical decision; no arbitrary first/last record is retained.
 
-### 4.2 Sex
+The especially structured HF/VLF pattern consists of paired Excel rows **422–454** and **455–487** (33 pairings). The original comparisons also showed systematic differences in coded sex for many pairs. The workbook aggregates projects with incomplete common REDCap provenance, so the current decision is **exclusion from analysis**, not speculative repair of the source measurements.
 
-The notebook maps the available numeric codes as follows:
+### 4.3 Group construction and audit schema
 
-| Source `sex` code | `sex_category` | Categorized records | Final retained |
+The notebook constructs linked groups of pairs using a union-find procedure. In the actual data, it identified **45 paired groups of size 2 (90 records)** and **33 individually flagged singletons**, totaling **123 quarantined records**. The algorithm also supports larger connected groups if future data require them.
+
+`dataset_review_suspected.csv` includes the 19 processed source columns and these 10 review columns:
+
+| Column | Contents |
+|---|---|
+| `review_status` | Technical review label, `PENDING_SOURCE_REVIEW` |
+| `review_group_id` | Linked-pair identifier `P####` or singleton identifier `S####` |
+| `group_size` | Number of members in the audit group |
+| `group_members_excel_rows` | Excel source rows of every group member |
+| `group_pair_patterns` | Pair pattern code(s) identified in the group |
+| `review_reason_count` | Number of distinct review reason codes per record |
+| `review_reason_codes` | All applicable reason codes; separated by `; ` |
+| `review_affected_columns` | Fields involved in the findings |
+| `review_justification` | Per-record evidence and source/processed value details |
+| `group_pair_evidence` | Explicit pairwise matches, discrepancies, and context differences |
+
+**Interpretation of `review_status`:** the CSV retains the literal `PENDING_SOURCE_REVIEW` status assigned by the notebook. This denotes **unverified source-level findings**. It does **not** overturn the subsequent **study-level decision to exclude all 123 from the current analyses**. No retrospective rewriting of that output status was performed merely to document the decision.
+
+### 4.4 Actual review-reason frequencies
+
+Reason counts are **not mutually exclusive**: one record may have both a pair match and an individual warning, and every record in a pair carries the applicable pair code.
+
+| `review_reason_codes` entry | Flagged records |
+|---|---:|
+| `HF_VLF_SWAPPED` | 66 |
+| `EXACT_SEVEN_HRV` | 16 |
+| `MISSING_NUMERIC_MEASUREMENT` | 16 |
+| `OUTSIDE_REVIEW_RANGE` | 14 |
+| `HR_RR_FACTOR_TEN_PATTERN` | 11 |
+| `SOURCE_BMI_DISAGREEMENT_CORRECTED` | 9 |
+| `SOURCE_HEIGHT_DISAGREEMENT_CORRECTED` | 9 |
+| `NEAR_HRV_MATCH` | 6 |
+| `HR_RR_REVIEW_DISAGREEMENT` | 4 |
+| `PARTIAL_HRV_MATCH` | 2 |
+
+**Total distinct quarantined records: 123**, regardless of the sum of reason counts.
+
+The 01b notebook also prints an exploratory contrast of SDNN/RMSSD across spreadsheet row order. This diagnostic is **not a validated measurement-error test**, does not add records to the quarantine list, does not alter SDNN, and is **not grounds for further exclusions**.
+
+### 4.5 Quality-screening guarantees and study decision
+
+- All **530** cleaned records are accounted for: **407 clear + 123 suspected**.
+- The two outputs have disjoint unique source-row identifiers.
+- The original **19 cleaned columns have exactly the same values** in both outputs as in `dataset_clean.csv`.
+- Every suspected record retains its reasons and evidence in the audit output.
+- The current analysis proceeds **only with `dataset_review_clear.csv`**; `dataset_review_suspected.csv` is preserved, not reintroduced during categorization or cohort construction.
+
+---
+
+## 5. Notebook 02 — Variable categorization
+
+**Input:** `../../outputs/dataset_review_clear.csv` (**407 × 19**).  
+**Output:** `../../outputs/dataset_categorized.csv` (**407 × 25**).  
+**Record exclusions:** none.  
+**New columns:** `age_group`, `sex_category`, `sbp_category`, `dbp_category`, `bmi_category`, `bmi_reference`.
+
+Only records cleared by 01b are categorized. The original 19 fields and continuous measurements remain unchanged. The five age-ineligible records still receive categories and are excluded only by Notebook 03.
+
+### 5.1 Age groups
+
+The four age groups are **study-defined bands**, not a prescribed four-bin MINSAL standard.
+
+| `age_group` | Operational rule | Categorized (n=407) | Final (n=402) |
 |---|---|---:|---:|
-| 1 | Female | 366 | 333 |
-| 2 | Male | 164 | 143 |
-| **Total** | | **530** | **476** |
+| `<60` | Age <60 | 5 | 0 |
+| `60-69` | 60 ≤ age <70 | 184 | 184 |
+| `70-79` | 70 ≤ age <80 | 190 | 190 |
+| `80+` | Age ≥80 | 28 | 28 |
+| **Total** | | **407** | **402** |
 
-The mapping follows the sex distribution used in the original manuscript and is marked in Notebook 02 as requiring confirmation if a primary REDCap codebook becomes available. The original numeric code is retained.
+The 60-year age threshold is implemented as an **eligibility** criterion in Notebook 03, not as a cleaning operation.
 
-### 4.3 Independent blood-pressure categories
+### 5.2 Sex
 
-Notebook 02 categorizes **systolic** and **diastolic** blood pressure independently, using the existing 140 mmHg and 90 mmHg operational cutoffs. The previous combined six-level `bp_category` (`Optimal`, `Normal`, `High-normal`, `Stage 1`, `Stage 2`, `Stage 3`) is **not generated** by the updated workflow. The categorical variables do not replace or modify the continuous `bp_systolic` and `bp_diastolic` values.
+The source-code mapping was confirmed for this study: **`1 = Female`, `2 = Male`**.
 
-| Source measurement | Output column | Category | Exact rule | Categorized records | Final retained |
+| Source code | `sex_category` | Categorized | Final |
+|---|---|---:|---:|
+| `1` | Female | 299 | 294 |
+| `2` | Male | 108 | 108 |
+| **Total** | | **407** | **402** |
+
+### 5.3 Independent blood-pressure categories
+
+The notebook uses independent binary definitions for SBP and DBP, without creating the former composite `bp_category` and without treating a category as a diagnosis.
+
+| Source field | Output factor | Level | Operational rule | Categorized | Final |
 |---|---|---|---|---:|---:|
-| `bp_systolic` | `sbp_category` | `<140 mmHg` | 0 < SBP < 140 | 395 | 351 |
-| `bp_systolic` | `sbp_category` | `>=140 mmHg` | SBP ≥ 140 | 135 | 125 |
-| **SBP total** | | | | **530** | **476** |
-| `bp_diastolic` | `dbp_category` | `<90 mmHg` | 0 < DBP < 90 | 468 | 417 |
-| `bp_diastolic` | `dbp_category` | `>=90 mmHg` | DBP ≥ 90 | 62 | 59 |
-| **DBP total** | | | | **530** | **476** |
+| `bp_systolic` | `sbp_category` | `<140 mmHg` | 0 < SBP <140 | 303 | 298 |
+| `bp_systolic` | `sbp_category` | `>=140 mmHg` | SBP ≥140 | 104 | 104 |
+| **SBP total** | | | | **407** | **402** |
+| `bp_diastolic` | `dbp_category` | `<90 mmHg` | 0 < DBP <90 | 359 | 354 |
+| `bp_diastolic` | `dbp_category` | `>=90 mmHg` | DBP ≥90 | 48 | 48 |
+| **DBP total** | | | | **407** | **402** |
 
-Missing or non-positive values remain unassigned for the corresponding individual pressure category. A record can be assigned in one pressure variable even if the other is missing or non-positive; Notebook 03 separately checks both continuous pressures and their ordering. **No pressure category is used as an exclusion criterion simply because it is elevated.** The two thresholds describe measurements for analysis; they are not clinical diagnoses or treatment-status labels.
+Missing or nonpositive pressure measurements would remain uncategorized for that factor and be evaluated in the separate quality/eligibility logic. **No retained record has unassigned pressure categories.** Elevated measurements do not themselves cause exclusion.
 
-Because the categories are independent, a participant may have SBP ≥140 with DBP <90, or vice versa. For the final retained records, their joint distribution is:
+### 5.4 Age-dependent BMI categories
 
-| SBP category | DBP `<90 mmHg` | DBP `>=90 mmHg` | Total |
-|---|---:|---:|---:|
-| `<140 mmHg` | 327 | 24 | 351 |
-| `>=140 mmHg` | 90 | 35 | 125 |
-| **Total** | **417** | **59** | **476** |
+BMI uses age-specific operational thresholds while continuous `imc` remains unchanged.
 
-### 4.4 Age-dependent BMI categories
-
-The workflow applies one set of categorical thresholds to adults under 60 and a different set to records aged 60 or more, recording that choice in `bmi_reference`.
-
-| BMI category | Age < 60 | Age ≥ 60 |
+| `bmi_category` | Age <60 | Age ≥60 |
 |---|---|---|
-| Underweight | BMI < 18.5 | BMI < 23 |
-| Normal | 18.5 ≤ BMI < 25 | 23 ≤ BMI < 28 |
-| Overweight | 25 ≤ BMI < 30 | 28 ≤ BMI < 32 |
-| Obesity | BMI ≥ 30 | BMI ≥ 32 |
+| Underweight | BMI <18.5 | BMI <23 |
+| Normal | 18.5 ≤ BMI <25 | 23 ≤ BMI <28 |
+| Overweight | 25 ≤ BMI <30 | 28 ≤ BMI <32 |
+| Obesity | BMI ≥30 | BMI ≥32 |
 
-The implementation assigns the **older-person BMI thresholds from age 60 onward**, an explicit study-level operational choice following the older-person definition used by its cited national plan. The Notebook 02 notes that the EMPAM assessment is commonly implemented from age 65. This choice is documented so it can be assessed transparently in later sensitivity analyses. Neither continuous BMI nor age is changed during categorization.
+The workflow applies the older-person thresholds **starting at age 60** as a specified study decision. This should be stated explicitly if describing MINSAL/EMPAM references, which may have age-specific implementation contexts. The `bmi_reference` field records the operational reference assigned to each row.
 
-| `bmi_category` | Categorized records | Final retained |
+| `bmi_category` | Categorized | Final |
 |---|---:|---:|
-| Underweight | 23 | 21 |
-| Normal | 155 | 136 |
-| Overweight | 166 | 145 |
-| Obesity | 186 | 174 |
-| **Total** | **530** | **476** |
+| Underweight | 17 | 17 |
+| Normal | 118 | 118 |
+| Overweight | 118 | 117 |
+| Obesity | 154 | 150 |
+| **Total** | **407** | **402** |
 
-`bmi_reference` is `MINSAL adult (<60)` for the 10 under-60 records and `MINSAL older person (>=60)` for the remaining 520. All 476 final retained records use the older-person reference.
+`bmi_reference` is `MINSAL adult (<60)` for five categorized rows and `MINSAL older person (>=60)` for the other 402 rows. All 402 final records use the older-person reference.
 
-### 4.5 Categorization integrity checks
+### 5.5 Categorization integrity
 
-Notebook 02 verifies that the number of rows is unchanged, that the original columns remain in their previous order, and that `source_excel_row` is unique. In the verified outputs, **all five categorical variables were assigned for all 530 records**. The previous composite `bp_category` is absent.
+Notebook 02 verifies unchanged row counts, source-column preservation and order, unique `source_excel_row`, and absence of the obsolete combined `bp_category` field. The executed output assigns all five categorical factors for all 407 input records.
 
-**Normative sources listed in Notebook 02** (included here to document the basis used by the implementation):
+**Normative references carried forward from Notebook 02:**
 
 - MINSAL (2021), *Plan Nacional de Salud Integral para Personas Mayores*, Table 19: https://www.minsal.cl/wp-content/uploads/2021/11/Plan-Nacional-de-Salud-Integral-para-Personas-Mayores.pdf
-- MINSAL, *Guía Clínica 2010 — Hipertensión arterial primaria*, Table 2 (historical source for the prior staged classification and the existing 140/90 mmHg cutoffs): https://www.minsal.cl/portal/url/item/7220fdc4341c44a9e04001011f0113b9.pdf
+- MINSAL, *Guía Clínica 2010 — Hipertensión arterial primaria*, Table 2 (historical context for 140/90 mmHg cutoffs): https://www.minsal.cl/portal/url/item/7220fdc4341c44a9e04001011f0113b9.pdf
 - MINSAL, *Guía del Examen de Medicina Preventiva*: https://diprece.minsal.cl/wrdprss_minsal/wp-content/uploads/2014/09/GPC-Medicina-Preventiva.pdf
 - Chile, Decreto 20 (2022): https://www.leychile.cl/navegar?idNorma=1182129
 
-These references are retained from Notebook 02. The MINSAL 2010 source explains the origin of the existing 140/90 mmHg cutoffs, but the updated workflow uses **two independent binary measurement categories**, not the guideline's full staged classification. This README documents the **implemented rules** and does not constitute a new independent clinical-guideline review.
+These are the references documented for the implemented rules; this README is not a new independent clinical-guideline appraisal.
 
 ---
 
-## 5. Notebook 03 — Final cohort construction
+## 6. Notebook 03 — Final cohort construction
 
-**Input:** `outputs/dataset_categorized.csv` (**530 rows, 25 columns**)  
-**Outputs:** `outputs/dataset_final.csv` (**476 rows, 25 columns**) and `outputs/dataset_excluded.csv` (**54 rows, 27 columns**).
+**Input:** `../../outputs/dataset_categorized.csv` (**407 × 25**).  
+**Outputs:** `dataset_final.csv` (**402 × 25**) and `dataset_excluded.csv` (**5 × 27**).
 
-This is the **first stage that removes rows from the retained analytical dataset**. A record is excluded if **any** specified rule is true. Every applicable rule is retained separately; the notebook never stops checking after the first reason.
+This notebook performs **eligibility exclusion after** the upstream 01b quality-screening decision. It does **not** reintroduce the 123 quality-review records. It explicitly verifies that the categorized source IDs equal the clear-set source IDs and do not overlap the suspected-set IDs.
 
-### 5.1 Explicit inclusion and exclusion rules
+### 6.1 Programmed exclusion rules
 
-| Rule family | Exact operational logic | Result in this dataset |
+The notebook evaluates all applicable criteria for every categorized record, including:
+
+| Rule family | Operational definition | Observed among the 407 |
 |---|---|---|
-| Age | `age < 60` | 10 records |
-| Essential measurement missing | Missing in any of the seven HRV variables | 11 missing SDNN; 8 missing RMSSD; 1 missing HR; some overlap |
-| Essential factor missing | Missing age, sex, SBP, DBP, BMI, `age_group`, `sex_category`, `sbp_category`, `dbp_category`, `bmi_category`, or `bmi_reference` | No such missing factors among observed records |
-| Invalid sex | Sex not in {1, 2} | None |
-| Invalid age | Age < 0 or > 120 | None |
-| Invalid BP | SBP ≤ 0, DBP ≤ 0, or SBP ≤ DBP | None |
-| Invalid BMI | BMI ≤ 0 | None |
-| Invalid mean interval/rate | Mean RR ≤ 0 or mean HR ≤ 0 | None |
-| Negative HRV values | SDNN, RMSSD, HF, LF, or VLF < 0 | None |
-| Near-tenfold HR/RR discrepancy | `HR * RR / 60000` in [0.097, 0.103] or [9.7, 10.3] | 11 records |
-| Other major HR/RR discrepancy | `abs(HR - 60000 / RR) > 10` beats/min, excluding near-tenfold records | 2 records |
-| Exactly identical HRV profile | Complete seven-variable HRV vector repeated in another row | 16 records |
+| Age eligibility | `age < 60` | **5 records** |
+| Missing essential HRV or factor | Missing any of seven HRV fields or the required continuous/categorical factors | 0 |
+| Invalid sex | `sex` outside {1, 2} | 0 |
+| Invalid age | Age <0 or >120 | 0 |
+| Invalid blood pressure | SBP ≤0, DBP ≤0, or SBP ≤DBP | 0 |
+| Invalid BMI | BMI ≤0 | 0 |
+| Invalid mean RR/HR | RR ≤0 or HR ≤0 | 0 |
+| Negative HRV | SDNN, RMSSD, HF, LF, or VLF <0 | 0 |
+| Near-tenfold HR/RR pattern | `HR * RR / 60000` in [0.097, 0.103] or [9.7, 10.3] | 0 |
+| Other major HR/RR mismatch | `abs(HR - 60000 / RR) >10` bpm, excluding factor-ten cases | 0 |
+| Identical complete HRV profile | All seven HRV fields repeated within categorized rows | 0 |
 
-The HR/RR cutoff of **10 beats/min** is an operational quality-control rule, **not** a clinical diagnostic definition. It differs deliberately from Notebook 01's **2 beats/min** screening flag: two modestly discordant records were logged for review but did **not** meet the major-discrepancy exclusion rule.
+All rules are evaluated independently and each applicable reason is recorded; no variable values are rewritten. The HR/RR 10-bpm cutoff is an **operational QC criterion**, not a clinical diagnostic threshold. Among the current 407 quality-screened records, it causes no additional exclusion.
 
-For the exact-HRV-match rule, **both members of each matching pair are provisionally excluded** because this preprocessing cannot determine which record, if any, is valid. No attempt is made to deduplicate by arbitrarily retaining the first or last record.
+### 6.2 Actual additional exclusions
 
-A participant is **not excluded merely because** of an elevated blood-pressure category, an unusual BMI category, a high/low but nonnegative HRV value, or a Notebook 01 `outside_review_range` warning. No imputation is performed.
+Exactly **five** categorized records were excluded, each with **one** reason: `AGE_BELOW_60`. Their original Excel row numbers are **45, 113, 119, 342, and 404**. The excluded records were female-coded under the confirmed source mapping and had ages **55–59 years**.
 
-### 5.2 Actual exclusion-code frequencies
+The 123 upstream quality-review exclusions are **not** appended to `dataset_excluded.csv`, because that file exclusively records exclusions **after 01b**. To account for all removed source records, use the union of **`dataset_review_suspected.csv` (123)** and **`dataset_excluded.csv` (5)**.
 
-The frequencies below are calculated from `dataset_excluded.csv`. **Reasons are not mutually exclusive.**
+### 6.3 Output guarantees
 
-| Exclusion code | Records with reason |
-|---|---:|
-| `IDENTICAL_HRV_PROFILE` | 16 |
-| `HR_RR_FACTOR_10` | 11 |
-| `MISSING_T2M_PRE_SDNN` | 11 |
-| `AGE_BELOW_60` | 10 |
-| `MISSING_T2M_PRE_RMSSD` | 8 |
-| `HR_RR_MAJOR_MISMATCH` | 2 |
-| `MISSING_T2M_PRE_MEAN_HR` | 1 |
-| **Sum of assigned reason codes** | **59** |
-| **Unique excluded records** | **54** |
-
-The 59 reason assignments represent 54 unique records because some records meet two criteria:
-
-| Number of exclusion reasons per record | Excluded records |
-|---|---:|
-| Exactly one | 49 |
-| Exactly two | 5 |
-| Three or more | 0 |
-| **Total** | **54** |
-
-The overlapping cases comprise **four records missing both SDNN and RMSSD**, plus **one record younger than 60 that also has an identical HRV profile**.
-
-### 5.3 Observed combinations of exclusion reasons
-
-| Exact recorded combination | Records |
-|---|---:|
-| `IDENTICAL_HRV_PROFILE` | 15 |
-| `HR_RR_FACTOR_10` | 11 |
-| `AGE_BELOW_60` | 9 |
-| `MISSING_T2M_PRE_SDNN` | 7 |
-| `MISSING_T2M_PRE_RMSSD` | 4 |
-| `MISSING_T2M_PRE_SDNN \| MISSING_T2M_PRE_RMSSD` | 4 |
-| `HR_RR_MAJOR_MISMATCH` | 2 |
-| `AGE_BELOW_60 \| IDENTICAL_HRV_PROFILE` | 1 |
-| `MISSING_T2M_PRE_MEAN_HR` | 1 |
-| **Total excluded** | **54** |
-
-The separator in `dataset_excluded.csv` is the literal string ` | `. Each excluded row also carries `exclusion_count` to specify how many reasons were assigned.
-
-### 5.4 Output guarantees
-
-- `dataset_final.csv` includes **476 records** and **all 25 categorized columns**, with no additional data changes.
-- `dataset_excluded.csv` includes **54 records**, **all 25 categorized columns**, and two additional fields: `exclusion_count` and `exclusion_reasons`.
-- `source_excel_row` remains unique in each output; the retained and excluded sets are disjoint and their union equals the complete categorized dataset.
-- All seven HRV columns are complete (**zero missing values**) in `dataset_final.csv`, as required by the present complete-case rule.
+- `dataset_final.csv` contains **402 rows** and all **25 categorized columns**, with no added or modified values.
+- `dataset_excluded.csv` contains **5 rows**, the same 25 columns, and `exclusion_count` / `exclusion_reasons` (27 columns total).
+- The final and excluded source IDs are disjoint and partition the **407** categorized rows.
+- No record from the 123-row quality-review file appears in either categorized or final data.
+- All **seven HRV variables are complete** among the final 402 rows.
 
 ---
 
-## 6. Notebook 04 — Preprocessing summary and integrity review
+## 7. Notebook 04 — Summary and cross-stage verification
 
-**Inputs:** the six CSV outputs of Notebooks 01–03.  
-**Output:** `outputs/preprocessing_summary.md`.
+**Inputs:** `dataset_clean.csv`, `data_errors.csv`, `error_examples.csv`, `dataset_review_clear.csv`, `dataset_review_suspected.csv`, `dataset_categorized.csv`, `dataset_final.csv`, and `dataset_excluded.csv`.  
+**Output:** `../../outputs/preprocessing_summary.md`.
 
-Notebook 04 reads the existing outputs and performs consistency assertions before producing summary tables. It **does not** re-clean, recategorize, filter, or rewrite the datasets.
+This notebook summarizes the implemented workflow and performs integrity assertions. It **does not** reclean, recategorize, exclude, or rewrite records.
 
-### 6.1 Cross-stage checks
+### 7.1 Verified dataset partitions
 
-The following checks are implemented:
+- `source_excel_row` is present and unique in the relevant stage outputs.
+- Cleaned source IDs are exactly the disjoint union of clear and suspected source IDs.
+- Categorized IDs match the **407 clear IDs**, not all 530 cleaned IDs.
+- Categorized IDs are exactly the disjoint union of final (402) and age-excluded (5) IDs.
+- The categorical/output source columns are preserved in order, and the final rows retain the categories assigned by Notebook 02.
+- Error-example IDs match the source rows represented in the `data_errors.csv` row-level log.
+- Quarantine groups and `group_size` are internally consistent; reason counts agree with the listed review reasons.
+- Excluded records' `exclusion_count` values match the listed exclusion reasons.
 
-- `source_excel_row` is present and unique in the clean, categorized, final, and excluded datasets.
-- Cleaned and categorized datasets contain **exactly the same source-row IDs**.
-- No source row appears simultaneously in retained and excluded outputs.
-- Every categorized record is present in **exactly one** of the retained/excluded outputs.
-- The retained dataset has **the same column order and names** as the categorized dataset.
-- Every source row with a row-level entry in `data_errors.csv` appears in `error_examples.csv`, and vice versa.
-- Every excluded record's `exclusion_count` matches the number of listed exclusion reasons.
-
-The reproduced outputs satisfy these checks. Notebook 04 additionally escapes literal `|` separators in combined exclusion reasons when exporting Markdown tables, preventing them from being interpreted as table-column delimiters. This formatting correction does not alter `exclusion_reasons` in the CSV files.
-
-### 6.2 Factor distributions before and after filtering
-
-The updated summary reports the independently defined SBP and DBP categories instead of the obsolete six-level composite pressure category. Each variable's categories sum separately to its respective sample denominator.
-
-| Factor | Category | Before filtering (n=530) | Retained (n=476) |
-|---|---|---:|---:|
-| Age | `<60` | 10 | 0 |
-| Age | `60-69` | 219 | 198 |
-| Age | `70-79` | 261 | 241 |
-| Age | `80+` | 40 | 37 |
-| Sex | Female | 366 | 333 |
-| Sex | Male | 164 | 143 |
-| SBP | `<140 mmHg` | 395 | 351 |
-| SBP | `>=140 mmHg` | 135 | 125 |
-| DBP | `<90 mmHg` | 468 | 417 |
-| DBP | `>=90 mmHg` | 62 | 59 |
-| BMI | Underweight | 23 | 21 |
-| BMI | Normal | 155 | 136 |
-| BMI | Overweight | 166 | 145 |
-| BMI | Obesity | 186 | 174 |
-
-`bmi_reference` remains a separate metadata field: 10 input records use `MINSAL adult (<60)` and 520 use `MINSAL older person (>=60)`; all 476 retained records use the latter.
-
-### 6.3 Age × sex in the retained sample
+### 7.2 Final age-by-sex distribution
 
 | Age group | Female | Male | Total |
 |---|---:|---:|---:|
-| `60-69` | 150 | 48 | 198 |
-| `70-79` | 156 | 85 | 241 |
-| `80+` | 27 | 10 | 37 |
-| **Total** | **333** | **143** | **476** |
+| `60-69` | 141 | 43 | 184 |
+| `70-79` | 131 | 59 | 190 |
+| `80+` | 22 | 6 | 28 |
+| **Total** | **294** | **108** | **402** |
 
-### 6.4 Systolic and diastolic blood pressure × BMI in the retained sample
-
-**SBP category × BMI:**
+### 7.3 Final SBP × BMI distribution
 
 | SBP category | Underweight | Normal | Overweight | Obesity | Total |
 |---|---:|---:|---:|---:|---:|
-| `<140 mmHg` | 18 | 104 | 109 | 120 | 351 |
-| `>=140 mmHg` | 3 | 32 | 36 | 54 | 125 |
-| **Total** | **21** | **136** | **145** | **174** | **476** |
+| `<140 mmHg` | 14 | 90 | 89 | 105 | 298 |
+| `>=140 mmHg` | 3 | 28 | 28 | 45 | 104 |
+| **Total** | **17** | **118** | **117** | **150** | **402** |
 
-**DBP category × BMI:**
+### 7.4 Final DBP × BMI distribution
 
 | DBP category | Underweight | Normal | Overweight | Obesity | Total |
 |---|---:|---:|---:|---:|---:|
-| `<90 mmHg` | 19 | 124 | 129 | 145 | 417 |
-| `>=90 mmHg` | 2 | 12 | 16 | 29 | 59 |
-| **Total** | **21** | **136** | **145** | **174** | **476** |
+| `<90 mmHg` | 17 | 109 | 102 | 126 | 354 |
+| `>=90 mmHg` | 0 | 9 | 15 | 24 | 48 |
+| **Total** | **17** | **118** | **117** | **150** | **402** |
 
-### 6.5 Four-factor sample availability
+### 7.5 Four-factor sample support
 
-Four-factor sample support is summarized **separately** for each blood-pressure measurement. The original three age groups, both sex groups, both pressure levels, and all four BMI groups are retained without collapsing or excluding small categories:
+The two intended specifications are **age × sex × SBP category × BMI** and **age × sex × DBP category × BMI**, considered **separately**. Three older-adult age groups, two sex groups, two pressure categories, and four BMI categories yield **48 possible combinations per specification**.
 
-$$
-3\ \text{age groups}\times 2\ \text{sex groups}\times 2\ \text{pressure levels}\times 4\ \text{BMI groups}=48\ \text{possible cells per pressure specification}.
-$$
-
-| Four-factor cell statistic | Age × sex × SBP × BMI | Age × sex × DBP × BMI |
+| Factorial support statistic | With SBP | With DBP |
 |---|---:|---:|
 | Theoretically possible combinations | 48 | 48 |
-| **Observed nonempty combinations** | **41** | **37** |
-| Empty combinations | 7 | 11 |
-| Occupied combinations with <5 records | **16** | **15** |
-| Occupied combinations with <10 records | **22** | **23** |
-| Smallest occupied combination | 1 | 1 |
-| Largest occupied combination | 50 | 60 |
-| Median occupied combination size | 9 | 6 |
+| Observed nonempty combinations | **40** | **33** |
+| Empty combinations | 8 | 15 |
+| Occupied combinations with <5 records | 16 | 13 |
+| Occupied combinations with <10 records | 25 | 21 |
+| Smallest occupied cell | 1 | 1 |
+| Largest occupied cell | 47 | 56 |
+| Median occupied cell size | 7.5 | 7.0 |
 
-The number of possible combinations is **48 for each separate four-factor specification**, not the 144 cells associated with the obsolete six-level `bp_category`. These are descriptive support counts; they do **not** demonstrate that all high-order factorial interactions are estimable. The preprocessing workflow does not merge levels, remove small cells, or select downstream inferential models.
+These are **descriptive support counts only**. Sparse cells do not automatically mean that every associated model is mathematically unidentifiable, and the preprocessing does not merge factor levels or exclude additional records solely to achieve uniform cell sizes. Any model-rank or inference diagnostics belong to the subsequent analytical notebooks, not the cleaning pipeline.
 
----
+### 7.6 Missing HRV in the final cohort
 
-## 7. Reproducibility and output contracts
-
-### 7.1 Execution order
-
-Run notebooks in numerical order from the location corresponding to the relative paths defined in their first code cells:
-
-1. `01_cleaning_and_validation.ipynb` reads `../../raw_data/Basal v2.xlsx` and writes three CSVs under `../../outputs/`.
-2. `02_variable_categorization.ipynb` reads `../../outputs/dataset_clean.csv` and writes `dataset_categorized.csv`.
-3. `03_final_cohort_construction.ipynb` reads `../../outputs/dataset_categorized.csv` and writes `dataset_final.csv` and `dataset_excluded.csv`.
-4. `04_preprocessing_summary.ipynb` reads all six CSVs and writes `preprocessing_summary.md`.
-
-### 7.2 Dependencies
-
-The code uses **Python, pandas, NumPy, pathlib, and Jupyter/IPython**. Reading `.xlsx` through pandas ordinarily requires an Excel engine such as **openpyxl**. Notebook 04 uses `DataFrame.to_markdown()`, which ordinarily requires the **tabulate** package. The notebooks do not pin package versions or create an environment lock file; a reproducibility release should preserve the environment versions separately if needed.
-
-### 7.3 Output schema and intended use
-
-| File | Intended use | Record count |
-|---|---|---:|
-| `dataset_clean.csv` | Cleaned continuous measurements and administrative provenance before categorization | 530 |
-| `data_errors.csv` | Audit trail of edits, warnings, inconsistencies, and dataset-level notes | 183 entries |
-| `error_examples.csv` | Original source rows affected by at least one row-level issue | 155 |
-| `dataset_categorized.csv` | Complete sample with five categorical variables (age, sex, SBP, DBP, BMI) and BMI reference | 530 |
-| `dataset_final.csv` | Main input to subsequent EDA and factor-based HRV analysis | **476** |
-| `dataset_excluded.csv` | Removed records with potentially multiple exclusion reasons | **54** |
-| `preprocessing_summary.md` | Human-readable, count-based summary produced by Notebook 04 | One report |
-
-The raw Excel file remains the source of record. `dataset_clean.csv` is **not** synonymous with the final analytical sample: it includes all 530 records and retains unresolved HR/RR and duplicate-profile flags in the separate audit log.
+All seven variables (`t2m_pre_mean_rr`, `t2m_pre_mean_hr`, `t2m_pre_sdnn`, `t2m_pre_rmssd`, `t2m_pre_hf`, `t2m_pre_lf`, `t2m_pre_vlf`) have **zero missing values** among the 402 final records.
 
 ---
 
-## 8. Methodological decisions, limitations, and outstanding verification
+## 8. Reproducibility and exact output contracts
 
-These points are important when interpreting the final dataset or describing sample selection in a manuscript.
+### 8.1 Required execution order
 
-1. **Cross-sectional measurement categories are not diagnoses.** SBP and DBP are classified independently using 140/90 mmHg operational cutoffs. BMI categories, sex, and age are recorded/derived factors. No health-status labels were created.
-2. **The 60-year eligibility threshold is first applied in Notebook 03.** The ten records under 60 remain in intermediate datasets and are available for auditing.
-3. **BMI thresholds change at age 60 by study design.** This is transparent in `bmi_reference`. In particular, the treatment of participants aged 60–64 should be stated when describing the normative basis.
-4. **Sex-code interpretation has not been independently checked against the primary REDCap codebook.** The `1 = Female`, `2 = Male` mapping is the one explicitly implemented in Notebook 02.
-5. **The height correction uses centimeter measurements as the reference.** The nine adjusted heights and corresponding BMI values are mathematically consistent, but source-document confirmation would strengthen provenance.
-6. **HRV is not artificially reconstructed.** Neither tenfold-looking HR/RR discrepancies nor identical seven-variable profiles are silently repaired. These cases are flagged in Notebook 01 and, when qualifying, excluded by Notebook 03.
-7. **Exact HRV matches are conservatively excluded in their entirety.** This is a provisional QC decision, not verification of participant duplication. Reassessment against original acquisitions could change the final sample.
-8. **An operational 10-bpm discrepancy cutoff controls HR/RR exclusions.** This is not a clinical standard. The notebook retains smaller screening discrepancies, and the choice should be reported or sensitivity-tested in downstream work.
-9. **Complete-case HRV filtering can alter sample composition.** The retained 476 records have nonmissing values for all seven HRV fields. A later analysis targeting fewer HRV variables could support a different eligible sample; the present preprocessing makes one explicit choice.
-10. **Outlying-but-valid values are not discarded solely for being unusual.** Notebook 01's screening ranges are diagnostic flags. In Notebook 03, exclusions follow the listed eligibility, missingness, invalid-value, HR/RR, and identical-profile rules.
-11. **The categorical factorial design is sparse.** With the original age, sex, and BMI levels and binary pressure categories, 41/48 SBP-based and 37/48 DBP-based four-factor combinations are occupied; 16 and 15 occupied cells, respectively, have fewer than five records. Preprocessing is complete; model estimability and support must be evaluated during downstream analysis without modifying these source categories.
-12. **No clustering, statistical hypothesis tests, outcome modeling, imputation, longitudinal validation, or external cohort comparison is part of this workflow.** All of these would require separate methodological specifications.
+Run in the following sequence, from the notebook directory consistent with the relative file paths:
 
-## 9. Final dataset definition
+1. **01** — `01_cleaning_and_validation.ipynb` reads `../../raw_data/Basal v2.xlsx`; writes cleaned data and two source-audit files.
+2. **01b** — `01b_integrity_and_duplicate_review.ipynb` reads `../../outputs/dataset_clean.csv` and `data_errors.csv`; writes the **407-row clear** and **123-row suspected** datasets.
+3. **02** — `02_variable_categorization.ipynb` reads **`../../outputs/dataset_review_clear.csv`**, not `dataset_clean.csv`; writes the **407-row** categorized data.
+4. **03** — `03_final_cohort_construction.ipynb` reads `dataset_categorized.csv` and validates against both 01b partitions; writes the **402-row final** and **5-row age-excluded** datasets.
+5. **04** — `04_preprocessing_summary.ipynb` reads all preceding CSV outputs; writes `preprocessing_summary.md`.
 
-For the current pipeline, the **final analytical dataset** is `outputs/dataset_final.csv`:
+**Do not use the older 02–04 notebooks configured for 530 categorized records / 476 final records.** The current workflow requires the revised notebooks that follow 01b and generate the 407 → 402 progression.
 
-- **476 retained source records**, representing 89.8% of the original 530.
-- **25 columns**, including all retained cleaned source fields, source-row traceability, five categorical variables (`age_group`, `sex_category`, `sbp_category`, `dbp_category`, `bmi_category`), and `bmi_reference`.
-- Ages **60–89 years**.
-- **333 female-coded** and **143 male-coded** records under the implemented sex mapping.
-- **No missing values across the seven HRV measurements**.
-- Original age and sex categories, **independent SBP and DBP binary categories**, and age-appropriate BMI categories, as implemented in the updated Notebook 02.
+### 8.2 Output files
 
-The companion `outputs/dataset_excluded.csv` preserves the **54 excluded source records** with their original categorized columns, `exclusion_count`, and every recorded exclusion reason. Together, retained and excluded records account for **all 530 input rows without overlap or loss**.
+| Output file | Records / entries | Columns | Analytical role |
+|---|---:|---:|---|
+| `dataset_clean.csv` | 530 | 19 | Complete cleaned input; not the final cohort |
+| `data_errors.csv` | 183 log entries | 7 | Parsing, correction, and source-integrity audit |
+| `error_examples.csv` | 155 records | 25 | Original-source examples and corresponding processing details |
+| `dataset_review_clear.csv` | **407** | 19 | Quality-screened, age-unrestricted input to 02 |
+| `dataset_review_suspected.csv` | **123** | 29 | Excluded from current analyses; retained for traceability and potential future reassessment |
+| `dataset_categorized.csv` | **407** | 25 | Classified quality-screened records, before age eligibility |
+| `dataset_final.csv` | **402** | 25 | **Authoritative analytical input for HRV EDA** |
+| `dataset_excluded.csv` | **5** | 27 | Additional age ineligibility after 01b |
+| `preprocessing_summary.md` | One report | — | Cross-stage checks and descriptive summary |
 
-The next project stage can use `dataset_final.csv` for descriptive HRV characterization and planned single-factor, combined-factor, and multifactorial comparisons. SBP and DBP remain separate variables; downstream four-factor specifications can examine each pressure dimension in turn while retaining the original age, sex, and BMI categories. Statistical analysis must report insufficient support or non-estimability where present; these conditions do not authorize additional preprocessing exclusions or category merging.
+The conservation equation is:
+
+\[
+\underbrace{530}_{\text{source}}
+=\underbrace{123}_{\text{quality-review exclusion}}
++\underbrace{5}_{\text{age exclusion after QC}}
++\underbrace{402}_{\text{final analytical records}}.
+\]
+
+No output should be manually edited to enforce these totals. Source-row IDs, set-partition assertions, and rerunning the complete pipeline establish reproducibility.
+
+### 8.3 Software dependencies
+
+The code uses Python, pandas, NumPy, pathlib, and Jupyter/IPython; `.xlsx` import typically requires `openpyxl`, and Markdown table export in Notebook 04 typically requires `tabulate`. The supplied notebooks do not specify a pinned environment or lock file; package versions should be archived separately when preparing a public reproducibility release.
+
+---
+
+## 9. Methodological interpretation and downstream use
+
+1. **Cohort selection is fixed for this analysis version.** The team-selected quality-screened subset comprises **407 records**, followed by five age exclusions, yielding **402 records**. The 123 cases remain out of the current primary analyses irrespective of whether any eventually proves to be valid.
+2. **Source review and error confirmation are different.** Suspicious pairs, corrected source fields, missing data, range warnings, and HR/RR discrepancies triggered the implemented review criteria. Their presence does not independently confirm data corruption.
+3. **The dataset combines projects with heterogeneous source availability.** Some historical source data are not represented in REDCap; this is the practical provenance reason for the conservative inclusion decision, not an assumption that all 123 records are invalid.
+4. **No automatic deduplication retains an arbitrary member of a pair.** When a pair matches the current suspicion rules, both records are excluded from the active cohort and documented together.
+5. **No HRV values are reconstructed from expected relationships.** HR/RR differences are assessed for review; no blanket transformations are applied to SDNN, RMSSD, HF, LF, or VLF. In particular, SDNN's distribution **is not classified as an error** and does not justify extra filtering.
+6. **Categorization is independent of exclusion for elevated pressure/BMI.** The final data retain continuous age, BMI, SBP, DBP, and HRV values. SBP and DBP are two distinct pressure factors; they are not fused into a staged clinical diagnosis.
+7. **BMI thresholds follow the documented study convention from age 60.** The resulting factor definitions, including the treatment of ages 60–64, must remain consistent throughout reporting.
+8. **Complete HRV measurements are available in the final cohort.** This is an outcome of the upstream review and age eligibility, not evidence that missing source measurements were imputed.
+9. **Factorial cell sparsity must be characterized separately from model estimability.** No small-cell-based participant deletion or automatic factor-level collapsing occurs in preprocessing.
+10. **Future additions require a new version.** If the collaborator later resolves source identities or measurements for quarantined records, any newly accepted data must pass the same cleaning, review, categorization, cohort, and summary sequence; counts and downstream EDA must then be regenerated and versioned.
+11. **This README documents the executed process and the agreed selection decision.** It does not claim independent validation against unavailable historical acquisition files or participant identifiers.
+
+## 10. Final analytical dataset
+
+For the present study, **`outputs/dataset_final.csv` is the authoritative processed dataset**:
+
+- **402 original source records** retained (**75.8%** of 530).
+- **25 columns**, including source-row ID, the seven HRV variables, continuous explanatory measurements, five categorical explanatory variables, and `bmi_reference`.
+- Age range **60–89 years**.
+- Sex composition **294 Female-coded** and **108 Male-coded** records under the confirmed source coding (`1 = Female`, `2 = Male`).
+- Age-group composition **184 aged 60–69**, **190 aged 70–79**, and **28 aged 80+**.
+- **Zero missing values across all seven HRV variables**.
+- Independent SBP and DBP categories, along with age-dependent BMI categories.
+
+The complementary `dataset_review_suspected.csv` preserves all **123 quality-review exclusions** and their evidence; `dataset_excluded.csv` preserves the **five age exclusions** among the 407 quality-screened records. These files should be archived with the final dataset and processing logs to retain the complete audit trail.
+
+**Downstream rule:** Notebooks for general HRV characterization and unifactorial, bifactorial, trifactorial, and four-factor analysis must read the **402-row `dataset_final.csv`** and must not silently restore quarantined records, change the categories, or impose undocumented additional data-cleaning exclusions.
